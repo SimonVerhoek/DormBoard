@@ -1,0 +1,287 @@
+/**
+ * styles.css
+ *
+ * Computer Science 50
+ * Problem Set 7
+ *
+ * Global CSS.
+ */
+
+html, body {
+    height: 100%;
+    background-color: #FAFAFA;
+    font-family: 'Raleway', sans-serif;
+}
+
+th {
+    font-weight: 100;
+}
+
+table img {
+    max-width: 30px; 
+    max-height: 30px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ---------- HEADER ---------- */
+#header {
+    
+
+}
+
+#logo {
+    /* makes logo fit in box */
+    width: 28px;
+    height: 28px;  
+    margin-top: -4px;
+}
+
+#header-title {
+    font-family: 'Londrina Sketch', cursive;
+    font-size: 3em;
+}
+
+.navbar-header p {
+    margin: 0;
+}
+
+#header-subtitle {
+    font-size: 1.5em;
+    padding-left: 1em;
+    font-family: 'Londrina Sketch', cursive;
+}
+
+#login-dropdown {
+    width: 250px;
+}
+
+#login-form {
+    padding: 17px;
+    padding-bottom: 0;
+}
+
+#header-or {
+    margin: 10px;
+    margin-top: 15px;
+}
+
+/* ---------- BODY ---------- */
+#middle {
+    margin-top: 1em;
+}
+
+.panel-heading {
+    background-color: #D4CDC5;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 7em;
+
+}
+
+.panel-body {
+    background-color: #525252;
+    color: white;
+}
+
+.panel-header-title {
+    width: 30%;
+    float: left;
+}
+
+.panel-header-rest {
+    
+}
+
+.container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -150px; 
+}
+
+.control-label {
+    font-weight: 100;
+}
+
+/* ---------- FOOTER ---------- */
+#footer, .push {
+    height: 150px;
+}
+
+#footer
+{
+    background-color: #525252;
+    color: #C2C2C2;
+}
+
+#row-footer {
+    /* prevents footer from exceeding max width */
+    margin: 0 auto;
+}
+
+#middle .form-control   
+{
+    /* center form controls */
+    display: inline-block;
+}
+
+/* ---------- SESSION ---------- */
+#session {
+    font-size: 0.85em;
+}
+
+/* ---------- NAVPANEL ---------- */
+#roommates-panel {
+    margin-top: 3em;
+    font-size: 0.9em;
+    word-wrap: break-word;
+}
+
+/* ---------- HOME ---------- */
+#home {
+    background-color: #525252;
+    height: 700px;
+}
+
+#home-header {
+    font-family: 'Londrina Sketch', cursive;
+}
+
+#home-header h1 {
+    font-size: 10em;
+}
+
+#home-body {
+    color: white;
+    padding: 10%;
+}
+
+/* ---------- DINNER ---------- */
+#dinner-row {
+    line-height: 50px;
+    min-height: 50px;
+    height: 50px;
+}
+
+#dinner-table th {
+    text-align: center;
+}
+
+#dinner-table td {
+    border: 0;
+}
+
+#rm-names {
+    vertical-align: middle;
+    max-width: 200px;
+}
+
+/* ---------- SHOPPING LIST ---------- */
+#shoplist {
+    margin: auto;
+}
+
+#shoplist-form {
+    line-height: 5px;
+}
+
+#shoplistitems {
+    max-height: 500px;
+    overflow: auto;
+    margin-top: 1em;
+    padding-left: 7px;
+    list-style: none;
+}
+
+#shoplistitems li {
+    margin-bottom: 30px;
+}
+
+#shoplistitems em {
+    color: #A8A8A8;
+}
+
+.text_holder {
+    word-wrap: break-word;
+}
+
+.checkmark-todo, .checkmark-done {
+    margin-top: 2em;
+}
+
+.checkmark-done {
+    margin-right: 13px;
+}
+
+/* ---------- FINANCES ---------- */
+#add-spend-button {
+    /* levels button text with title */
+    margin-top: -7px;
+}
+
+#spendstable {
+    width: 100%;
+}
+
+#spendstable thead, 
+#spendstable tbody, 
+#spendstable tr,
+#spendstable td,
+#spendstable th {
+    display: block;
+}
+
+#spendstable tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+#spendstable tbody {
+    overflow-y: auto;
+    height: 400px;
+}
+
+#spendstable th, #spendstable td { 
+    border-color: #5C5C5C; 
+}
+
+#spendstable tbody td, #spendstable thead th {
+    float: left;
+    word-wrap: break-word;
+}
+
+#th-date, .td-date {
+    width: 18%;
+}
+
+#th-spendname, .td-spendname {
+    width: 46.5%;
+}
+
+#th-whopaidwhat, .td-whopaidwhat {
+    width: 35%;
+}
+
+.td-date {
+    font-size: 0.8em;
+}
+
+.td-spendname {
+    font-size: 1.3em;
+}
+
+.td-whopaidwhat {
+    font-size: 0.9em;
+}
+
+#rm-balances th, #rm-balances td {
+    border: 0;
+    max-width: 90px;
+    word-wrap: break-word;
+    font-size: 0.9em;
+    padding: 5px;
+    margin: 0;
+}
