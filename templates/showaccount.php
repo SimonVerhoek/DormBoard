@@ -83,40 +83,49 @@
 <!-- change password -->
 <div class="row clearfix">
         
-        <form action="account.php" class="form-horizontal" role="form"  method="post">
-            <fieldset>
-                <legend>Change password</legend>
+    <form action="account.php" class="form-horizontal" role="form"  method="post">
+        <fieldset>
+            <legend>Change password</legend>
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Old password</label>
-                    <div class="col-sm-4">
-                        <input name="password-old" type="password" class="form-control">
-                    </div>
+  ***REMOVED*****REMOVED*****REMOVED***
+                if ($passwordUpdated === true)
+                {
+                    echo (  '<div class="alert alert-success" role="alert">' .
+                                'Password changed.' .
+                            '</div>');
+                }
+            ***REMOVED***
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Old password</label>
+                <div class="col-sm-4">
+                    <input name="password-old" type="password" class="form-control">
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">New password</label>
-                    <div class="col-sm-4">
-                        <input name="password-new" type="password" class="form-control">
-                    </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">New password</label>
+                <div class="col-sm-4">
+                    <input name="password-new" type="password" class="form-control">
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Confirm new password</label>
-                    <div class="col-sm-4">
-                        <input name="password-new-confirm" type="password" class="form-control" >
-                    </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Confirm new password</label>
+                <div class="col-sm-4">
+                    <input name="password-new-confirm" type="password" class="form-control" >
                 </div>
+            </div>
 
-                <input type="hidden" name="change-password" value="change-password" />
+            <input type="hidden" name="change-password" value="change-password" />
 
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" name="submit" class="btn btn-primary">Change password</button>
-                    </div>
-                </div>  
-                
-            </fieldset>
-        </form>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" name="submit" class="btn btn-primary">Change password</button>
+                </div>
+            </div>  
+            
+        </fieldset>
+    </form>
 
 </div>

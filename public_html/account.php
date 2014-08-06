@@ -12,6 +12,8 @@
 					WHERE 	user_id = ?", 
 					$_SESSION["user_id"]);
 
+	$passwordUpdated = false;
+
 	// if form posted
 	if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
@@ -92,7 +94,9 @@
 	// if user is member of a dorm, show leave dorm option
     else if (!empty($user[0]["dorm_id"]))
 	{
-		render("showaccount.php");
+		render("showaccount.php", [
+			"passwordUpdated" => $passwordUpdated
+			]);
 	}  	
 	// if user is not a member of any dorm
 	else
