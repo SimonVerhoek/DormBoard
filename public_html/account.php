@@ -88,6 +88,10 @@
 	        				]);
 	        		}
 	        	}
+	        	else
+	        	{
+	        		errorMsg("Wrong password.");
+	        	}
 	        }
 		}
 	}
