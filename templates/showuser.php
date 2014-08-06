@@ -5,7 +5,7 @@
 			<b class="caret"></b>
 		</a>
 		<ul class="dropdown-menu">
-			<li><a href="profile.php">Your account</a></li>
+			<li><a href="account.php">Your account</a></li>
 			<li><a href="logout.php">Log out</a></li>
 		</ul>
 	</li>

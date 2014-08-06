@@ -55,7 +55,7 @@
 
 
             // View
-            echo '<form action="profile.php" role="form" class="form-horizontal" method="post">'; 
+            echo '<form action="account.php" role="form" class="form-horizontal" method="post">'; 
             echo    '<legend>Change timezone</legend>';
 
             
