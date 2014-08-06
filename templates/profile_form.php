@@ -85,28 +85,34 @@
         <form action="reset-password.php" class="form-horizontal" role="form"  method="post">
             <fieldset>
                 <legend>Change password</legend>
+
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Old password</label>
+                    <label class="col-sm-2 control-label">Old password</label>
                     <div class="col-sm-4">
                         <input type="password" class="form-control" id="password-old">
                     </div>
                 </div>
 
                 <div class="form-group">
-
-                    <label class="col-sm-3 control-label">New password</label>
+                    <label class="col-sm-2 control-label">New password</label>
                     <div class="col-sm-4">
                         <input type="password" class="form-control" id="password-old">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Confirm new password</label>
+                    <label class="col-sm-2 control-label">Confirm new password</label>
                     <div class="col-sm-4">
                         <input type="password" class="form-control" id="password-old">
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button name="submitButton" type="submit" class="btn btn-primary" value="">Change password</button>
+                    </div>
+                </div>  
+                
             </fieldset>
         </form>
 
