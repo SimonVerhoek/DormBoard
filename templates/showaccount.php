@@ -5,8 +5,9 @@
             <fieldset>
                 <legend>Leave dorm</legend>
                 <div class="form-group">
+                    <input type="hidden" name="leave-dorm" value="leave-dorm" />
 
-                    <button type="submit" name="leave" class="btn btn-danger">
+                    <button type="submit" class="btn btn-danger">
                         Leave
                     </button>
                     <span class="help-block">
@@ -82,7 +83,7 @@
 <!-- change password -->
 <div class="row clearfix">
         
-        <form action="change-password.php" class="form-horizontal" role="form"  method="post">
+        <form action="account.php" class="form-horizontal" role="form"  method="post">
             <fieldset>
                 <legend>Change password</legend>
 
@@ -107,9 +108,11 @@
                     </div>
                 </div>
 
+                <input type="hidden" name="change-password" value="change-password" />
+
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button name="submitButton" type="submit" class="btn btn-primary" value="">Change password</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Change password</button>
                     </div>
                 </div>  
                 
