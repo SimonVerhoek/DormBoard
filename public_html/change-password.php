@@ -51,7 +51,7 @@
         		}
         		else
         		{
-        			redirect("profile.php");
+        			redirect("account.php");
         		}
         	}
         }

@@ -1,7 +1,7 @@
 <!-- leave dorm --> 
 <div class="row clearfix">
 
-        <form action="profile.php" method="post">
+        <form action="account.php" method="post">
             <fieldset>
                 <legend>Leave dorm</legend>
                 <div class="form-group">
@@ -81,6 +81,11 @@
 
 <!-- change password -->
 <div class="row clearfix">
+
+    ***REMOVED***
+        if 
+
+    ***REMOVED***
         
         <form action="change-password.php" class="form-horizontal" role="form"  method="post">
             <fieldset>
