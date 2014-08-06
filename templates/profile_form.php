@@ -89,21 +89,21 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Old password</label>
                     <div class="col-sm-4">
-                        <input type="password" class="form-control" id="password-old">
+                        <input name="password-old" type="password" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label">New password</label>
                     <div class="col-sm-4">
-                        <input type="password" class="form-control" id="password-old">
+                        <input name="password-new" type="password" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Confirm new password</label>
                     <div class="col-sm-4">
-                        <input type="password" class="form-control" id="password-old">
+                        <input name="password-new-confirm" type="password" class="form-control" >
                     </div>
                 </div>
 
