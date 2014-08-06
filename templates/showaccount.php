@@ -81,11 +81,6 @@
 
 <!-- change password -->
 <div class="row clearfix">
-
-    ***REMOVED***
-        
-
-    ***REMOVED***
         
         <form action="change-password.php" class="form-horizontal" role="form"  method="post">
             <fieldset>
