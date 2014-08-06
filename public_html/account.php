@@ -30,7 +30,7 @@
 	// if user is member of a dorm, show leave dorm option
     else if (!empty($user[0]["dorm_id"]))
 	{
-		render("profile_form.php");
+		render("showaccount.php");
 	}  	
 	// if user is not a member of any dorm
 	else
