@@ -1,8 +1,6 @@
+<!-- leave dorm --> 
 <div class="row clearfix">
 
-    <div class="col-md-6 column">
-
-        <!-- leave dorm --> 
         <form action="profile.php" method="post">
             <fieldset>
                 <legend>Leave dorm</legend>
@@ -18,7 +16,13 @@
             </fieldset>
         </form>
 
+</div>
+
+<!-- change timezone -->
+<div class="row clearfix">
+
    ***REMOVED*****REMOVED***
+            /*
 
             // create option menu with timezones
             $regions = array(
@@ -51,55 +55,59 @@
 
 
             // View
-            echo '<form action="profile.php" method="post">'; 
+            echo '<form action="profile.php" role="form" class="form-horizontal" method="post">'; 
+            echo    '<legend>Change timezone</legend>';
 
             
 
-            echo '<label>Select Your Timezone</label><select id="timezone">';
+            echo    '<label class="col-sm-3 control-label">Select Your Timezone</label>';
+            echo    '<select id="timezone">';
+
             foreach($timezones as $region => $list)
             {
-                echo '<optgroup label="' . $region . '">' . "\n";
+                echo        '<optgroup label="' . $region . '">' . "\n";
                 foreach($list as $timezone => $name)
                 {
-                    echo '<option name="' . $timezone . '">' . $name . '</option>' . "\n";
+                    echo        '<option name="' . $timezone . '">' . $name . '</option>' . "\n";
                 }
-                echo '<optgroup>' . "\n";
+                echo    '</optgroup>' . "\n";
             }
-            echo '</select>';
+            echo    '</select>';
+            echo '</form>';
+
+  ***REMOVED*****REMOVED***/
         ***REMOVED***
+</div>
 
-
-        <!--
-        <form action="profile.php" method="post">
+<!-- change password -->
+<div class="row clearfix">
+        
+        <form action="" class="form-horizontal" role="form"  method="post">
             <fieldset>
-                <legend>Set Timezone</legend>
+                <legend>Change password</legend>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Old password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="password-old">
+                    </div>
+                </div>
+
                 <div class="form-group">
 
-                <select autofocus class="form-control" name="settimezone">
-                    <option value="">Set timezone...</option>
-          ***REMOVED*****REMOVED*****REMOVED***
-                        /*
-                        $timezones = DateTimeZone::listIdentifiers();
-                        foreach ($timezones as $timezone) 
-                        {
-                            echo(   '<option value="">' .
-                                    $timezone .
-                                    '</option>'
-                                );  
-                        }
-              ***REMOVED*****REMOVED***/
-                    ***REMOVED***
-                </select>
-                    
+                    <label class="col-sm-3 control-label">New password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="password-old">
+                    </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Confirm new password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="password-old">
+                    </div>
+                </div>
+
             </fieldset>
         </form>
-        -->
-
-    </div>
-
-    <div class="col-md-6 column">
-
-    </div>
 
 </div>
