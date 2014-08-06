@@ -82,7 +82,7 @@
 <!-- change password -->
 <div class="row clearfix">
         
-        <form action="reset-password.php" class="form-horizontal" role="form"  method="post">
+        <form action="change-password.php" class="form-horizontal" role="form"  method="post">
             <fieldset>
                 <legend>Change password</legend>
 
