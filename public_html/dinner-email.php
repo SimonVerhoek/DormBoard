@@ -40,19 +40,19 @@
     
     $mail->SMTPDebug  = 1;
 
-    $mail->Port = 465; // was 465
+    $mail->Port = 465;
     $mail->SMTPSecure = 'ssl';
     $mail->Username = "dormboardmail@gmail.com";  
     $mail->Password = "ywK-G9s-H5X-hfS";          
 
     // set From:
-    $mail->SetFrom("dormboardmail@gmail.com");
+    $mail->SetFrom("dormboardmail@gmail.com", "Dormboard");
 
     // set To:
     $mail->AddAddress("saverhoek@gmail.com");
 
     // set Subject:
-    $mail->Subject = "Dormboard: Somebody's cooking tonight!";
+    $mail->Subject = "Somebody's cooking tonight!";
 
     // set body
     $mail->Body = "TEST";

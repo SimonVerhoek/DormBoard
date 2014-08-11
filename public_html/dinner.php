@@ -36,9 +36,9 @@
             // INSERT failed
             errorMsg("Something went wrong while storing your action. Please try again.");
         }
+        // if user opted to cook, send roommates an email notification
         else if ($_POST["what"] == "1" ) 
         {
-            // send email to roommates that user is cooking
             redirect("dinner-email.php");
         }
         else
