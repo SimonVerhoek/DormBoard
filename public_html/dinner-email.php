@@ -1,7 +1,11 @@
 ***REMOVED***
     // configuration
-    require("../includes/config.php"); 
-    require_once("PHPMailer/class.phpmailer.php");
+    require("../includes/config.php");
+
+    date_default_timezone_set("Europe/Amsterdam");
+
+    // include PHPMailer 
+    require_once("libs/PHPMailer/PHPMailerAutoload.php");
     
     $user = query(" SELECT  first_name,
                             dorm_id
@@ -33,7 +37,10 @@
     $mail->IsSMTP();
     $mail->SMTPAuth = true;
     $mail->Host = "smtp.gmail.com";
-    $mail->Port = 465;
+    
+    $mail->SMTPDebug  = 1;
+
+    $mail->Port = 465; // was 465
     $mail->SMTPSecure = 'ssl';
     $mail->Username = "dormboardmail@gmail.com";  
     $mail->Password = "ywK-G9s-H5X-hfS";          
@@ -48,10 +55,7 @@
     $mail->Subject = "Dormboard: Somebody's cooking tonight!";
 
     // set body
-    $mail->Body = 
-        "
-        TEST
-";
+    $mail->Body = "TEST";
 
     // send mail
     if ($mail->Send() === false)
