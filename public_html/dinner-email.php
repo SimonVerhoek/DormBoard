@@ -42,8 +42,8 @@
 
     $mail->Port = 465;
     $mail->SMTPSecure = 'ssl';
-    $mail->Username = "dormboardmail@gmail.com";  
-    $mail->Password = "ywK-G9s-H5X-hfS";          
+    $mail->Username = DINNER_EMAIL_ADDRESS;  
+    $mail->Password = DINNER_EMAIL_PASSWORD;          
 
     // set From:
     $mail->SetFrom("dormboardmail@gmail.com", "Dormboard");
