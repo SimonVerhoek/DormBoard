@@ -15,22 +15,12 @@
 
     $roommates = query("SELECT  user_id,
                                 first_name,
+                                last_name,
                                 email
                         FROM    users
                         WHERE   dorm_id = ?",
                                 $user[0]["dorm_id"]);
 
-    // make array of roommates' email addresses
-    $emailAddresses = [];
-
-    foreach ($roommates as $roommate) 
-    {
-        if ($roommate["user_id"] != $_SESSION["user_id"]) 
-        {
-            array_push($emailAddresses, $roommate["email"]);
-        }
-    }
-    
     // instantiate mailer
     $mail = new PHPMailer();
 
@@ -50,6 +40,14 @@
 
     // set To:
     $mail->AddAddress("saverhoek@gmail.com");
+
+    foreach ($roommates as $roommate) 
+    {
+        // join first and last name into one variable
+        $fullname = $roommate["first_name"] . " " . $roommate["last_name"];
+
+        $mail->AddAddress($roommate["email"], $fullname);
+    }
 
     // set Subject:
     $mail->Subject = "Somebody's cooking tonight!";
