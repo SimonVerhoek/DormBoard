@@ -53,7 +53,7 @@
     $mail->Subject = "Somebody's cooking tonight!";
 
     // set body
-    $mail->Body = "TEST";
+    $mail->msgHTML(file_get_contents('../templates/dinner_email.html'), dirname(__FILE__));;
 
     // send mail
     if ($mail->Send() === false)
