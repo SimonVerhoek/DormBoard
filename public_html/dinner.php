@@ -21,7 +21,7 @@
         // update or insert user's status input
         $storeAction = query("INSERT INTO dinner (
             user_id, 
-            date, 
+            action_date, 
             status
             ) VALUES (
             '" . $_SESSION["user_id"] . "', 
@@ -72,7 +72,7 @@
     $usersStr = implode(',', $rmList);
 
     $statuses = query(" SELECT  user_id, 
-                                date, 
+                                action_date, 
                                 status 
                         FROM    dinner 
                         WHERE   user_id 

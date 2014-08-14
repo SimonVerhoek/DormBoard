@@ -76,7 +76,7 @@
 					    		// if status is from this user &
 					    		// status is from this day
 						    	if (($status["user_id"] === $roommate["user_id"]) && 
-						    		($status["date"] === $today))
+						    		($status["action_date"] === $today))
 						    	{
 					    			// show appropriate text
 					    			switch ($status["status"])
