@@ -26,22 +26,23 @@
 
     // get today's date
     $today = new DateTime("today");
-    $todayFormatOne = $today->format("y-m-d");
-    $todayFormatTwo = $today->format("F jS");
+    $todaySQLFormat = $today->format("y-m-d");
+    $todayEmailFormat = $today->format("F jS");
 
     // get tomorrow's date
     $tomorrow = new DateTime("tomorrow");
-    $tomorrowFormatOne = $tomorrow->format("y-m-d");
-    $tomorrowFormatTwo = $tomorrow->format("F jS");
+    $tomorrowSQLFormat = $tomorrow->format("y-m-d");
+    $tomorrowEmailFormat = $tomorrow->format("F jS");
     
     switch ($_SESSION["date_cooking"]) 
     {
-        case $todayFormatOne:
-            $dateCooking = "today" . " (" . $todayFormatTwo . ")";
+        case $todaySQLFormat:
+            $dateCooking = "today" . " (" . $todayEmailFormat . ")";
             break;
 
-        case $tomorrowFormatTwo:
-            $dateCooking = "tomorrow" . " (" . $tomorrowFormatTwo . ")";
+        case $tomorrowSQLFormat:
+            $dateCooking = "tomorrow" . " (" . $tomorrowEmailFormat . ")";
+            break;
         
         default:
             $dateCooking = date("l (F jS)", strtotime($_SESSION["date_cooking"]));
