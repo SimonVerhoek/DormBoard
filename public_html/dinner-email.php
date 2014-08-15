@@ -22,8 +22,6 @@
                         WHERE   dorm_id = ?",
                                 $user[0]["dorm_id"]);
 
-    // get date roommate has opted to cook
-
     // get today's date
     $today = new DateTime("today");
     $todaySQLFormat = $today->format("y-m-d");
