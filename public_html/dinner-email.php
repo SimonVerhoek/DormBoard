@@ -77,10 +77,11 @@
 
     foreach ($roommates as $roommate) 
     {
-        // join first and last name into one variable
         $fullname = $roommate["first_name"] . " " . $roommate["last_name"];
+        $firstName = $roommate["first_name"];
 
-        $mail->AddAddress($roommate["email"], $fullname);
+        $mail->AddAddress($roommate["email"], $fullname);     
+        $body = str_replace('$firstName', $firstName, $body);
     }
 
     // test
