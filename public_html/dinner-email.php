@@ -22,9 +22,34 @@
                         WHERE   dorm_id = ?",
                                 $user[0]["dorm_id"]);
 
+    // get date roommate has opted to cook
+
+    // get today's date
+    $today = new DateTime("today");
+    $todayFormatOne = $today->format("y-m-d");
+    $todayFormatTwo = $today->format("F jS");
+
+    // get tomorrow's date
+    $tomorrow = new DateTime("tomorrow");
+    $tomorrowFormatOne = $tomorrow->format("y-m-d");
+    $tomorrowFormatTwo = $tomorrow->format("F jS");
+    
+    switch ($_SESSION["date_cooking"]) 
+    {
+        case $todayFormatOne:
+            $dateCooking = "today" . " (" . $todayFormatTwo . ")";
+            break;
+
+        case $tomorrowFormatTwo:
+            $dateCooking = "tomorrow" . " (" . $tomorrowFormatTwo . ")";
+        
+        default:
+            $dateCooking = date("l (F jS)", strtotime($_SESSION["date_cooking"]));
+            break;
+    }
 
     // set variables for html doc 
-    $userFirstName = $user[0]["first_name"];
+    $cookingRoommateFirstName = $user[0]["first_name"];
 
     // instantiate mailer
     $mail = new PHPMailer();
@@ -43,8 +68,13 @@
     // set From:
     $mail->SetFrom("dormboardmail@gmail.com", "Dormboard");
 
-    // set To:
-    $mail->AddAddress("saverhoek@gmail.com");
+    // set Subject:
+    $mail->Subject = "Somebody's cooking tonight!";
+
+    // set body
+    $body = file_get_contents('../templates/dinner_email.html');
+    $body = str_replace('$cookingRoommateFirstName', $cookingRoommateFirstName, $body);
+    $body = str_replace('$dateCooking', $dateCooking, $body);
 
     foreach ($roommates as $roommate) 
     {
@@ -54,13 +84,8 @@
         $mail->AddAddress($roommate["email"], $fullname);
     }
 
-    // set Subject:
-    $mail->Subject = "Somebody's cooking tonight!";
-
-    // set body
-    $body = file_get_contents('../templates/dinner_email.html');
-    $body = str_replace('$userFirstName', $userFirstName, $body);
-    //$body = str_replace('$fullname', $fullname, $body);
+    // test
+    $mail->AddAddress("saverhoek@gmail.com"); 
 
     $mail->msgHTML($body);
     $mail->IsHTML(true); // send as HTML
