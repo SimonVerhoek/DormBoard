@@ -75,7 +75,6 @@
     $body = str_replace('$cookingRoommateFirstName', $cookingRoommateFirstName, $body);
     $body = str_replace('$dateCooking', $dateCooking, $body);
 
-    /*
     foreach ($roommates as $roommate) 
     {
         $fullname = $roommate["first_name"] . " " . $roommate["last_name"];
@@ -84,7 +83,6 @@
         $mail->AddAddress($roommate["email"], $fullname);     
         $body = str_replace('$firstName', $firstName, $body);
     }
-    */
 
     // test
     $mail->AddAddress("saverhoek@gmail.com"); 
