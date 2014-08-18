@@ -1,15 +1,46 @@
+<div id="logo">
+	<img src="http://i.imgur.com/WOY3wxe.png" id="logo-img">
+	<h1 id="logo-name">Dormboard</h1>
+</div>
+<br>
 <p>Dear $firstName,</p>
-<p><strong>$cookingRoommateFirstName</strong> has opted to cook <strong>$dateCooking. </strong></p>
-<p>Would you like to join dinner? click on the button below to go to our website and join!</p>
-<a href="#" class="button">Go to Dormboard</a>
+<br>
+<p><strong>$cookingRoommateFirstName</strong> has opted to cook:</p>
+<a href="#" class="button">$dateCooking</a>
+<p>Would you like to join dinner? Click on the button above to go to your dinner schedule and join.</p>
+<br>
 <p>Bon appetit!</p>
-<p>The DormBoard staff</p>
+<p id="staff">The DormBoard staff</p>
 
+<link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Londrina+Sketch' rel='stylesheet' type='text/css'>
 <style type="text/css">
 	body {
 		height: 100%;
+		width: 75%;
+		margin: auto;
+		margin-top: 5%;
 		background-color: #FAFAFA;
+		font-family: 'Raleway', sans-serif;
 		font-weight: 100;
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+	#logo {
+		text-align: center;
+	}
+
+	#logo-img {
+		height: 120px;
+	}
+
+	#logo-name {
+		font-family: 'Londrina Sketch', cursive;
+		font-size: 40px;
+		margin-top: 0;
 	}
 
 	.button {
@@ -18,10 +49,11 @@
 		text-indent:0px;
 		display:inline-block;
 		color:#ffffff;
-		font-size:18px;
-		height:63px;
-		line-height:63px;
-		width:200px;
+		font-size:16px;
+		height:50px;
+		line-height:50px;
+		padding-left: 25px;
+		padding-right: 25px;
 		text-decoration:none;
 		text-align:center;
 	}
@@ -35,4 +67,8 @@
 		top:1px;
 	}
 	/* This button was generated using CSSButtonGenerator.com */
+
+	#staff {
+		font-size: 12px;
+	}
 </style>
