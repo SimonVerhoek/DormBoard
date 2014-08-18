@@ -55,12 +55,12 @@
 
     $mail->IsSMTP();
     $mail->SMTPAuth = true;
-    $mail->Host = "smtp.gmail.com";
+    $mail->Host = "smtp.mandrillapp.com";
     
     $mail->SMTPDebug  = 1;
 
-    $mail->Port = 465;
-    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 587;
+    $mail->SMTPSecure = 'tls';
     $mail->Username = DINNER_EMAIL_ADDRESS;  
     $mail->Password = DINNER_EMAIL_PASSWORD;          
 
@@ -75,6 +75,7 @@
     $body = str_replace('$cookingRoommateFirstName', $cookingRoommateFirstName, $body);
     $body = str_replace('$dateCooking', $dateCooking, $body);
 
+    /*
     foreach ($roommates as $roommate) 
     {
         $fullname = $roommate["first_name"] . " " . $roommate["last_name"];
@@ -83,6 +84,7 @@
         $mail->AddAddress($roommate["email"], $fullname);     
         $body = str_replace('$firstName', $firstName, $body);
     }
+    */
 
     // test
     $mail->AddAddress("saverhoek@gmail.com"); 
