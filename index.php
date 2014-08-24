@@ -1,5 +1,8 @@
 ***REMOVED***
 	
-	echo "Hello, world!";
+	// configuration
+    require("includes/config.php"); 
+
+    redirect("public_html/index.php");
 
 ***REMOVED***
