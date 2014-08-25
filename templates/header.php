@@ -36,7 +36,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="dinner.php">
-                            <img id="logo" src="../public_html/img/DormBoardlogo-small.png"/>
+                            <img id="logo" src="<?= ROOTDIR ***REMOVED***/img/DormBoardlogo-small.png"/>
                         </a>
                         <a class="navbar-brand" href="dinner.php" id="header-title">
                             DormBoard
