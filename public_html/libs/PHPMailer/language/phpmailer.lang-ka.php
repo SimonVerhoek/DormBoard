@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
 * PHPMailer language file: refer to English translation for definitive list
 * Georgian Version by Avtandil Kikabidze aka LONGMAN <akalongman@gmail.com>

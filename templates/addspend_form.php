@@ -35,7 +35,7 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Who is it for?</label>
 										<div class="col-sm-6">
-											***REMOVED***
+											<?php
 												foreach ($roommates as $roommate)
 												{
 													$rmID = $roommate["user_id"];
@@ -61,7 +61,7 @@
 															'</div>'
 														);
 												}
-											***REMOVED***
+											?>
 										</div>
 									</div>
 

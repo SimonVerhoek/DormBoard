@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 
     // configuration
     require("../includes/config.php");
@@ -108,4 +108,4 @@
 		redirect("getdorm.php");
 	}
 		
-***REMOVED***
+?>

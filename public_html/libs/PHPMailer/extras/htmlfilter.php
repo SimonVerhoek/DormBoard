@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * htmlfilter.inc
  * ---------------
@@ -162,33 +162,33 @@ function tln_getnxtag($body, $offset)
     if ($lt == strlen($body)) {
         return false;
     }
-***REMOVED***
-***REMOVED*** We are here:
-***REMOVED*** blah blah <tag attribute="value">
-***REMOVED*** \---------^
-***REMOVED***/
+    /**
+     * We are here:
+     * blah blah <tag attribute="value">
+     * \---------^
+     */
     $pos = tln_skipspace($body, $lt + 1);
     if ($pos >= strlen($body)) {
         return array(false, false, false, $lt, strlen($body));
     }
-***REMOVED***
-***REMOVED*** There are 3 kinds of tags:
-***REMOVED*** 1. Opening tag, e.g.:
-***REMOVED***      <a href="blah">
-***REMOVED*** 2. Closing tag, e.g.:
-***REMOVED***      </a>
-***REMOVED*** 3. XHTML-style content-less tag, e.g.:
-***REMOVED***      <img src="blah"/>
-***REMOVED***/
+    /**
+     * There are 3 kinds of tags:
+     * 1. Opening tag, e.g.:
+     *      <a href="blah">
+     * 2. Closing tag, e.g.:
+     *      </a>
+     * 3. XHTML-style content-less tag, e.g.:
+     *      <img src="blah"/>
+     */
     switch (substr($body, $pos, 1)) {
         case '/':
             $tagtype = 2;
             $pos++;
             break;
         case '!':
-   ***REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** A comment or an SGML declaration.
-   ***REMOVED*****REMOVED***/
+            /**
+             * A comment or an SGML declaration.
+             */
             if (substr($body, $pos + 1, 2) == '--') {
                 $gt = strpos($body, '-->', $pos);
                 if ($gt === false) {
@@ -203,17 +203,17 @@ function tln_getnxtag($body, $offset)
             }
             break;
         default:
-   ***REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** Assume tagtype 1 for now. If it's type 3, we'll switch values
-   ***REMOVED*****REMOVED*** later.
-   ***REMOVED*****REMOVED***/
+            /**
+             * Assume tagtype 1 for now. If it's type 3, we'll switch values
+             * later.
+             */
             $tagtype = 1;
             break;
     }
 
-***REMOVED***
-***REMOVED*** Look for next [\W-_], which will indicate the end of the tag name.
-***REMOVED***/
+    /**
+     * Look for next [\W-_], which will indicate the end of the tag name.
+     */
     $regary = tln_findnxreg($body, $pos, '[^\w\-_]');
     if ($regary == false) {
         return array(false, false, false, $lt, strlen($body));
@@ -221,21 +221,21 @@ function tln_getnxtag($body, $offset)
     list($pos, $tagname, $match) = $regary;
     $tagname = strtolower($tagname);
 
-***REMOVED***
-***REMOVED*** $match can be either of these:
-***REMOVED*** '>'    indicating the end of the tag entirely.
-***REMOVED*** '\s' indicating the end of the tag name.
-***REMOVED*** '/'    indicating that this is type-3 xhtml tag.
-***REMOVED***
-***REMOVED*** Whatever else we find there indicates an invalid tag.
-***REMOVED***/
+    /**
+     * $match can be either of these:
+     * '>'    indicating the end of the tag entirely.
+     * '\s' indicating the end of the tag name.
+     * '/'    indicating that this is type-3 xhtml tag.
+     *
+     * Whatever else we find there indicates an invalid tag.
+     */
     switch ($match) {
         case '/':
-   ***REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** This is an xhtml-style tag with a closing / at the
-   ***REMOVED*****REMOVED*** end, like so: <img src="blah"/>. Check if it's followed
-   ***REMOVED*****REMOVED*** by the closing bracket. If not, then this tag is invalid
-   ***REMOVED*****REMOVED***/
+            /**
+             * This is an xhtml-style tag with a closing / at the
+             * end, like so: <img src="blah"/>. Check if it's followed
+             * by the closing bracket. If not, then this tag is invalid
+             */
             if (substr($body, $pos, 2) == '/>') {
                 $pos++;
                 $tagtype = 3;
@@ -249,46 +249,46 @@ function tln_getnxtag($body, $offset)
             return array($tagname, false, $tagtype, $lt, $pos);
             break;
         default:
-   ***REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** Check if it's whitespace
-   ***REMOVED*****REMOVED***/
+            /**
+             * Check if it's whitespace
+             */
             if (preg_match('/\s/', $match)) {
             } else {
-  ***REMOVED*****REMOVED*****REMOVED***
-       ***REMOVED*****REMOVED*** This is an invalid tag! Look for the next closing ">".
-       ***REMOVED*****REMOVED***/
+                /**
+                 * This is an invalid tag! Look for the next closing ">".
+                 */
                 $gt = tln_findnxstr($body, $lt, '>');
                 return array(false, false, false, $lt, $gt);
             }
     }
 
-***REMOVED***
-***REMOVED*** At this point we're here:
-***REMOVED*** <tagname     attribute='blah'>
-***REMOVED*** \-------^
-***REMOVED***
-***REMOVED*** At this point we loop in order to find all attributes.
-***REMOVED***/
+    /**
+     * At this point we're here:
+     * <tagname     attribute='blah'>
+     * \-------^
+     *
+     * At this point we loop in order to find all attributes.
+     */
     $attary = array();
 
     while ($pos <= strlen($body)) {
         $pos = tln_skipspace($body, $pos);
         if ($pos == strlen($body)) {
-   ***REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** Non-closed tag.
-   ***REMOVED*****REMOVED***/
+            /**
+             * Non-closed tag.
+             */
             return array(false, false, false, $lt, $pos);
         }
-    ***REMOVED***
-    ***REMOVED*** See if we arrived at a ">" or "/>", which means that we reached
-    ***REMOVED*** the end of the tag.
-    ***REMOVED***/
+        /**
+         * See if we arrived at a ">" or "/>", which means that we reached
+         * the end of the tag.
+         */
         $matches = array();
         preg_match('%^(\s*)(>|/>)%s', substr($body, $pos), $matches);
         if (isset($matches[0]) && $matches[0]) {
-   ***REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** Yep. So we did.
-   ***REMOVED*****REMOVED***/
+            /**
+             * Yep. So we did.
+             */
             $pos += strlen($matches[1]);
             if ($matches[2] == '/>') {
                 $tagtype = 3;
@@ -297,47 +297,47 @@ function tln_getnxtag($body, $offset)
             return array($tagname, $attary, $tagtype, $lt, $pos);
         }
 
-    ***REMOVED***
-    ***REMOVED*** There are several types of attributes, with optional
-    ***REMOVED*** [:space:] between members.
-    ***REMOVED*** Type 1:
-    ***REMOVED***     attrname[:space:]=[:space:]'CDATA'
-    ***REMOVED*** Type 2:
-    ***REMOVED***     attrname[:space:]=[:space:]"CDATA"
-    ***REMOVED*** Type 3:
-    ***REMOVED***     attr[:space:]=[:space:]CDATA
-    ***REMOVED*** Type 4:
-    ***REMOVED***     attrname
-    ***REMOVED***
-    ***REMOVED*** We leave types 1 and 2 the same, type 3 we check for
-    ***REMOVED*** '"' and convert to "&quot" if needed, then wrap in
-    ***REMOVED*** double quotes. Type 4 we convert into:
-    ***REMOVED*** attrname="yes".
-    ***REMOVED***/
+        /**
+         * There are several types of attributes, with optional
+         * [:space:] between members.
+         * Type 1:
+         *     attrname[:space:]=[:space:]'CDATA'
+         * Type 2:
+         *     attrname[:space:]=[:space:]"CDATA"
+         * Type 3:
+         *     attr[:space:]=[:space:]CDATA
+         * Type 4:
+         *     attrname
+         *
+         * We leave types 1 and 2 the same, type 3 we check for
+         * '"' and convert to "&quot" if needed, then wrap in
+         * double quotes. Type 4 we convert into:
+         * attrname="yes".
+         */
         $regary = tln_findnxreg($body, $pos, '[^\w\-_]');
         if ($regary == false) {
-   ***REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** Looks like body ended before the end of tag.
-   ***REMOVED*****REMOVED***/
+            /**
+             * Looks like body ended before the end of tag.
+             */
             return array(false, false, false, $lt, strlen($body));
         }
         list($pos, $attname, $match) = $regary;
         $attname = strtolower($attname);
-    ***REMOVED***
-    ***REMOVED*** We arrived at the end of attribute name. Several things possible
-    ***REMOVED*** here:
-    ***REMOVED*** '>'    means the end of the tag and this is attribute type 4
-    ***REMOVED*** '/'    if followed by '>' means the same thing as above
-    ***REMOVED*** '\s' means a lot of things -- look what it's followed by.
-    ***REMOVED***        anything else means the attribute is invalid.
-    ***REMOVED***/
+        /**
+         * We arrived at the end of attribute name. Several things possible
+         * here:
+         * '>'    means the end of the tag and this is attribute type 4
+         * '/'    if followed by '>' means the same thing as above
+         * '\s' means a lot of things -- look what it's followed by.
+         *        anything else means the attribute is invalid.
+         */
         switch ($match) {
             case '/':
-  ***REMOVED*****REMOVED*****REMOVED***
-       ***REMOVED*****REMOVED*** This is an xhtml-style tag with a closing / at the
-       ***REMOVED*****REMOVED*** end, like so: <img src="blah"/>. Check if it's followed
-       ***REMOVED*****REMOVED*** by the closing bracket. If not, then this tag is invalid
-       ***REMOVED*****REMOVED***/
+                /**
+                 * This is an xhtml-style tag with a closing / at the
+                 * end, like so: <img src="blah"/>. Check if it's followed
+                 * by the closing bracket. If not, then this tag is invalid
+                 */
                 if (substr($body, $pos, 2) == '/>') {
                     $pos++;
                     $tagtype = 3;
@@ -352,28 +352,28 @@ function tln_getnxtag($body, $offset)
                 return array($tagname, $attary, $tagtype, $lt, $pos);
                 break;
             default:
-  ***REMOVED*****REMOVED*****REMOVED***
-       ***REMOVED*****REMOVED*** Skip whitespace and see what we arrive at.
-       ***REMOVED*****REMOVED***/
+                /**
+                 * Skip whitespace and see what we arrive at.
+                 */
                 $pos = tln_skipspace($body, $pos);
                 $char = substr($body, $pos, 1);
-  ***REMOVED*****REMOVED*****REMOVED***
-       ***REMOVED*****REMOVED*** Two things are valid here:
-       ***REMOVED*****REMOVED*** '=' means this is attribute type 1 2 or 3.
-       ***REMOVED*****REMOVED*** \w means this was attribute type 4.
-       ***REMOVED*****REMOVED*** anything else we ignore and re-loop. End of tag and
-       ***REMOVED*****REMOVED*** invalid stuff will be caught by our checks at the beginning
-       ***REMOVED*****REMOVED*** of the loop.
-       ***REMOVED*****REMOVED***/
+                /**
+                 * Two things are valid here:
+                 * '=' means this is attribute type 1 2 or 3.
+                 * \w means this was attribute type 4.
+                 * anything else we ignore and re-loop. End of tag and
+                 * invalid stuff will be caught by our checks at the beginning
+                 * of the loop.
+                 */
                 if ($char == '=') {
                     $pos++;
                     $pos = tln_skipspace($body, $pos);
-      ***REMOVED*****REMOVED*****REMOVED***
-           ***REMOVED*****REMOVED*** Here are 3 possibilities:
-           ***REMOVED*****REMOVED*** "'"    attribute type 1
-           ***REMOVED*****REMOVED*** '"'    attribute type 2
-           ***REMOVED*****REMOVED*** everything else is the content of tag type 3
-           ***REMOVED*****REMOVED***/
+                    /**
+                     * Here are 3 possibilities:
+                     * "'"    attribute type 1
+                     * '"'    attribute type 2
+                     * everything else is the content of tag type 3
+                     */
                     $quot = substr($body, $pos, 1);
                     if ($quot == '\'') {
                         $regary = tln_findnxreg($body, $pos + 1, '\'');
@@ -393,41 +393,41 @@ function tln_getnxtag($body, $offset)
                             $pos++;
                             $attary{$attname} = '"' . $attval . '"';
                         } else {
-              ***REMOVED*****REMOVED*****REMOVED***
-                   ***REMOVED*****REMOVED*** These are hateful. Look for \s, or >.
-                   ***REMOVED*****REMOVED***/
+                            /**
+                             * These are hateful. Look for \s, or >.
+                             */
                             $regary = tln_findnxreg($body, $pos, '[\s>]');
                             if ($regary == false) {
                                 return array(false, false, false, $lt, strlen($body));
                             }
                             list($pos, $attval, $match) = $regary;
-              ***REMOVED*****REMOVED*****REMOVED***
-                   ***REMOVED*****REMOVED*** If it's ">" it will be caught at the top.
-                   ***REMOVED*****REMOVED***/
+                            /**
+                             * If it's ">" it will be caught at the top.
+                             */
                             $attval = preg_replace('/\"/s', '&quot;', $attval);
                             $attary{$attname} = '"' . $attval . '"';
                         }
                     }
                 } else {
                     if (preg_match('|[\w/>]|', $char)) {
-          ***REMOVED*****REMOVED*****REMOVED***
-               ***REMOVED*****REMOVED*** That was attribute type 4.
-               ***REMOVED*****REMOVED***/
+                        /**
+                         * That was attribute type 4.
+                         */
                         $attary{$attname} = '"yes"';
                     } else {
-          ***REMOVED*****REMOVED*****REMOVED***
-               ***REMOVED*****REMOVED*** An illegal character. Find next '>' and return.
-               ***REMOVED*****REMOVED***/
+                        /**
+                         * An illegal character. Find next '>' and return.
+                         */
                         $gt = tln_findnxstr($body, $pos, '>');
                         return array(false, false, false, $lt, $gt);
                     }
                 }
         }
     }
-***REMOVED***
-***REMOVED*** The fact that we got here indicates that the tag end was never
-***REMOVED*** found. Return invalid tag indication so it gets stripped.
-***REMOVED***/
+    /**
+     * The fact that we got here indicates that the tag end was never
+     * found. Return invalid tag indication so it gets stripped.
+     */
     return array(false, false, false, $lt, strlen($body));
 }
 
@@ -468,9 +468,9 @@ function tln_deent(&$attvalue, $regex, $hex = false)
  */
 function tln_defang(&$attvalue)
 {
-***REMOVED***
-***REMOVED*** Skip this if there aren't ampersands or backslashes.
-***REMOVED***/
+    /**
+     * Skip this if there aren't ampersands or backslashes.
+     */
     if (strpos($attvalue, '&') === false
         && strpos($attvalue, '\\') === false
     ) {
@@ -522,9 +522,9 @@ function tln_fixatts(
     $add_attr_to_tag
 ) {
     while (list($attname, $attvalue) = each($attary)) {
-    ***REMOVED***
-    ***REMOVED*** See if this attribute should be removed.
-    ***REMOVED***/
+        /**
+         * See if this attribute should be removed.
+         */
         foreach ($rm_attnames as $matchtag => $matchattrs) {
             if (preg_match($matchtag, $tagname)) {
                 foreach ($matchattrs as $matchattr) {
@@ -535,27 +535,27 @@ function tln_fixatts(
                 }
             }
         }
-    ***REMOVED***
-    ***REMOVED*** Remove any backslashes, entities, or extraneous whitespace.
-    ***REMOVED***/
+        /**
+         * Remove any backslashes, entities, or extraneous whitespace.
+         */
         tln_defang($attvalue);
         tln_unspace($attvalue);
 
-    ***REMOVED***
-    ***REMOVED*** Now let's run checks on the attvalues.
-    ***REMOVED*** I don't expect anyone to comprehend this. If you do,
-    ***REMOVED*** get in touch with me so I can drive to where you live and
-    ***REMOVED*** shake your hand personally. :)
-    ***REMOVED***/
+        /**
+         * Now let's run checks on the attvalues.
+         * I don't expect anyone to comprehend this. If you do,
+         * get in touch with me so I can drive to where you live and
+         * shake your hand personally. :)
+         */
         foreach ($bad_attvals as $matchtag => $matchattrs) {
             if (preg_match($matchtag, $tagname)) {
                 foreach ($matchattrs as $matchattr => $valary) {
                     if (preg_match($matchattr, $attname)) {
-          ***REMOVED*****REMOVED*****REMOVED***
-               ***REMOVED*****REMOVED*** There are two arrays in valary.
-               ***REMOVED*****REMOVED*** First is matches.
-               ***REMOVED*****REMOVED*** Second one is replacements
-               ***REMOVED*****REMOVED***/
+                        /**
+                         * There are two arrays in valary.
+                         * First is matches.
+                         * Second one is replacements
+                         */
                         list($valmatch, $valrepl) = $valary;
                         $newvalue = preg_replace($valmatch, $valrepl, $attvalue);
                         if ($newvalue != $attvalue) {
@@ -566,9 +566,9 @@ function tln_fixatts(
             }
         }
     }
-***REMOVED***
-***REMOVED*** See if we need to append any attributes to this tag.
-***REMOVED***/
+    /**
+     * See if we need to append any attributes to this tag.
+     */
     foreach ($add_attr_to_tag as $matchtag => $addattary) {
         if (preg_match($matchtag, $tagname)) {
             $attary = array_merge($attary, $addattary);
@@ -599,26 +599,26 @@ function tln_sanitize(
     $bad_attvals,
     $add_attr_to_tag
 ) {
-***REMOVED***
-***REMOVED*** Normalize rm_tags and rm_tags_with_content.
-***REMOVED***/
+    /**
+     * Normalize rm_tags and rm_tags_with_content.
+     */
     $rm_tags = array_shift($tag_list);
     @array_walk($tag_list, 'tln_casenormalize');
     @array_walk($rm_tags_with_content, 'tln_casenormalize');
     @array_walk($self_closing_tags, 'tln_casenormalize');
-***REMOVED***
-***REMOVED*** See if tag_list is of tags to remove or tags to allow.
-***REMOVED*** false  means remove these tags
-***REMOVED*** true      means allow these tags
-***REMOVED***/
+    /**
+     * See if tag_list is of tags to remove or tags to allow.
+     * false  means remove these tags
+     * true      means allow these tags
+     */
     $curpos = 0;
     $open_tags = array();
     $trusted = "<!-- begin tln_sanitized html -->\n";
     $skip_content = false;
-***REMOVED***
-***REMOVED*** Take care of netscape's stupid javascript entities like
-***REMOVED*** &{alert('boo')};
-***REMOVED***/
+    /**
+     * Take care of netscape's stupid javascript entities like
+     * &{alert('boo')};
+     */
     $body = preg_replace('/&(\{.*?\};)/si', '&amp;\\1', $body);
     while (($curtag = tln_getnxtag($body, $curpos)) != false) {
         list($tagname, $attary, $tagtype, $lt, $gt) = $curtag;
@@ -630,9 +630,9 @@ function tln_sanitize(
         if ($tagname != false) {
             if ($tagtype == 2) {
                 if ($skip_content == $tagname) {
-      ***REMOVED*****REMOVED*****REMOVED***
-           ***REMOVED*****REMOVED*** Got to the end of tag we needed to remove.
-           ***REMOVED*****REMOVED***/
+                    /**
+                     * Got to the end of tag we needed to remove.
+                     */
                     $tagname = false;
                     $skip_content = false;
                 } else {
@@ -648,23 +648,23 @@ function tln_sanitize(
                     }
                 }
             } else {
-  ***REMOVED*****REMOVED*****REMOVED***
-       ***REMOVED*****REMOVED*** $rm_tags_with_content
-       ***REMOVED*****REMOVED***/
+                /**
+                 * $rm_tags_with_content
+                 */
                 if ($skip_content == false) {
-      ***REMOVED*****REMOVED*****REMOVED***
-           ***REMOVED*****REMOVED*** See if this is a self-closing type and change
-           ***REMOVED*****REMOVED*** tagtype appropriately.
-           ***REMOVED*****REMOVED***/
+                    /**
+                     * See if this is a self-closing type and change
+                     * tagtype appropriately.
+                     */
                     if ($tagtype == 1
                         && in_array($tagname, $self_closing_tags)
                     ) {
                         $tagtype = 3;
                     }
-      ***REMOVED*****REMOVED*****REMOVED***
-           ***REMOVED*****REMOVED*** See if we should skip this tag and any content
-           ***REMOVED*****REMOVED*** inside it.
-           ***REMOVED*****REMOVED***/
+                    /**
+                     * See if we should skip this tag and any content
+                     * inside it.
+                     */
                     if ($tagtype == 1
                         && in_array($tagname, $rm_tags_with_content)
                     ) {
@@ -684,9 +684,9 @@ function tln_sanitize(
                                     $open_tags{$tagname} = 1;
                                 }
                             }
-              ***REMOVED*****REMOVED*****REMOVED***
-                   ***REMOVED*****REMOVED*** This is where we run other checks.
-                   ***REMOVED*****REMOVED***/
+                            /**
+                             * This is where we run other checks.
+                             */
                             if (is_array($attary) && sizeof($attary) > 0) {
                                 $attary = tln_fixatts(
                                     $tagname,

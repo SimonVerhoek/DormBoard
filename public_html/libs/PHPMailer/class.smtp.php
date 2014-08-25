@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * PHPMailer RFC821 SMTP email transport class.
  * PHP Version 5
@@ -26,129 +26,129 @@
  */
 class SMTP
 {
-***REMOVED***
-***REMOVED*** The PHPMailer SMTP version number.
-***REMOVED*** @type string
-***REMOVED***/
+    /**
+     * The PHPMailer SMTP version number.
+     * @type string
+     */
     const VERSION = '5.2.8';
 
-***REMOVED***
-***REMOVED*** SMTP line break constant.
-***REMOVED*** @type string
-***REMOVED***/
+    /**
+     * SMTP line break constant.
+     * @type string
+     */
     const CRLF = "\r\n";
 
-***REMOVED***
-***REMOVED*** The SMTP port to use if one is not specified.
-***REMOVED*** @type integer
-***REMOVED***/
+    /**
+     * The SMTP port to use if one is not specified.
+     * @type integer
+     */
     const DEFAULT_SMTP_PORT = 25;
 
-***REMOVED***
-***REMOVED*** The maximum line length allowed by RFC 2822 section 2.1.1
-***REMOVED*** @type integer
-***REMOVED***/
+    /**
+     * The maximum line length allowed by RFC 2822 section 2.1.1
+     * @type integer
+     */
     const MAX_LINE_LENGTH = 998;
 
-***REMOVED***
-***REMOVED*** The PHPMailer SMTP Version number.
-***REMOVED*** @type string
-***REMOVED*** @deprecated Use the constant instead
-***REMOVED*** @see SMTP::VERSION
-***REMOVED***/
+    /**
+     * The PHPMailer SMTP Version number.
+     * @type string
+     * @deprecated Use the constant instead
+     * @see SMTP::VERSION
+     */
     public $Version = '5.2.8';
 
-***REMOVED***
-***REMOVED*** SMTP server port number.
-***REMOVED*** @type integer
-***REMOVED*** @deprecated This is only ever used as a default value, so use the constant instead
-***REMOVED*** @see SMTP::DEFAULT_SMTP_PORT
-***REMOVED***/
+    /**
+     * SMTP server port number.
+     * @type integer
+     * @deprecated This is only ever used as a default value, so use the constant instead
+     * @see SMTP::DEFAULT_SMTP_PORT
+     */
     public $SMTP_PORT = 25;
 
-***REMOVED***
-***REMOVED*** SMTP reply line ending.
-***REMOVED*** @type string
-***REMOVED*** @deprecated Use the constant instead
-***REMOVED*** @see SMTP::CRLF
-***REMOVED***/
+    /**
+     * SMTP reply line ending.
+     * @type string
+     * @deprecated Use the constant instead
+     * @see SMTP::CRLF
+     */
     public $CRLF = "\r\n";
 
-***REMOVED***
-***REMOVED*** Debug output level.
-***REMOVED*** Options:
-***REMOVED*** * `0` No output
-***REMOVED*** * `1` Commands
-***REMOVED*** * `2` Data and commands
-***REMOVED*** * `3` As 2 plus connection status
-***REMOVED*** * `4` Low-level data output
-***REMOVED*** @type integer
-***REMOVED***/
+    /**
+     * Debug output level.
+     * Options:
+     * * `0` No output
+     * * `1` Commands
+     * * `2` Data and commands
+     * * `3` As 2 plus connection status
+     * * `4` Low-level data output
+     * @type integer
+     */
     public $do_debug = 0;
 
-***REMOVED***
-***REMOVED*** How to handle debug output.
-***REMOVED*** Options:
-***REMOVED*** * `echo` Output plain-text as-is, appropriate for CLI
-***REMOVED*** * `html` Output escaped, line breaks converted to <br>, appropriate for browser output
-***REMOVED*** * `error_log` Output to error log as configured in php.ini
-***REMOVED*** @type string
-***REMOVED***/
+    /**
+     * How to handle debug output.
+     * Options:
+     * * `echo` Output plain-text as-is, appropriate for CLI
+     * * `html` Output escaped, line breaks converted to <br>, appropriate for browser output
+     * * `error_log` Output to error log as configured in php.ini
+     * @type string
+     */
     public $Debugoutput = 'echo';
 
-***REMOVED***
-***REMOVED*** Whether to use VERP.
-***REMOVED*** @link http://en.wikipedia.org/wiki/Variable_envelope_return_path
-***REMOVED*** @link http://www.postfix.org/VERP_README.html Info on VERP
-***REMOVED*** @type boolean
-***REMOVED***/
+    /**
+     * Whether to use VERP.
+     * @link http://en.wikipedia.org/wiki/Variable_envelope_return_path
+     * @link http://www.postfix.org/VERP_README.html Info on VERP
+     * @type boolean
+     */
     public $do_verp = false;
 
-***REMOVED***
-***REMOVED*** The timeout value for connection, in seconds.
-***REMOVED*** Default of 5 minutes (300sec) is from RFC2821 section 4.5.3.2
-***REMOVED*** This needs to be quite high to function correctly with hosts using greetdelay as an anti-spam measure.
-***REMOVED*** @link http://tools.ietf.org/html/rfc2821#section-4.5.3.2
-***REMOVED*** @type integer
-***REMOVED***/
+    /**
+     * The timeout value for connection, in seconds.
+     * Default of 5 minutes (300sec) is from RFC2821 section 4.5.3.2
+     * This needs to be quite high to function correctly with hosts using greetdelay as an anti-spam measure.
+     * @link http://tools.ietf.org/html/rfc2821#section-4.5.3.2
+     * @type integer
+     */
     public $Timeout = 300;
 
-***REMOVED***
-***REMOVED*** The SMTP timelimit value for reads, in seconds.
-***REMOVED*** @type integer
-***REMOVED***/
+    /**
+     * The SMTP timelimit value for reads, in seconds.
+     * @type integer
+     */
     public $Timelimit = 30;
 
-***REMOVED***
-***REMOVED*** The socket for the server connection.
-***REMOVED*** @type resource
-***REMOVED***/
+    /**
+     * The socket for the server connection.
+     * @type resource
+     */
     protected $smtp_conn;
 
-***REMOVED***
-***REMOVED*** Error message, if any, for the last call.
-***REMOVED*** @type array
-***REMOVED***/
+    /**
+     * Error message, if any, for the last call.
+     * @type array
+     */
     protected $error = array();
 
-***REMOVED***
-***REMOVED*** The reply the server sent to us for HELO.
-***REMOVED*** If null, no HELO string has yet been received.
-***REMOVED*** @type string|null
-***REMOVED***/
+    /**
+     * The reply the server sent to us for HELO.
+     * If null, no HELO string has yet been received.
+     * @type string|null
+     */
     protected $helo_rply = null;
 
-***REMOVED***
-***REMOVED*** The most recent reply received from the server.
-***REMOVED*** @type string
-***REMOVED***/
+    /**
+     * The most recent reply received from the server.
+     * @type string
+     */
     protected $last_reply = '';
 
-***REMOVED***
-***REMOVED*** Output debugging info via a user-selected method.
-***REMOVED*** @param string $str Debug string to output
-***REMOVED*** @return void
-***REMOVED***/
+    /**
+     * Output debugging info via a user-selected method.
+     * @param string $str Debug string to output
+     * @return void
+     */
     protected function edebug($str)
     {
         switch ($this->Debugoutput) {
@@ -172,15 +172,15 @@ class SMTP
         }
     }
 
-***REMOVED***
-***REMOVED*** Connect to an SMTP server.
-***REMOVED*** @param string $host SMTP server IP or host name
-***REMOVED*** @param integer $port The port number to connect to
-***REMOVED*** @param integer $timeout How long to wait for the connection to open
-***REMOVED*** @param array $options An array of options for stream_context_create()
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Connect to an SMTP server.
+     * @param string $host SMTP server IP or host name
+     * @param integer $port The port number to connect to
+     * @param integer $timeout How long to wait for the connection to open
+     * @param array $options An array of options for stream_context_create()
+     * @access public
+     * @return boolean
+     */
     public function connect($host, $port = null, $timeout = 30, $options = array())
     {
         static $streamok;
@@ -265,11 +265,11 @@ class SMTP
         return true;
     }
 
-***REMOVED***
-***REMOVED*** Initiate a TLS (encrypted) session.
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Initiate a TLS (encrypted) session.
+     * @access public
+     * @return boolean
+     */
     public function startTLS()
     {
         if (!$this->sendCommand('STARTTLS', 'STARTTLS', 220)) {
@@ -286,18 +286,18 @@ class SMTP
         return true;
     }
 
-***REMOVED***
-***REMOVED*** Perform SMTP authentication.
-***REMOVED*** Must be run after hello().
-***REMOVED*** @see hello()
-***REMOVED*** @param string $username    The user name
-***REMOVED*** @param string $password    The password
-***REMOVED*** @param string $authtype    The auth type (PLAIN, LOGIN, NTLM, CRAM-MD5)
-***REMOVED*** @param string $realm       The auth realm for NTLM
-***REMOVED*** @param string $workstation The auth workstation for NTLM
-***REMOVED*** @access public
-***REMOVED*** @return boolean True if successfully authenticated.
-***REMOVED***/
+    /**
+     * Perform SMTP authentication.
+     * Must be run after hello().
+     * @see hello()
+     * @param string $username    The user name
+     * @param string $password    The password
+     * @param string $authtype    The auth type (PLAIN, LOGIN, NTLM, CRAM-MD5)
+     * @param string $realm       The auth realm for NTLM
+     * @param string $workstation The auth workstation for NTLM
+     * @access public
+     * @return boolean True if successfully authenticated.
+     */
     public function authenticate(
         $username,
         $password,
@@ -338,13 +338,13 @@ class SMTP
                 break;
             case 'NTLM':
                 /*
-       ***REMOVED*****REMOVED*** ntlm_sasl_client.php
-       ***REMOVED*****REMOVED*** Bundled with Permission
-       ***REMOVED*****REMOVED***
-       ***REMOVED*****REMOVED*** How to telnet in windows:
-       ***REMOVED*****REMOVED*** http://technet.microsoft.com/en-us/library/aa995718%28EXCHG.65%29.aspx
-       ***REMOVED*****REMOVED*** PROTOCOL Docs http://curl.haxx.se/rfc/ntlm.html#ntlmSmtpAuthentication
-       ***REMOVED*****REMOVED***/
+                 * ntlm_sasl_client.php
+                 * Bundled with Permission
+                 *
+                 * How to telnet in windows:
+                 * http://technet.microsoft.com/en-us/library/aa995718%28EXCHG.65%29.aspx
+                 * PROTOCOL Docs http://curl.haxx.se/rfc/ntlm.html#ntlmSmtpAuthentication
+                 */
                 require_once 'extras/ntlm_sasl_client.php';
                 $temp = new stdClass();
                 $ntlm_client = new ntlm_sasl_client_class;
@@ -404,15 +404,15 @@ class SMTP
         return true;
     }
 
-***REMOVED***
-***REMOVED*** Calculate an MD5 HMAC hash.
-***REMOVED*** Works like hash_hmac('md5', $data, $key)
-***REMOVED*** in case that function is not available
-***REMOVED*** @param string $data The data to hash
-***REMOVED*** @param string $key  The key to hash with
-***REMOVED*** @access protected
-***REMOVED*** @return string
-***REMOVED***/
+    /**
+     * Calculate an MD5 HMAC hash.
+     * Works like hash_hmac('md5', $data, $key)
+     * in case that function is not available
+     * @param string $data The data to hash
+     * @param string $key  The key to hash with
+     * @access protected
+     * @return string
+     */
     protected function hmac($data, $key)
     {
         if (function_exists('hash_hmac')) {
@@ -440,11 +440,11 @@ class SMTP
         return md5($k_opad . pack('H*', md5($k_ipad . $data)));
     }
 
-***REMOVED***
-***REMOVED*** Check connection state.
-***REMOVED*** @access public
-***REMOVED*** @return boolean True if connected.
-***REMOVED***/
+    /**
+     * Check connection state.
+     * @access public
+     * @return boolean True if connected.
+     */
     public function connected()
     {
         if (is_resource($this->smtp_conn)) {
@@ -464,13 +464,13 @@ class SMTP
         return false;
     }
 
-***REMOVED***
-***REMOVED*** Close the socket and clean up the state of the class.
-***REMOVED*** Don't use this function without first trying to use QUIT.
-***REMOVED*** @see quit()
-***REMOVED*** @access public
-***REMOVED*** @return void
-***REMOVED***/
+    /**
+     * Close the socket and clean up the state of the class.
+     * Don't use this function without first trying to use QUIT.
+     * @see quit()
+     * @access public
+     * @return void
+     */
     public function close()
     {
         $this->error = array();
@@ -484,38 +484,38 @@ class SMTP
         }
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP DATA command.
-***REMOVED*** Issues a data command and sends the msg_data to the server,
-***REMOVED*** finializing the mail transaction. $msg_data is the message
-***REMOVED*** that is to be send with the headers. Each header needs to be
-***REMOVED*** on a single line followed by a <CRLF> with the message headers
-***REMOVED*** and the message body being separated by and additional <CRLF>.
-***REMOVED*** Implements rfc 821: DATA <CRLF>
-***REMOVED*** @param string $msg_data Message data to send
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Send an SMTP DATA command.
+     * Issues a data command and sends the msg_data to the server,
+     * finializing the mail transaction. $msg_data is the message
+     * that is to be send with the headers. Each header needs to be
+     * on a single line followed by a <CRLF> with the message headers
+     * and the message body being separated by and additional <CRLF>.
+     * Implements rfc 821: DATA <CRLF>
+     * @param string $msg_data Message data to send
+     * @access public
+     * @return boolean
+     */
     public function data($msg_data)
     {
         if (!$this->sendCommand('DATA', 'DATA', 354)) {
             return false;
         }
         /* The server is ready to accept data!
-    ***REMOVED*** According to rfc821 we should not send more than 1000 characters on a single line (including the CRLF)
-    ***REMOVED*** so we will break the data up into lines by \r and/or \n then if needed we will break each of those into
-    ***REMOVED*** smaller lines to fit within the limit.
-    ***REMOVED*** We will also look for lines that start with a '.' and prepend an additional '.'.
-    ***REMOVED*** NOTE: this does not count towards line-length limit.
-    ***REMOVED***/
+         * According to rfc821 we should not send more than 1000 characters on a single line (including the CRLF)
+         * so we will break the data up into lines by \r and/or \n then if needed we will break each of those into
+         * smaller lines to fit within the limit.
+         * We will also look for lines that start with a '.' and prepend an additional '.'.
+         * NOTE: this does not count towards line-length limit.
+         */
 
         // Normalize line breaks before exploding
         $lines = explode("\n", str_replace(array("\r\n", "\r"), "\n", $msg_data));
 
         /* To distinguish between a complete RFC822 message and a plain message body, we check if the first field
-    ***REMOVED*** of the first line (':' separated) does not contain a space then it _should_ be a header and we will
-    ***REMOVED*** process all lines before a blank line as headers.
-    ***REMOVED***/
+         * of the first line (':' separated) does not contain a space then it _should_ be a header and we will
+         * process all lines before a blank line as headers.
+         */
 
         $field = substr($lines[0], 0, strpos($lines[0], ':'));
         $in_headers = false;
@@ -546,8 +546,8 @@ class SMTP
                     $line = substr($line, $pos + 1);
                 }
                 /* If processing headers add a LWSP-char to the front of new line
-       ***REMOVED*****REMOVED*** RFC822 section 3.1.1
-       ***REMOVED*****REMOVED***/
+                 * RFC822 section 3.1.1
+                 */
                 if ($in_headers) {
                     $line = "\t" . $line;
                 }
@@ -568,31 +568,31 @@ class SMTP
         return $this->sendCommand('DATA END', '.', 250);
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP HELO or EHLO command.
-***REMOVED*** Used to identify the sending server to the receiving server.
-***REMOVED*** This makes sure that client and server are in a known state.
-***REMOVED*** Implements RFC 821: HELO <SP> <domain> <CRLF>
-***REMOVED*** and RFC 2821 EHLO.
-***REMOVED*** @param string $host The host name or IP to connect to
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Send an SMTP HELO or EHLO command.
+     * Used to identify the sending server to the receiving server.
+     * This makes sure that client and server are in a known state.
+     * Implements RFC 821: HELO <SP> <domain> <CRLF>
+     * and RFC 2821 EHLO.
+     * @param string $host The host name or IP to connect to
+     * @access public
+     * @return boolean
+     */
     public function hello($host = '')
     {
         // Try extended hello first (RFC 2821)
         return (boolean)($this->sendHello('EHLO', $host) or $this->sendHello('HELO', $host));
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP HELO or EHLO command.
-***REMOVED*** Low-level implementation used by hello()
-***REMOVED*** @see hello()
-***REMOVED*** @param string $hello The HELO string
-***REMOVED*** @param string $host The hostname to say we are
-***REMOVED*** @access protected
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Send an SMTP HELO or EHLO command.
+     * Low-level implementation used by hello()
+     * @see hello()
+     * @param string $hello The HELO string
+     * @param string $host The hostname to say we are
+     * @access protected
+     * @return boolean
+     */
     protected function sendHello($hello, $host)
     {
         $noerror = $this->sendCommand($hello, $hello . ' ' . $host, 250);
@@ -600,17 +600,17 @@ class SMTP
         return $noerror;
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP MAIL command.
-***REMOVED*** Starts a mail transaction from the email address specified in
-***REMOVED*** $from. Returns true if successful or false otherwise. If True
-***REMOVED*** the mail transaction is started and then one or more recipient
-***REMOVED*** commands may be called followed by a data command.
-***REMOVED*** Implements rfc 821: MAIL <SP> FROM:<reverse-path> <CRLF>
-***REMOVED*** @param string $from Source address of this message
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Send an SMTP MAIL command.
+     * Starts a mail transaction from the email address specified in
+     * $from. Returns true if successful or false otherwise. If True
+     * the mail transaction is started and then one or more recipient
+     * commands may be called followed by a data command.
+     * Implements rfc 821: MAIL <SP> FROM:<reverse-path> <CRLF>
+     * @param string $from Source address of this message
+     * @access public
+     * @return boolean
+     */
     public function mail($from)
     {
         $useVerp = ($this->do_verp ? ' XVERP' : '');
@@ -621,14 +621,14 @@ class SMTP
         );
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP QUIT command.
-***REMOVED*** Closes the socket if there is no error or the $close_on_error argument is true.
-***REMOVED*** Implements from rfc 821: QUIT <CRLF>
-***REMOVED*** @param boolean $close_on_error Should the connection close if an error occurs?
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Send an SMTP QUIT command.
+     * Closes the socket if there is no error or the $close_on_error argument is true.
+     * Implements from rfc 821: QUIT <CRLF>
+     * @param boolean $close_on_error Should the connection close if an error occurs?
+     * @access public
+     * @return boolean
+     */
     public function quit($close_on_error = true)
     {
         $noerror = $this->sendCommand('QUIT', 'QUIT', 221);
@@ -640,15 +640,15 @@ class SMTP
         return $noerror;
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP RCPT command.
-***REMOVED*** Sets the TO argument to $toaddr.
-***REMOVED*** Returns true if the recipient was accepted false if it was rejected.
-***REMOVED*** Implements from rfc 821: RCPT <SP> TO:<forward-path> <CRLF>
-***REMOVED*** @param string $toaddr The address the message is being sent to
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Send an SMTP RCPT command.
+     * Sets the TO argument to $toaddr.
+     * Returns true if the recipient was accepted false if it was rejected.
+     * Implements from rfc 821: RCPT <SP> TO:<forward-path> <CRLF>
+     * @param string $toaddr The address the message is being sent to
+     * @access public
+     * @return boolean
+     */
     public function recipient($toaddr)
     {
         return $this->sendCommand(
@@ -658,26 +658,26 @@ class SMTP
         );
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP RSET command.
-***REMOVED*** Abort any transaction that is currently in progress.
-***REMOVED*** Implements rfc 821: RSET <CRLF>
-***REMOVED*** @access public
-***REMOVED*** @return boolean True on success.
-***REMOVED***/
+    /**
+     * Send an SMTP RSET command.
+     * Abort any transaction that is currently in progress.
+     * Implements rfc 821: RSET <CRLF>
+     * @access public
+     * @return boolean True on success.
+     */
     public function reset()
     {
         return $this->sendCommand('RSET', 'RSET', 250);
     }
 
-***REMOVED***
-***REMOVED*** Send a command to an SMTP server and check its return code.
-***REMOVED*** @param string $command       The command name - not sent to the server
-***REMOVED*** @param string $commandstring The actual command to send
-***REMOVED*** @param integer|array $expect     One or more expected integer success codes
-***REMOVED*** @access protected
-***REMOVED*** @return boolean True on success.
-***REMOVED***/
+    /**
+     * Send a command to an SMTP server and check its return code.
+     * @param string $command       The command name - not sent to the server
+     * @param string $commandstring The actual command to send
+     * @param integer|array $expect     One or more expected integer success codes
+     * @access protected
+     * @return boolean True on success.
+     */
     protected function sendCommand($command, $commandstring, $expect)
     {
         if (!$this->connected()) {
@@ -715,55 +715,55 @@ class SMTP
         return true;
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP SAML command.
-***REMOVED*** Starts a mail transaction from the email address specified in $from.
-***REMOVED*** Returns true if successful or false otherwise. If True
-***REMOVED*** the mail transaction is started and then one or more recipient
-***REMOVED*** commands may be called followed by a data command. This command
-***REMOVED*** will send the message to the users terminal if they are logged
-***REMOVED*** in and send them an email.
-***REMOVED*** Implements rfc 821: SAML <SP> FROM:<reverse-path> <CRLF>
-***REMOVED*** @param string $from The address the message is from
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Send an SMTP SAML command.
+     * Starts a mail transaction from the email address specified in $from.
+     * Returns true if successful or false otherwise. If True
+     * the mail transaction is started and then one or more recipient
+     * commands may be called followed by a data command. This command
+     * will send the message to the users terminal if they are logged
+     * in and send them an email.
+     * Implements rfc 821: SAML <SP> FROM:<reverse-path> <CRLF>
+     * @param string $from The address the message is from
+     * @access public
+     * @return boolean
+     */
     public function sendAndMail($from)
     {
         return $this->sendCommand('SAML', "SAML FROM:$from", 250);
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP VRFY command.
-***REMOVED*** @param string $name The name to verify
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Send an SMTP VRFY command.
+     * @param string $name The name to verify
+     * @access public
+     * @return boolean
+     */
     public function verify($name)
     {
         return $this->sendCommand('VRFY', "VRFY $name", array(250, 251));
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP NOOP command.
-***REMOVED*** Used to keep keep-alives alive, doesn't actually do anything
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Send an SMTP NOOP command.
+     * Used to keep keep-alives alive, doesn't actually do anything
+     * @access public
+     * @return boolean
+     */
     public function noop()
     {
         return $this->sendCommand('NOOP', 'NOOP', 250);
     }
 
-***REMOVED***
-***REMOVED*** Send an SMTP TURN command.
-***REMOVED*** This is an optional command for SMTP that this class does not support.
-***REMOVED*** This method is here to make the RFC821 Definition complete for this class
-***REMOVED*** and _may_ be implemented in future
-***REMOVED*** Implements from rfc 821: TURN <CRLF>
-***REMOVED*** @access public
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Send an SMTP TURN command.
+     * This is an optional command for SMTP that this class does not support.
+     * This method is here to make the RFC821 Definition complete for this class
+     * and _may_ be implemented in future
+     * Implements from rfc 821: TURN <CRLF>
+     * @access public
+     * @return boolean
+     */
     public function turn()
     {
         $this->error = array(
@@ -775,12 +775,12 @@ class SMTP
         return false;
     }
 
-***REMOVED***
-***REMOVED*** Send raw data to the server.
-***REMOVED*** @param string $data The data to send
-***REMOVED*** @access public
-***REMOVED*** @return integer|boolean The number of bytes sent to the server or false on error
-***REMOVED***/
+    /**
+     * Send raw data to the server.
+     * @param string $data The data to send
+     * @access public
+     * @return integer|boolean The number of bytes sent to the server or false on error
+     */
     public function client_send($data)
     {
         if ($this->do_debug >= 1) {
@@ -789,35 +789,35 @@ class SMTP
         return fwrite($this->smtp_conn, $data);
     }
 
-***REMOVED***
-***REMOVED*** Get the latest error.
-***REMOVED*** @access public
-***REMOVED*** @return array
-***REMOVED***/
+    /**
+     * Get the latest error.
+     * @access public
+     * @return array
+     */
     public function getError()
     {
         return $this->error;
     }
 
-***REMOVED***
-***REMOVED*** Get the last reply from the server.
-***REMOVED*** @access public
-***REMOVED*** @return string
-***REMOVED***/
+    /**
+     * Get the last reply from the server.
+     * @access public
+     * @return string
+     */
     public function getLastReply()
     {
         return $this->last_reply;
     }
 
-***REMOVED***
-***REMOVED*** Read the SMTP server's response.
-***REMOVED*** Either before eof or socket timeout occurs on the operation.
-***REMOVED*** With SMTP we can tell if we have more lines to read if the
-***REMOVED*** 4th character is '-' symbol. If it is a space then we don't
-***REMOVED*** need to read anything else.
-***REMOVED*** @access protected
-***REMOVED*** @return string
-***REMOVED***/
+    /**
+     * Read the SMTP server's response.
+     * Either before eof or socket timeout occurs on the operation.
+     * With SMTP we can tell if we have more lines to read if the
+     * 4th character is '-' symbol. If it is a space then we don't
+     * need to read anything else.
+     * @access protected
+     * @return string
+     */
     protected function get_lines()
     {
         // If the connection is bad, give up straight away
@@ -868,73 +868,73 @@ class SMTP
         return $data;
     }
 
-***REMOVED***
-***REMOVED*** Enable or disable VERP address generation.
-***REMOVED*** @param boolean $enabled
-***REMOVED***/
+    /**
+     * Enable or disable VERP address generation.
+     * @param boolean $enabled
+     */
     public function setVerp($enabled = false)
     {
         $this->do_verp = $enabled;
     }
 
-***REMOVED***
-***REMOVED*** Get VERP address generation mode.
-***REMOVED*** @return boolean
-***REMOVED***/
+    /**
+     * Get VERP address generation mode.
+     * @return boolean
+     */
     public function getVerp()
     {
         return $this->do_verp;
     }
 
-***REMOVED***
-***REMOVED*** Set debug output method.
-***REMOVED*** @param string $method The function/method to use for debugging output.
-***REMOVED***/
+    /**
+     * Set debug output method.
+     * @param string $method The function/method to use for debugging output.
+     */
     public function setDebugOutput($method = 'echo')
     {
         $this->Debugoutput = $method;
     }
 
-***REMOVED***
-***REMOVED*** Get debug output method.
-***REMOVED*** @return string
-***REMOVED***/
+    /**
+     * Get debug output method.
+     * @return string
+     */
     public function getDebugOutput()
     {
         return $this->Debugoutput;
     }
 
-***REMOVED***
-***REMOVED*** Set debug output level.
-***REMOVED*** @param integer $level
-***REMOVED***/
+    /**
+     * Set debug output level.
+     * @param integer $level
+     */
     public function setDebugLevel($level = 0)
     {
         $this->do_debug = $level;
     }
 
-***REMOVED***
-***REMOVED*** Get debug output level.
-***REMOVED*** @return integer
-***REMOVED***/
+    /**
+     * Get debug output level.
+     * @return integer
+     */
     public function getDebugLevel()
     {
         return $this->do_debug;
     }
 
-***REMOVED***
-***REMOVED*** Set SMTP timeout.
-***REMOVED*** @param integer $timeout
-***REMOVED***/
+    /**
+     * Set SMTP timeout.
+     * @param integer $timeout
+     */
     public function setTimeout($timeout = 0)
     {
         $this->Timeout = $timeout;
     }
 
-***REMOVED***
-***REMOVED*** Get SMTP timeout.
-***REMOVED*** @return integer
-***REMOVED***/
+    /**
+     * Get SMTP timeout.
+     * @return integer
+     */
     public function getTimeout()
     {
         return $this->Timeout;

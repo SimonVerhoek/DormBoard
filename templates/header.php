@@ -2,23 +2,23 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link href="<?= WEBSITEROOT ***REMOVED***/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
-        <link href="<?= WEBSITEROOT ***REMOVED***/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
-        <link href="<?= WEBSITEROOT ***REMOVED***/css/bootstrapValidator.min.css" type="text/css" rel="stylesheet"/>
-        <link href="<?= WEBSITEROOT ***REMOVED***/css/styles.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= WEBSITEROOT ?>/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= WEBSITEROOT ?>/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= WEBSITEROOT ?>/css/bootstrapValidator.min.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= WEBSITEROOT ?>/css/styles.css" type="text/css" rel="stylesheet"/>
         <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Londrina+Sketch' rel='stylesheet' type='text/css'>
 
-   ***REMOVED*****REMOVED*** if (isset($title)): ***REMOVED***
-            <title>DormBoard: <?= htmlspecialchars($title) ***REMOVED***</title>
-   ***REMOVED*****REMOVED*** else: ***REMOVED***
+        <?php if (isset($title)): ?>
+            <title>DormBoard: <?= htmlspecialchars($title) ?></title>
+        <?php else: ?>
             <title>DormBoard</title>
-   ***REMOVED*****REMOVED*** endif ***REMOVED***
+        <?php endif ?>
 
-        <script src="<?= WEBSITEROOT ***REMOVED***/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-        <script src="<?= WEBSITEROOT ***REMOVED***/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="<?= WEBSITEROOT ***REMOVED***/js/scripts.js" type="text/javascript"></script>
-        <script src="<?= WEBSITEROOT ***REMOVED***/js/bootstrapValidator.min.js" type="text/javascript"></script>
+        <script src="<?= WEBSITEROOT ?>/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <script src="<?= WEBSITEROOT ?>/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?= WEBSITEROOT ?>/js/scripts.js" type="text/javascript"></script>
+        <script src="<?= WEBSITEROOT ?>/js/bootstrapValidator.min.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -36,7 +36,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="dinner.php">
-                            <img id="logo" src="<?= WEBSITEROOT ***REMOVED***/img/DormBoardlogo-small.png"/>
+                            <img id="logo" src="<?= WEBSITEROOT ?>/img/DormBoardlogo-small.png"/>
                         </a>
                         <a class="navbar-brand" href="dinner.php" id="header-title">
                             DormBoard

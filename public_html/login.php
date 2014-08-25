@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 
     // configuration
     require("../includes/config.php"); 
@@ -53,4 +53,4 @@
         render("home.php");
     }
 
-***REMOVED***
+?>

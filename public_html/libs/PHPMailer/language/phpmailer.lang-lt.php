@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
 * PHPMailer language file: refer to English translation for definitive list
 * Lithuanian version by Dainius Kaupaitis <dk@sum.lt>

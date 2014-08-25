@@ -134,7 +134,7 @@
 			<div class="panel-body">
 				<!-- item list -->    
 				<ol id="shoplistitems">
-					***REMOVED*** 
+					<?php 
 						foreach ($listItems as $item) 
 						{
 							$postDate = strtotime($item["post_date"]);
@@ -214,7 +214,7 @@
 									'</li>'
 								);		
 						}
-					***REMOVED***
+					?>
 				</ol>
 
 			</div> <!-- /.panel-body --> 
@@ -256,7 +256,7 @@
 								<div class="form-group">
 									<label class="col-sm-4 control-label">Who is it for?</label>
 									<div class="col-sm-7">
-										***REMOVED***
+										<?php
 											foreach ($roommates as $roommate)
 											{
 												$rmID = $roommate["user_id"];
@@ -282,7 +282,7 @@
 														'</div>'
 													);
 											}
-										***REMOVED***
+										?>
 									</div>
 								</div>
 

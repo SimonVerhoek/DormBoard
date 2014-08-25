@@ -114,7 +114,7 @@
 						</thead>
 					-->
 						<tbody id="spendstable-body">
-							***REMOVED***
+							<?php
 								// for each spend
 								foreach ($spends as $spend)
 								{
@@ -146,7 +146,7 @@
 
 									echo "</tr>";
 								}
-							***REMOVED***
+							?>
 						</tbody>
 					</table>
 				</div> <!-- close table-responsive -->
@@ -164,7 +164,7 @@
 	<div class="col-md-3">
 		<table class="table" id="rm-balances">
 			<tbody>
-				***REMOVED***
+				<?php
 					foreach ($roommates as $roommate) 
 					{
 						echo	"<tr>"; 
@@ -212,7 +212,7 @@
 								"</tr>"
 							);
 					}
-				***REMOVED***
+				?>
 			</tbody>
 		</table>
 	</div> <!-- close cash balances column -->
@@ -254,7 +254,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Who is it for?</label>
 							<div class="col-sm-7">
-								***REMOVED***
+								<?php
 									foreach ($roommates as $roommate)
 									{
 										$rmID = $roommate["user_id"];
@@ -280,7 +280,7 @@
 												'</div>'
 											);
 									}
-								***REMOVED***
+								?>
 							</div>
 						</div>
 

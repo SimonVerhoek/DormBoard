@@ -1,7 +1,7 @@
 <ul class="nav navbar-nav navbar-right">
 	<li class="dropdown">
 		<a href="#" data-toggle="dropdown" class="dropdown-toggle">
-			<?= $user[0]["first_name"] . " " . $user[0]["last_name"] ***REMOVED***	
+			<?= $user[0]["first_name"] . " " . $user[0]["last_name"] ?>	
 			<b class="caret"></b>
 		</a>
 		<ul class="dropdown-menu">

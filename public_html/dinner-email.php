@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
     // configuration
     require("../includes/config.php");
 
@@ -50,6 +50,9 @@
     // set variables for html doc 
     $cookingRoommateFirstName = $user[0]["first_name"];
 
+    // redirect to dinner tab
+    $goToDinner = WEBSITEROOT . "/dinner.php";
+
     // instantiate mailer
     $mail = new PHPMailer();
 
@@ -74,7 +77,9 @@
     $body = file_get_contents('../templates/dinner_email.html');
     $body = str_replace('$cookingRoommateFirstName', $cookingRoommateFirstName, $body);
     $body = str_replace('$dateCooking', $dateCooking, $body);
+    $body = str_replace('$goToDinner', WEBSITEROOT, $body);
 
+    /*
     foreach ($roommates as $roommate) 
     {
         $fullname = $roommate["first_name"] . " " . $roommate["last_name"];
@@ -83,6 +88,7 @@
         $mail->AddAddress($roommate["email"], $fullname);     
         $body = str_replace('$firstName', $firstName, $body);
     }
+    */
 
     // test
     $mail->AddAddress("saverhoek@gmail.com"); 
@@ -96,4 +102,4 @@
         die($mail->ErrorInfo . "\n");
     
     redirect("dinner.php");
-***REMOVED***
+?>

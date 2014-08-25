@@ -22,7 +22,7 @@
 <!-- change timezone -->
 <div class="row clearfix">
 
-   ***REMOVED*****REMOVED***
+        <?php
             /*
 
             // create option menu with timezones
@@ -76,8 +76,8 @@
             echo    '</select>';
             echo '</form>';
 
-  ***REMOVED*****REMOVED***/
-        ***REMOVED***
+            */
+        ?>
 </div>
 
 <!-- change password -->
@@ -87,14 +87,14 @@
         <fieldset>
             <legend>Change password</legend>
 
-  ***REMOVED*****REMOVED*****REMOVED***
+            <?php
                 if ($passwordUpdated === true)
                 {
                     echo (  '<div class="alert alert-success" role="alert">' .
                                 'Password changed.' .
                             '</div>');
                 }
-            ***REMOVED***
+            ?>
 
             <div class="form-group">
                 <label class="col-sm-2 control-label">Old password</label>

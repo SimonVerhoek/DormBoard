@@ -5,7 +5,7 @@
     <title>PHPMailer - Exceptions test</title>
 </head>
 <body>
-***REMOVED***
+<?php
 require '../PHPMailerAutoload.php';
 
 //Create a new PHPMailer instance
@@ -36,6 +36,6 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage(); //Boring error messages from anything else!
 }
-***REMOVED***
+?>
 </body>
 </html>

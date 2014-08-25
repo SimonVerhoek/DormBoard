@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
  * PHPMailer - language file tests
  * Requires PHPUnit 3.3 or later.
@@ -21,31 +21,31 @@ require_once '../PHPMailerAutoload.php';
  */
 class PHPMailerLangTest extends PHPUnit_Framework_TestCase
 {
-***REMOVED***
-***REMOVED*** Holds a phpmailer instance.
-***REMOVED*** @private
-***REMOVED*** @var PHPMailer
-***REMOVED***/
+    /**
+     * Holds a phpmailer instance.
+     * @private
+     * @var PHPMailer
+     */
     public $Mail;
 
-***REMOVED***
-***REMOVED*** @var string Default include path
-***REMOVED***/
+    /**
+     * @var string Default include path
+     */
     public $INCLUDE_DIR = '../';
 
-***REMOVED***
-***REMOVED*** Run before each test is started.
-***REMOVED***/
+    /**
+     * Run before each test is started.
+     */
     public function setUp()
     {
         $this->Mail = new PHPMailer;
     }
 
-***REMOVED***
-***REMOVED*** Test language files for missing and excess translations
-***REMOVED*** All languages are compared with English
-***REMOVED*** @group languages
-***REMOVED***/
+    /**
+     * Test language files for missing and excess translations
+     * All languages are compared with English
+     * @group languages
+     */
     public function testTranslations()
     {
         $this->Mail->setLanguage('en');

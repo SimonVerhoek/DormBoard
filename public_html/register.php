@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 	
     // configuration
     require("../includes/config.php");
@@ -93,4 +93,4 @@
         ]);
     }
 
-***REMOVED***
+?>

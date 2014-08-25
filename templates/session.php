@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 	// if on register page, show nothing
 	if (preg_match("{(?:register)\.php$}", $_SERVER["PHP_SELF"]))
 	{
@@ -24,7 +24,7 @@
 			"user" => $user
 			]);
 	}
-***REMOVED***
+?>
 		
 		</div> <!-- closes navbar-collapse -->
     </nav> <!-- closes header --> 
