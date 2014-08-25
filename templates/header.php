@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link href="<?= ROOTDIR ***REMOVED***/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
-        <link href="<?= ROOTDIR ***REMOVED***/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
-        <link href="<?= ROOTDIR ***REMOVED***/css/bootstrapValidator.min.css" type="text/css" rel="stylesheet"/>
-        <link href="<?= ROOTDIR ***REMOVED***/css/styles.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= WEBSITEROOT ***REMOVED***/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= WEBSITEROOT ***REMOVED***/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= WEBSITEROOT ***REMOVED***/css/bootstrapValidator.min.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= WEBSITEROOT ***REMOVED***/css/styles.css" type="text/css" rel="stylesheet"/>
         <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Londrina+Sketch' rel='stylesheet' type='text/css'>
 
@@ -15,10 +15,10 @@
             <title>DormBoard</title>
    ***REMOVED*****REMOVED*** endif ***REMOVED***
 
-        <script src="<?= ROOTDIR ***REMOVED***/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-        <script src="<?= ROOTDIR ***REMOVED***/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="<?= ROOTDIR ***REMOVED***/js/scripts.js" type="text/javascript"></script>
-        <script src="<?= ROOTDIR ***REMOVED***/js/bootstrapValidator.min.js" type="text/javascript"></script>
+        <script src="<?= WEBSITEROOT ***REMOVED***/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <script src="<?= WEBSITEROOT ***REMOVED***/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?= WEBSITEROOT ***REMOVED***/js/scripts.js" type="text/javascript"></script>
+        <script src="<?= WEBSITEROOT ***REMOVED***/js/bootstrapValidator.min.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -36,7 +36,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="dinner.php">
-                            <img id="logo" src="<?= ROOTDIR ***REMOVED***/img/DormBoardlogo-small.png"/>
+                            <img id="logo" src="<?= WEBSITEROOT ***REMOVED***/img/DormBoardlogo-small.png"/>
                         </a>
                         <a class="navbar-brand" href="dinner.php" id="header-title">
                             DormBoard
