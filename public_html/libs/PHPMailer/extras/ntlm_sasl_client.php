@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /*
  * ntlm_sasl_client.php
  *
@@ -182,4 +182,4 @@ class ntlm_sasl_client_class
 	}
 };
 
-***REMOVED***
+?>

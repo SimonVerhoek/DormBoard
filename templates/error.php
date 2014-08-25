@@ -2,7 +2,7 @@
     Sorry!
 </p>
 <p class="text-danger">
-    <?= htmlspecialchars($message) ***REMOVED***
+    <?= htmlspecialchars($message) ?>
 </p>
 
 <a href="javascript:history.go(-1);">Back</a>

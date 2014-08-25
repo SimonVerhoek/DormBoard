@@ -5,7 +5,7 @@
     <title>PHPMailer - sendmail test</title>
 </head>
 <body>
-***REMOVED***
+<?php
 require '../PHPMailerAutoload.php';
 
 //Create a new PHPMailer instance
@@ -34,6 +34,6 @@ if (!$mail->send()) {
 } else {
     echo "Message sent!";
 }
-***REMOVED***
+?>
 </body>
 </html>

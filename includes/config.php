@@ -1,13 +1,13 @@
-***REMOVED***
+<?php
 
-***REMOVED***
-***REMOVED*** config.php
-***REMOVED***
-***REMOVED*** Programmeren 2 - Final Project
-***REMOVED*** Made by Simon Verhoek.
-***REMOVED***
-***REMOVED*** Configures pages.
-***REMOVED***/ 
+    /**
+     * config.php
+     *
+     * Programmeren 2 - Final Project
+     * Made by Simon Verhoek.
+     *
+     * Configures pages.
+     */ 
 
     // display errors, warnings, and notices
     ini_set("display_errors", true);
@@ -29,4 +29,4 @@
         }
     }
 
-***REMOVED***
+?>

@@ -1,29 +1,29 @@
-***REMOVED***
+<?php
 
-***REMOVED***
-***REMOVED*** functions.php
-***REMOVED***
-***REMOVED*** Programmeren 2 - Final Project
-***REMOVED*** Made by Simon Verhoek.
-***REMOVED***
-***REMOVED*** Helper functions.
-***REMOVED***/ 
+    /**
+     * functions.php
+     *
+     * Programmeren 2 - Final Project
+     * Made by Simon Verhoek.
+     *
+     * Helper functions.
+     */ 
 
     require_once("constants.php");
 
-***REMOVED***
-***REMOVED*** Apologizes to user with message.
-***REMOVED***/
+    /**
+     * Apologizes to user with message.
+     */
     function errorMsg($message)
     {
         render("error.php", ["message" => $message]);
         exit;
     }
 
-***REMOVED***
-***REMOVED*** Facilitates debugging by dumping contents of variable
-***REMOVED*** to browser.
-***REMOVED***/
+    /**
+     * Facilitates debugging by dumping contents of variable
+     * to browser.
+     */
     /*
     function dump($variable)
     {
@@ -32,10 +32,10 @@
     }
     */
 
-***REMOVED***
-***REMOVED*** Logs out current user, if any.  Based on Example #1 at
-***REMOVED*** http://us.php.net/manual/en/function.session-destroy.php.
-***REMOVED***/
+    /**
+     * Logs out current user, if any.  Based on Example #1 at
+     * http://us.php.net/manual/en/function.session-destroy.php.
+     */
     function logout()
     {
         // unset any session variables
@@ -51,10 +51,10 @@
         session_destroy();
     }
 
-***REMOVED***
-***REMOVED*** Executes SQL statement, possibly with parameters, returning
-***REMOVED*** an array of all rows in result set or false on (non-fatal) error.
-***REMOVED***/
+    /**
+     * Executes SQL statement, possibly with parameters, returning
+     * an array of all rows in result set or false on (non-fatal) error.
+     */
     function query(/* $sql [, ... ] */)
     {
         // SQL statement
@@ -106,13 +106,13 @@
         }
     }
 
-***REMOVED***
-***REMOVED*** Redirects user to destination, which can be
-***REMOVED*** a URL or a relative path on the local host.
-***REMOVED***
-***REMOVED*** Because this function outputs an HTTP header, it
-***REMOVED*** must be called before caller outputs any HTML.
-***REMOVED***/
+    /**
+     * Redirects user to destination, which can be
+     * a URL or a relative path on the local host.
+     *
+     * Because this function outputs an HTTP header, it
+     * must be called before caller outputs any HTML.
+     */
     function redirect($destination)
     {
         // handle URL
@@ -143,9 +143,9 @@
         exit;
     }
 
-***REMOVED***
-***REMOVED*** Renders template, passing in values.
-***REMOVED***/
+    /**
+     * Renders template, passing in values.
+     */
     function render($template, $values = [])
     {
         // if template exists, render it
@@ -177,11 +177,11 @@
         }
     }
 
-***REMOVED***
-***REMOVED*** Renders template without any additional html, passing in values. 
-***REMOVED*** Used for:
-***REMOVED***  - showing multiple things on dashboard (found in navbar.php)
-***REMOVED***/
+    /**
+     * Renders template without any additional html, passing in values. 
+     * Used for:
+     *  - showing multiple things on dashboard (found in navbar.php)
+     */
     function build($template, $values = [])
     {
         // if template exists, render it
@@ -201,9 +201,9 @@
         }
     }
 
-***REMOVED***
-***REMOVED*** Creates a dropdown menu for picking a date of birth.
-***REMOVED***/
+    /**
+     * Creates a dropdown menu for picking a date of birth.
+     */
     date_default_timezone_set("Europe/Amsterdam");
 
     function date_dropdown($year_limit = 1900)
@@ -237,4 +237,4 @@
         $html_output .= '</div>'."\n";
         return $html_output;
     }
-***REMOVED***
+?>

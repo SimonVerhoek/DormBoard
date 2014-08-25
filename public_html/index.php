@@ -1,5 +1,5 @@
 
-***REMOVED***
+<?php
 
     // configuration
     require("../includes/config.php"); 
@@ -21,6 +21,6 @@
 		"user_id" => $_SESSION["user_id"]
 		]);
 
-***REMOVED***
+?>
 
 

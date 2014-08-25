@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 
     // configuration
     require("../includes/config.php"); 
@@ -183,4 +183,4 @@
 		"spends" => $spends,
 		"roommates" => $roommates
     	]);
-***REMOVED***
+?>

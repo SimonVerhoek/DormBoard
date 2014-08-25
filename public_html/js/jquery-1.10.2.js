@@ -78,7 +78,7 @@ var
 	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
 
 	// Match a standalone tag
-	rsingleTag = /^<(\w+)\s*\/***REMOVED***(?:<\/\1>|)$/,
+	rsingleTag = /^<(\w+)\s*\/?>(?:<\/\1>|)$/,
 
 	// JSON RegExp
 	rvalidchars = /^[\],:{}\s]*$/,

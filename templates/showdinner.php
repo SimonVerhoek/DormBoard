@@ -24,7 +24,7 @@
 			<thead id="dinner-table-header">
 				<tr>
 					<td></td>
-					***REMOVED*** 
+					<?php 
 						foreach ($days as $i => $day) 
 						{
 							echo "<th>";
@@ -46,11 +46,11 @@
 
 					    	echo "</th>";
 						}
-					***REMOVED***
+					?>
 				</tr>
 			</thead>
 			<tbody id="dinner-table-body">
-				***REMOVED***
+				<?php
 					// for every roommate
 					foreach ($roommates as $roommate)
 					{
@@ -101,18 +101,18 @@
 
 						echo "</tr>";
 					}	
-				***REMOVED***
+				?>
 			</tbody>
 		</table>
 
 		<!-- show menu -->
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				***REMOVED*** 
+				<?php 
 					build("dinner_form.php", [
 						"days" => $days
 						]) ;
-				***REMOVED***
+				?>
 			</div>
 		</div>
 

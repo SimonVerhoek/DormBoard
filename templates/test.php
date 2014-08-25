@@ -4,7 +4,7 @@
 			    	<div class="modal-content">
 			    		<div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					        <h4 class="modal-title" id="myModalLabel">Add spend for: <?= $itemID ***REMOVED*** </h4>
+					        <h4 class="modal-title" id="myModalLabel">Add spend for: <?= $itemID ?> </h4>
 					    </div>
 			      		<div class="modal-body">
 
@@ -33,7 +33,7 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Who is it for?</label>
 										<div class="col-sm-6">
-											***REMOVED***
+											<?php
 												foreach ($roommates as $roommate)
 												{
 													$rmID = $roommate["user_id"];
@@ -59,7 +59,7 @@
 															'</div>'
 														);
 												}
-											***REMOVED***
+											?>
 										</div>
 									</div>
 					      		
@@ -79,7 +79,7 @@
 
 
 
-	***REMOVED***
+	<?php
 			/*
 			// create modals
 			foreach ($listItems as $item) 
@@ -164,4 +164,4 @@
 					);
 			}
 			*/
-		***REMOVED***
+		?>

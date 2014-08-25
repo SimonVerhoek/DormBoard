@@ -4,7 +4,7 @@
  |
  -->
 
-***REMOVED*** 
+<?php 
 	//show navbar only when logged in
 	if (!preg_match("{(?:login|register|getdorm)\.php$}", $_SERVER["PHP_SELF"]))
 	{
@@ -52,5 +52,5 @@
 	{
 		echo("<div class='col-md-10 column'>");
 	}
-***REMOVED***
+?>
 

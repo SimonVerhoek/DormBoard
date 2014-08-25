@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 /**
 * PHPMailer language file: refer to English translation for definitive list
 * Hebrew Version, UTF-8

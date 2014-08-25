@@ -4,7 +4,7 @@
 </head>
 <body>
 
-***REMOVED***
+<?php
 /* This is a sample callback function for PHPMailer Lite.
  * This callback function will echo the results of PHPMailer processing.
  */
@@ -76,6 +76,6 @@ function cleanEmails($str, $type)
     $addy['Email'] = str_replace('@', '&#64;', $addy['Email']);
     return $addy;
 }
-***REMOVED***
+?>
 </body>
 </html>

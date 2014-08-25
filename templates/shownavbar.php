@@ -17,12 +17,12 @@
 		<div class="panel" id="roommates-panel">
 			<div class="panel-heading">
 
-				<?= $dorm[0]["dorm_name"] ***REMOVED***
+				<?= $dorm[0]["dorm_name"] ?>
 				
 			</div>
 			<div class="panel-body">
 				<ul class="list-unstyled">
-					***REMOVED***
+					<?php
 						foreach ($roomMates as $roommate) 
 						{
 							echo(	'<li>' .
@@ -32,7 +32,7 @@
 									'</li>'
 								);
 						}
-					***REMOVED***
+					?>
 				</ul>
 			</div>
 		</div>

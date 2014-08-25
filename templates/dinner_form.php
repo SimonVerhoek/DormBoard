@@ -18,7 +18,7 @@
 
 			<select autofocus class="form-control" name="when">
 				<option value="">Choose when...</option>
-				***REMOVED*** 
+				<?php 
 					foreach ($days as $i => $day) 
 					{ 
 				    	// store day in variable for easy storing in db
@@ -43,7 +43,7 @@
 		    					")");
 				    	echo "</option>";
 					} 	
-				***REMOVED***
+				?>
 			</select>
             <button type="submit" class="btn btn-primary">Submit</button>
 		</div>

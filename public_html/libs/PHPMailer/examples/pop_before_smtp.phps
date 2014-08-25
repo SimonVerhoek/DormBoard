@@ -5,7 +5,7 @@
     <title>PHPMailer - POP-before-SMTP test</title>
 </head>
 <body>
-***REMOVED***
+<?php
 require '../PHPMailerAutoload.php';
 
 //Authenticate via POP3.
@@ -55,6 +55,6 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage(); //Boring error messages from anything else!
 }
-***REMOVED***
+?>
 </body>
 </html>

@@ -101,7 +101,7 @@
                
             <fieldset>
                 <legend>Date of birth</legend>
-      ***REMOVED*****REMOVED*****REMOVED*** echo date_dropdown(); ***REMOVED***
+                <?php echo date_dropdown(); ?>
                 <br />
             </fieldset>
               

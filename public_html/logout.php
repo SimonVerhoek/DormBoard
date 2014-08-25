@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 
     // configuration
     require("../includes/config.php"); 
@@ -9,4 +9,4 @@
     // redirect user
     redirect("/dormboard/public_html/index.php");
 
-***REMOVED***
+?>

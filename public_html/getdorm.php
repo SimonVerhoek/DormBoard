@@ -1,4 +1,4 @@
-***REMOVED***
+<?php
 
     // configuration
     require("../includes/config.php");
@@ -129,4 +129,4 @@
 	{
 		render("getdorm_form.php");
 	}
-***REMOVED***
+?>

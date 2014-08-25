@@ -1,10 +1,10 @@
 		            	<!-- if logged in, closes tab div -->
-						***REMOVED*** 
+						<?php 
 							if (!preg_match("{(?:login|register)\.php$}", $_SERVER["PHP_SELF"]))
 							{
 								echo "</div>";
 							}
-						***REMOVED*** 
+						?> 
 	            	
 	            </div> <!-- closes middle -->
 	        </div> 
