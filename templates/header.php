@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link href="../public_html/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
-        <link href="../public_html/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
-        <link href="../public_html/css/bootstrapValidator.min.css" type="text/css" rel="stylesheet"/>
-        <link href="../public_html/css/styles.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= ROOTDIR ***REMOVED***/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= ROOTDIR ***REMOVED***/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= ROOTDIR ***REMOVED***/css/bootstrapValidator.min.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= ROOTDIR ***REMOVED***/css/styles.css" type="text/css" rel="stylesheet"/>
         <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Londrina+Sketch' rel='stylesheet' type='text/css'>
 
@@ -15,10 +15,10 @@
             <title>DormBoard</title>
    ***REMOVED*****REMOVED*** endif ***REMOVED***
 
-        <script src="../public_html/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-        <script src="../public_html/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../public_html/js/scripts.js" type="text/javascript"></script>
-        <script src="../public_html/js/bootstrapValidator.min.js" type="text/javascript"></script>
+        <script src="<?= ROOTDIR ***REMOVED***/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <script src="<?= ROOTDIR ***REMOVED***/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?= ROOTDIR ***REMOVED***/js/scripts.js" type="text/javascript"></script>
+        <script src="<?= ROOTDIR ***REMOVED***/js/bootstrapValidator.min.js" type="text/javascript"></script>
     </head>
 
     <body>
