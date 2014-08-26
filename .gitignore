@@ -30,3 +30,8 @@ ehthumbs.db
 Icon?
 Thumbs.db
 ._*
+
+# files with sensitive data
+
+constants.php
+
