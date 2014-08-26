@@ -34,4 +34,6 @@ Thumbs.db
 # files with sensitive data
 
 constants.php
+*.openshift
+
 
