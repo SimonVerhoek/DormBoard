@@ -27,18 +27,15 @@ table img {
 /* ---------- HEADER ---------- */
 #logo {
     /* makes logo fit in box */
-    width: 28px;
-    height: 28px;  
-    margin-top: -4px;
+    width: 29px;
+    height: 29px;  
+    margin-top: -6px;
 }
 
 #header-title {
     font-family: 'Londrina Sketch', cursive;
     font-size: 3em;
-}
-
-.navbar-header p {
-    margin: 0;
+    padding-left: 0;
 }
 
 #header-subtitle {
