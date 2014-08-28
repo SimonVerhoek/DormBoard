@@ -37,10 +37,7 @@
 
 			<div class="panel-body">
 
-
-		
-
-				<table class="table table-hover" id="dinner-table">
+				<table class="table" id="dinner-table">
 					<thead id="dinner-table-header">
 						<tr>
 							<td></td>
@@ -77,9 +74,7 @@
 								// print roommate's name
 								echo "<tr id='dinner-row'>";
 						    	echo(	"<td id='rm-names'>" . 
-						    			$roommate["first_name"] . 
-						    			" " . 
-						    			$roommate["last_name"] . 
+						    			$roommate["first_name"] .  
 						    			"</td>"
 					    			);
 
