@@ -97,13 +97,13 @@
 							    			switch ($status["status"])
 							    			{
 							    				case '1':
-							    					echo "<img class='icon' src='../public_html/img/cook3.png'>";
+							    					echo "<img class='icon' src='<?= WEBSITEROOT ?>/img/cook3.png'>";
 							    					break;
 						    					case '2':
-						    						echo "<img class='icon' src='../public_html/img/join3.png'>";
+						    						echo "<img class='icon' src='<?= WEBSITEROOT ?>/img/join3.png'>";
 						    						break;
 					    						case '3':
-					    							echo "<img class='icon' src='../public_html/img/notjoin.png'>";
+					    							echo "<img class='icon' src='<?= WEBSITEROOT ?>/img/notjoin.png'>";
 							    				default:
 							    					// print nothing
 							    					break;
