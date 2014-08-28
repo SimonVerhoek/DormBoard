@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav navbar-right">
+<ul class="nav navbar-nav navbar-right" id="session-dropdown">
 	<li class="dropdown">
 		<a href="#" data-toggle="dropdown" class="dropdown-toggle">
 			<?= $user[0]["first_name"] . " " . $user[0]["last_name"] ?>	

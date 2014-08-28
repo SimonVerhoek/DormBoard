@@ -25,25 +25,17 @@ table img {
 }
 
 /* ---------- HEADER ---------- */
-#header {
-    
-
-}
-
 #logo {
     /* makes logo fit in box */
-    width: 28px;
-    height: 28px;  
-    margin-top: -4px;
+    width: 29px;
+    height: 29px;  
+    margin-top: -6px;
 }
 
 #header-title {
     font-family: 'Londrina Sketch', cursive;
     font-size: 3em;
-}
-
-.navbar-header p {
-    margin: 0;
+    padding-left: 0;
 }
 
 #header-subtitle {
@@ -69,6 +61,9 @@ table img {
 /* ---------- BODY ---------- */
 #middle {
     margin-top: 1em;
+
+    width: 900px;
+    margin: auto;
 }
 
 .panel-heading {
@@ -128,7 +123,11 @@ table img {
 
 /* ---------- SESSION ---------- */
 #session {
-    font-size: 0.85em;
+    
+}
+
+#session-dropdown {
+    margin-right: 0;
 }
 
 /* ---------- NAVPANEL ---------- */
@@ -174,7 +173,8 @@ table img {
 
 #rm-names {
     vertical-align: middle;
-    max-width: 200px;
+    max-width: 120px;
+    word-wrap: break-word;
 }
 
 /* ---------- SHOPPING LIST ---------- */

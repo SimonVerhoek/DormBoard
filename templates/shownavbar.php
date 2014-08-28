@@ -27,8 +27,6 @@
 						{
 							echo(	'<li>' .
 									$roommate["first_name"] .
-									' ' . 
-									$roommate["last_name"] .
 									'</li>'
 								);
 						}
