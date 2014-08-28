@@ -25,11 +25,6 @@ table img {
 }
 
 /* ---------- HEADER ---------- */
-#header {
-    
-
-}
-
 #logo {
     /* makes logo fit in box */
     width: 28px;
@@ -69,6 +64,9 @@ table img {
 /* ---------- BODY ---------- */
 #middle {
     margin-top: 1em;
+
+    width: 900px;
+    margin: auto;
 }
 
 .panel-heading {
@@ -174,7 +172,8 @@ table img {
 
 #rm-names {
     vertical-align: middle;
-    max-width: 200px;
+    max-width: 120px;
+    word-wrap: break-word;
 }
 
 /* ---------- SHOPPING LIST ---------- */

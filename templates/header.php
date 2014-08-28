@@ -5,7 +5,7 @@
         <link href="<?= WEBSITEROOT ?>/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
         <link href="<?= WEBSITEROOT ?>/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet"/>
         <link href="<?= WEBSITEROOT ?>/css/bootstrapValidator.min.css" type="text/css" rel="stylesheet"/>
-        <link href="css/styles.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= WEBSITEROOT ?>/css/styles.css" type="text/css" rel="stylesheet"/>
         <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Londrina+Sketch' rel='stylesheet' type='text/css'>
 
