@@ -37,7 +37,7 @@
 
 			<div class="panel-body">
 
-				<table class="table" id="dinner-table">
+				<table class="table table-condensed" id="dinner-table">
 					<thead id="dinner-table-header">
 						<tr>
 							<td></td>
