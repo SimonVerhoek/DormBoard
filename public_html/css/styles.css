@@ -123,7 +123,11 @@ table img {
 
 /* ---------- SESSION ---------- */
 #session {
-    font-size: 0.85em;
+    
+}
+
+#session-dropdown {
+    margin-right: 0;
 }
 
 /* ---------- NAVPANEL ---------- */
