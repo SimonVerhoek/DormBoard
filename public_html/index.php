@@ -16,7 +16,7 @@
 					$_SESSION["user_id"]);
 					*/
 	
-	redirect("<?= WEBSITEROOT ?>/getdorm.php");
+	redirect("getdorm.php");
 
 ?>
 
