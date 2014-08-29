@@ -34,7 +34,24 @@
         {
             errorMsg("The passwords filled in at the fields 'password' and 'confirmation' must be equal.");
         }
-        else
+
+        // check if any account is already registered under the entered email address
+        $emailFound = query("   SELECT  email 
+                                AS      nrEmailsFound
+                                FROM    users
+                                WHERE   email = ?",
+                                $_POST["email"]);
+
+        if ($emailFound === false)
+        {
+            errorMsg("Something went wrong while creating your account. Please try again.");
+        } 
+
+        if (count($emailFound) >= 1) 
+        {
+            errorMsg("This email address is already in use. Please try another email address.");
+        }
+        else 
         {
             $birthday = $_POST["date_year"] . '-' . 
                         $_POST["date_month"] . '-' . 
