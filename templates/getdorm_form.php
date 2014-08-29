@@ -1,39 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#join-dorm').bootstrapValidator({
-            feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            live: 'enabled',
-            submitButtons: 'button[name="join"]',
-            submitHandler: null,
-            fields: {
-                dormname: {
-                    validators: {
-                        notEmpty: {
-                            message: "Please fill in a name for the dorm you'd like to join."
-                        }
-                    }
-                },
-                dormpassword: {
-                    validators: {
-                        trigger: "blur", 
-                        notEmpty: {
-                            message: "You must enter the dorm's password."
-                        },
-                        stringLength: {
-                            min: 8,
-                            max: 30,
-                            message: 'Password too short'
-                        }
-
-                    }
-                }
-            }
-        });
-
+ 
         $('#create-dorm').bootstrapValidator({
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
