@@ -33,32 +33,35 @@
         							$_POST["dormname"]);
 
 	        // make sure only one dorm is selected
-	        if (count($dorms) == 1)
-        	{
-        		$dorm = $dorms[0];
+	        if (count($dorms) == 0)
+	        {
+	        	errorMsg("No dorms were found. Are you sure you spelled the name correctly?");
+	        }
+            else
+            {
+            	foreach ($dorms as $dorm) 
+            	{
+            		// compare hash of user's input against hash that's in database
+		            if (crypt($_POST["dormpassword"], $dorm["hash"]) == $dorm["hash"])
+		            {
+		                // add dorm_id to user
+		                $joinDorm = query("	UPDATE 	users 
+		                					SET 	dorm_id = ? 
+		                					WHERE 	user_id = ?", 
+		                							$dorm["dorm_id"], 
+		                							$_SESSION["user_id"]);
+		                if ($joinDorm === false)
+			        	{
+				        	// dorm not found
+			                errorMsg("Something went wrong while joining your dorm. Please try again.");
+			            }
 
-        		// compare hash of user's input against hash that's in database
-	            if (crypt($_POST["dormpassword"], $dorm["hash"]) == $dorm["hash"])
-	            {
-	                // add dorm_id to user
-	                $joinDorm = query("	UPDATE 	users 
-	                					SET 	dorm_id = ? 
-	                					WHERE 	user_id = ?", 
-	                							$dorm["dorm_id"], 
-	                							$_SESSION["user_id"]);
-
-	                // redirect to dashboard
-	                redirect("dinner.php");
-	            }
-	            else
-	            {
-	            	errorMsg("Could not join dorm. Are you sure the password is correct?");
-	            }
-        	}
-        	else
-        	{
-        		echo errorMsg("No dorms were found. Are you sure you spelled the name correctly?");
-        	}
+		                // redirect to dashboard
+		                redirect("dinner.php");
+		            }
+            	}
+            	errorMsg("Could not join dorm. Are you sure you filled in the correct password?");
+            }
 		}
 		// if creating new dorm
 		else if (isset($_POST['create'])) 
