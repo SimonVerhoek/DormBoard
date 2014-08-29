@@ -56,8 +56,8 @@
                 $birthday);
             if ($CreateNewUser === false)
             {
-                // INSERT failed, presumably because username already existed
-                errorMsg("Something went wrong while creating your account. Maybe try another username?");
+                // INSERT failed, presumably because email address already existed
+                errorMsg("Something went wrong while creating your account. Maybe try another email address?");
             } 
             else
             {
