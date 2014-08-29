@@ -27,8 +27,7 @@
 ?>
 		
 		</div> <!-- closes navbar-collapse -->
-    </nav> <!-- closes header --> 
-</div> <!-- closes header -->
+    </nav> <!-- closes header -->
 
 <div class="container">
 
