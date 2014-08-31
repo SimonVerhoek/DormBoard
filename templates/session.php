@@ -31,7 +31,4 @@
     </nav> <!-- closes header -->
 </div> <!-- closes #header -->
 
-
-<div class="container">
-
-	<div id="middle">
+<div id="middle">
