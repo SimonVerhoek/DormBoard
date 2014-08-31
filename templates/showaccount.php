@@ -1,83 +1,56 @@
 <!-- leave dorm --> 
 <div class="row clearfix">
 
-        <form action="account.php" method="post">
-            <fieldset>
-                <legend>Leave dorm</legend>
-                <div class="form-group">
-                    <input type="hidden" name="leave-dorm" value="leave-dorm" />
+    <!-- Button trigger modal -->
+    <legend>Leave dorm</legend>
+    
+    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+        Leave dorm
+    </button>
 
-                    <button type="submit" class="btn btn-danger">
-                        Leave
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
                     </button>
-                    <span class="help-block">
-                        BEWARE: If you leave your dorm, all the data of you as a roommate here, will be deleted!
-                    </span> 
-                </div>
-            </fieldset>
-        </form>
+                    <h4 class="modal-title">Leave dorm</h4>
+                </div> <!-- close modal-header -->
 
-</div>
+                <form action="account.php" method="post">
+                    <fieldset>
+
+                        <div class="modal-body">
+                            <p>
+                                BEWARE: If you leave your dorm, all the data of you as a roommate here, will be deleted!
+                            </p>
+                        </div> <!-- closes modal-body -->
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                Cancel
+                            </button>
+                            <input type="hidden" name="leave-dorm" value="leave-dorm" />
+                            <button type="submit" class="btn btn-danger">Leave dorm</button> 
+                        </div> <!-- closes modal-footer -->
+
+                    </fieldset>
+                </form>
+
+            </div> <!-- closes modal-content -->
+        </div> <!-- closes modal-dialog -->
+    </div> <!-- closes modal -->
+
+</div> <!-- closes row-clearfix -->
 
 <!-- change timezone -->
 <div class="row clearfix">
 
-        <?php
-            /*
+        <!-- timezone-form.php -->
 
-            // create option menu with timezones
-            $regions = array(
-                'Africa' => DateTimeZone::AFRICA,
-                'America' => DateTimeZone::AMERICA,
-                'Antarctica' => DateTimeZone::ANTARCTICA,
-                'Aisa' => DateTimeZone::ASIA,
-                'Atlantic' => DateTimeZone::ATLANTIC,
-                'Europe' => DateTimeZone::EUROPE,
-                'Indian' => DateTimeZone::INDIAN,
-                'Pacific' => DateTimeZone::PACIFIC
-            );
-
-            $timezones = array();
-            foreach ($regions as $name => $mask)
-            {
-                $zones = DateTimeZone::listIdentifiers($mask);
-                foreach($zones as $timezone)
-                {
-                    // Lets sample the time there right now
-                    $time = new DateTime(NULL, new DateTimeZone($timezone));
-
-                    // Us dumb Americans can't handle millitary time
-                    $ampm = $time->format('H') > 12 ? ' ('. $time->format('g:i a'). ')' : '';
-
-                    // Remove region name and add a sample time
-                    $timezones[$name][$timezone] = substr($timezone, strlen($name) + 1) . ' - ' . $time->format('H:i') . $ampm;
-                }
-            }
-
-
-            // View
-            echo '<form action="account.php" role="form" class="form-horizontal" method="post">'; 
-            echo    '<legend>Change timezone</legend>';
-
-            
-
-            echo    '<label class="col-sm-3 control-label">Select Your Timezone</label>';
-            echo    '<select id="timezone">';
-
-            foreach($timezones as $region => $list)
-            {
-                echo        '<optgroup label="' . $region . '">' . "\n";
-                foreach($list as $timezone => $name)
-                {
-                    echo        '<option name="' . $timezone . '">' . $name . '</option>' . "\n";
-                }
-                echo    '</optgroup>' . "\n";
-            }
-            echo    '</select>';
-            echo '</form>';
-
-            */
-        ?>
 </div>
 
 <!-- change password -->
