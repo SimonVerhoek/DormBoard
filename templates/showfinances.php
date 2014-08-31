@@ -83,7 +83,7 @@
 
 <div class="row clearfix">	
 	
-	<div class="col-md-9 column">
+	<div class="col-xs-9 column">
 
 		<!-- add new spend -->
 		<div class="panel" id="spends-panel">
@@ -161,7 +161,7 @@
 	</div> <!-- close middle column -->
 
 	<!-- roommates' cash balances -->
-	<div class="col-md-3">
+	<div class="col-xd-3">
 		<table class="table" id="rm-balances">
 			<tbody>
 				<?php

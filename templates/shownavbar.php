@@ -5,7 +5,7 @@
  -->
 
 <div class="row clearfix">
-	<div class="col-md-2 column">
+	<div class="col-xs-2 column">
 
 		<!-- navigation -->
 		<div class="nav nav-pills nav-stacked" role="navigation">

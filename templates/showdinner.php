@@ -16,7 +16,7 @@
 
 <!-- show schedule -->
 <div class="row clearfix">
-	<div class="col-md-12 column">
+	<div class="col-xs-12 column">
 
 		<div class="panel">
 

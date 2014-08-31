@@ -106,7 +106,7 @@
 </script>
 
 <div class="row clearfix">
-	<div class="col-md-9 column">
+	<div class="col-xs-9 column">
 
 		<div class="panel" id="shoplist">
 

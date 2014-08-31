@@ -46,11 +46,5 @@
 			"roomMates" => $roomMates,
 			]);
 	}
-
-	// place dashboard tabs at the right of the navigation bar
-	if (!preg_match("{(?:login|register)\.php$}", $_SERVER["PHP_SELF"]))
-	{
-		echo("<div class='col-md-10 column'>");
-	}
 ?>
 

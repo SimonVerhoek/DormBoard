@@ -24,6 +24,10 @@ table img {
     margin: 0 auto;
 }
 
+.container {
+    width: 900px !important;
+}
+
 /* determines width of page */
 #header-container, #middle {
     width: 900px;
@@ -137,6 +141,23 @@ table img {
     margin-top: 3em;
     font-size: 0.9em;
     word-wrap: break-word;
+}
+
+.navbar-collapse.collapse {
+display: block!important;
+}
+
+/* disable nav pills responsiveness */
+.navbar-nav>li, .navbar-nav {
+float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+margin-right: -15px !important;
+}
+
+.navbar-right {
+float: right!important;
 }
 
 /* ---------- HOME ---------- */
