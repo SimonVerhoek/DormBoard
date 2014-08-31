@@ -24,7 +24,18 @@ table img {
     margin: 0 auto;
 }
 
+/* determines width of page */
+#header-container, #middle {
+    width: 900px;
+}
+
 /* ---------- HEADER ---------- */
+#header-container {
+    /* equals sides of container to width of elements in #middle */
+    padding-left: 0;
+    padding-right: 0;
+}
+
 #logo {
     /* makes logo fit in box */
     width: 29px;
@@ -35,7 +46,6 @@ table img {
 #header-title {
     font-family: 'Londrina Sketch', cursive;
     font-size: 3em;
-    padding-left: 0;
 }
 
 #login-dropdown {
@@ -55,8 +65,6 @@ table img {
 /* ---------- BODY ---------- */
 #middle {
     margin-top: 1em;
-
-    width: 900px;
     margin: auto;
 }
 
