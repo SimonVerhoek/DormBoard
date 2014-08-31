@@ -38,12 +38,6 @@ table img {
     padding-left: 0;
 }
 
-#header-subtitle {
-    font-size: 1.5em;
-    padding-left: 1em;
-    font-family: 'Londrina Sketch', cursive;
-}
-
 #login-dropdown {
     width: 250px;
 }

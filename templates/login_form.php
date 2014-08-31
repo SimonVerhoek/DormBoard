@@ -1,9 +1,9 @@
-<ul class="nav navbar-nav navbar-right">
+<ul class="nav navbar-nav navbar-right" id="navigation-bar">
     <li class="dropdown">
         <button type="button" data-toggle="dropdown" class="btn btn-default navbar-btn dropdown-toggle" id="login-toggle-autofocus">
             Log in
         </button>
-        <ul class="dropdown-menu" id="login-dropdown">
+        <ul class="dropdown-menu" role="menu" id="login-dropdown">
 
             <form id="login-form" action="login.php" method="post">
                 

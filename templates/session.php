@@ -26,8 +26,11 @@
 	}
 ?>
 		
-		</div> <!-- closes navbar-collapse -->
+			</div> <!-- closes navbar-collapse -->
+		</div> <!-- closes container-fluid -->
     </nav> <!-- closes header -->
+</div> <!-- closes #header -->
+
 
 <div class="container">
 
