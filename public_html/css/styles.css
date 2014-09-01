@@ -24,13 +24,9 @@ table img {
     margin: 0 auto;
 }
 
-.container {
-    width: 900px !important;
-}
-
 /* determines width of page */
-#header-container {
-    width: 900px;
+.container, #header-container {
+    width: 900px !important;
 }
 
 /* ---------- HEADER ---------- */
