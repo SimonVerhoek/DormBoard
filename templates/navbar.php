@@ -1,10 +1,13 @@
-<!--
- |
- |	shows welcome message and navigation bar.
- |
- -->
-
 <?php 
+
+	/**********************
+	 *
+	 * navbar.php
+	 *
+	 * shows navigation bar when user is logged in.
+	 *
+	 **********************/ 
+
 	//show navbar only when logged in
 	if (!preg_match("{(?:login|register|getdorm)\.php$}", $_SERVER["PHP_SELF"]))
 	{
