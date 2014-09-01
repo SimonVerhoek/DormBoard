@@ -29,7 +29,7 @@ table img {
 }
 
 /* determines width of page */
-#header-container, #middle {
+#header-container {
     width: 900px;
 }
 
@@ -188,6 +188,11 @@ float: right!important;
 
 #dinner-table th {
     text-align: center;
+}
+
+#dinner-table th {
+    /* prevent dates from expanding outside panel */
+    font-size: 0.95em;
 }
 
 #dinner-table td {

@@ -81,143 +81,135 @@
 	
 </script>
 
-<div class="row clearfix">	
-	
-	<div class="col-xs-9 column">
+<div class="col-xs-8 column">
 
-		<!-- add new spend -->
-		<div class="panel" id="spends-panel">
+	<!-- add new spend -->
+	<div class="panel" id="spends-panel">
 
-			<div class="panel-heading">
-				<div class="panel-header-title">
-					<p class="panel-title tab-header">Finances</p>
-				</div>
-
-				<div class="panel-header-rest">
-					<button class="btn btn-primary btn-lg pull-right" id="add-spend-button" data-toggle="modal" data-target="#myModal">
-						Add
-					</button>
-				</div>
+		<div class="panel-heading">
+			<div class="panel-header-title">
+				<p class="panel-title tab-header">Finances</p>
 			</div>
 
-			<div class="panel-body">
-				<!-- spends table -->
-				<div class="table-responsive">
-					<table class="table" id="spendstable">
-						<!--
-						<thead>
-							<tr>
-								<th id="th-date">Date</th>
-								<th id="th-spendname">Name</th>
-								<th id="th-whopaidwhat" class="text-right">Who paid what</th>
-							</tr>
-						</thead>
-					-->
-						<tbody id="spendstable-body">
-							<?php
-								// for each spend
-								foreach ($spends as $spend)
-								{
-									echo "<tr>";
-
-									// post date
-									echo(	"<td class='td-date'>" .
-											date('l F jS', strtotime($spend["date_added"])) .
-											"<br>" .
-											date('H:i', strtotime($spend["date_added"])) .
-											"</td>"
-										);
-
-									// spend name
-									echo(	"<td class='td-spendname'>" .
-											$spend["spend_name"] .
-											"</td>"
-										);
-
-									// who paid what
-									echo(	"<td class='td-whopaidwhat text-right'>" .
-											$spend["first_name"] .
-											" paid" .
-											"<br>" .
-											" $ " .
-											$spend["spend_cost"] .
-											"</td>"
-										);
-
-									echo "</tr>";
-								}
-							?>
-						</tbody>
-					</table>
-				</div> <!-- close table-responsive -->
-
+			<div class="panel-header-rest">
+				<button class="btn btn-primary btn-lg pull-right" id="add-spend-button" data-toggle="modal" data-target="#myModal">
+					Add
+				</button>
 			</div>
 		</div>
 
-		
+		<div class="panel-body">
+			<!-- spends table -->
+			<div class="table-responsive">
+				<table class="table" id="spendstable">
+					<!--
+					<thead>
+						<tr>
+							<th id="th-date">Date</th>
+							<th id="th-spendname">Name</th>
+							<th id="th-whopaidwhat" class="text-right">Who paid what</th>
+						</tr>
+					</thead>
+				-->
+					<tbody id="spendstable-body">
+						<?php
+							// for each spend
+							foreach ($spends as $spend)
+							{
+								echo "<tr>";
 
-		
+								// post date
+								echo(	"<td class='td-date'>" .
+										date('l F jS', strtotime($spend["date_added"])) .
+										"<br>" .
+										date('H:i', strtotime($spend["date_added"])) .
+										"</td>"
+									);
 
-	</div> <!-- close middle column -->
+								// spend name
+								echo(	"<td class='td-spendname'>" .
+										$spend["spend_name"] .
+										"</td>"
+									);
 
-	<!-- roommates' cash balances -->
-	<div class="col-xd-3">
-		<table class="table" id="rm-balances">
-			<tbody>
-				<?php
-					foreach ($roommates as $roommate) 
+								// who paid what
+								echo(	"<td class='td-whopaidwhat text-right'>" .
+										$spend["first_name"] .
+										" paid" .
+										"<br>" .
+										" $ " .
+										$spend["spend_cost"] .
+										"</td>"
+									);
+
+								echo "</tr>";
+							}
+						?>
+					</tbody>
+				</table>
+			</div> <!-- close table-responsive -->
+
+		</div> <!-- close panel body -->
+	</div> <!-- close panel -->
+
+</div> <!-- close spends column -->
+
+<!-- roommates' cash balances -->
+<div class="col-xs-2">
+	<table class="table" id="rm-balances">
+		<tbody>
+			<?php
+				foreach ($roommates as $roommate) 
+				{
+					echo	"<tr>"; 
+					// apply cell based on balance level
+					if ($roommate["cash_balance"] < 0)
 					{
-						echo	"<tr>"; 
-						// apply cell based on balance level
-						if ($roommate["cash_balance"] < 0)
-						{
-							echo '<td class="danger">';
-						}
-						else if ($roommate["cash_balance"] > 0)
-						{
-							echo '<td class="success">';
-						}
-						else
-						{
-							echo '<td>';
-						}
-						echo(	$roommate["first_name"] .
-								" " .
-								$roommate["last_name"] .
-								"</td>" 
-							);
-
-						// color cell based on balance level
-						if ($roommate["cash_balance"] < 0)
-						{
-							echo '<td class="danger text-right">';
-						}
-						else if ($roommate["cash_balance"] > 0)
-						{
-							echo '<td class="success text-right">';
-						}
-						else
-						{
-							echo '<td class="text-right">';
-						}
-						
-						echo "$ ";
-							
-						if ($roommate["cash_balance"] > 0) 
-						{
-							echo "+";
-						};
-						echo(	$roommate["cash_balance"] .
-								"</td>" .
-								"</tr>"
-							);
+						echo '<td class="danger">';
 					}
-				?>
-			</tbody>
-		</table>
-	</div> <!-- close cash balances column -->
+					else if ($roommate["cash_balance"] > 0)
+					{
+						echo '<td class="success">';
+					}
+					else
+					{
+						echo '<td>';
+					}
+					echo(	$roommate["first_name"] .
+							"</td>" 
+						);
 
-</div> <!-- close row clearfix -->
+					// color cell based on balance level
+					if ($roommate["cash_balance"] < 0)
+					{
+						echo '<td class="danger text-right">';
+					}
+					else if ($roommate["cash_balance"] > 0)
+					{
+						echo '<td class="success text-right">';
+					}
+					else
+					{
+						echo '<td class="text-right">';
+					}
+					
+					echo "$ ";
+						
+					if ($roommate["cash_balance"] > 0) 
+					{
+						echo "+";
+					};
+					echo(	$roommate["cash_balance"] .
+							"</td>" .
+							"</tr>"
+						);
+				}
+			?>
+		</tbody>
+	</table>
+</div> <!-- close cash balances column -->
+
+
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
