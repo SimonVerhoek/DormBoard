@@ -1,10 +1,20 @@
 /**
  * styles.css
  *
- * Computer Science 50
- * Problem Set 7
+ * Contains css of all pages.
  *
- * Global CSS.
+ * index of this file:
+ * - global css
+ * - header
+ * - body
+ * - footer
+ * --------
+ * - session
+ * - navpanel
+ * - home
+ * - dinner
+ * - shopping list
+ * - finances
  */
 
 html, body {
