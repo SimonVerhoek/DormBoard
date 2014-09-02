@@ -323,7 +323,8 @@ table img {
 
 #rm-balances th, #rm-balances td {
     border: 0;
-    max-width: 90px;
+    max-width: 80px;
+    min-width: 70px;
     word-wrap: break-word;
     font-size: 0.9em;
     padding: 5px;

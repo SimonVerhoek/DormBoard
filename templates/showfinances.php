@@ -1,9 +1,3 @@
-<!--
- |
- |  Shows a cash balance of the dorm's inhabitants.
- |
- -->
-
  <script type="text/javascript">
 
 	// show Dinner tab on default

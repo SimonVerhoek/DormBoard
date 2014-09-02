@@ -1,5 +1,4 @@
 <?php
-
     /*************************************************
      *   finances.php
      *
@@ -27,6 +26,7 @@
     	{
     		errorMsg("Please fill in a name for what you bought.");
     	}
+
         // check if form has at least 2 alphabetic characters in it.
         if (!preg_match("/([A-Za-z])\w+/", $_POST["spend_name"]))
         {
@@ -94,9 +94,7 @@
             $cents = sprintf("%02s", $cents);
         }
 
-        $cost = $wholes . 
-                '.' . 
-                $cents;
+        $cost = $wholes . '.' . $cents;
 
         $payerIDs = $_POST["check_list"];
 
@@ -136,7 +134,6 @@
                 errorMsg("Something went wrong while storing your spend. Please try again.");
             }      
 
-            
             // create string of all payerIDs
             $payersStr = implode(',', $payerIDs);           
 
