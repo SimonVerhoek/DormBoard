@@ -108,6 +108,7 @@
     }
     
     render("showshoplist.php", [
+        "title" => "Shopping list",
 		"user_id" => $_SESSION["user_id"],
         "roommates" => $roommates,
 		"listItems" => $listItems

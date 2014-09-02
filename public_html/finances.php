@@ -179,6 +179,7 @@
                                 $dorm[0]["dorm_id"]);
 
     render("showfinances.php", [
+        "title" => "Dorm finances",
 		"user_id" => $_SESSION["user_id"],
 		"spends" => $spends,
 		"roommates" => $roommates

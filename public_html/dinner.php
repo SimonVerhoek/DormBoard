@@ -87,6 +87,7 @@
 	$days = new DatePeriod(new DateTime, new DateInterval('P1D'), $nrDays);
 
     render("showdinner.php", [
+        "title" => "Dinner schedule",
 		"user_id" => $_SESSION["user_id"],
 		"days" => $days,
 		"roommates" => $roommates,

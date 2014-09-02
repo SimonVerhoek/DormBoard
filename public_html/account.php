@@ -99,6 +99,7 @@
     else if (!empty($user[0]["dorm_id"]))
 	{
 		render("showaccount.php", [
+			"title" => "Your account",
 			"passwordUpdated" => $passwordUpdated
 			]);
 	}  	

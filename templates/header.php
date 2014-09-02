@@ -10,7 +10,7 @@
         <link href='http://fonts.googleapis.com/css?family=Londrina+Sketch' rel='stylesheet' type='text/css'>
 
         <?php if (isset($title)): ?>
-            <title>DormBoard: <?= htmlspecialchars($title) ?></title>
+            <title><?= htmlspecialchars($title) ?> | Dormboard</title>
         <?php else: ?>
             <title>DormBoard</title>
         <?php endif ?>
