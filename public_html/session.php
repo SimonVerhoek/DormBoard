@@ -30,7 +30,6 @@
 			]);
 	}
 ?>
-		</div> <!-- closes navbar-collapse -->
     </nav> <!-- closes header --> 
 </div> <!-- closes header -->
 

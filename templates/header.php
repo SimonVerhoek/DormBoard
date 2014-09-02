@@ -30,14 +30,10 @@
                     <div class="container-fluid" id="header-container">
                     
                         <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
+                        
                             <a class="navbar-brand" href="dinner.php">
                                 <img id="logo" src="<?= WEBSITEROOT ?>/img/DormBoardlogo-small.png"/>
                             </a>
                             <a class="navbar-brand" href="dinner.php" id="header-title">
                                 DormBoard
                             </a>
-                        </div>
-
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
