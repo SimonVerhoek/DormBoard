@@ -148,9 +148,11 @@
 
 </div> <!-- close spends column -->
 
+
 <!-- roommates' cash balances -->
 <div class="col-xs-2">
 	<table class="table" id="rm-balances">
+		<legend>Balances</legend>
 		<tbody>
 			<?php
 				foreach ($roommates as $roommate) 
@@ -202,7 +204,6 @@
 		</tbody>
 	</table>
 </div> <!-- close cash balances column -->
-
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -282,25 +283,3 @@
     	</div> <!-- close modal-content -->
   	</div> <!-- close modal-dialog -->
 </div> <!-- close modal -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
