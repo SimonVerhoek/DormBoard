@@ -231,10 +231,12 @@
 			<?php
 				foreach ($roommates as $i => $roommate) 
 				{
+					$rank = $i + 1;
+
 					echo 	"<tr>";
 
 					echo(		"<td>" .
-								$i . ". " .
+								$rank . ". " .
 								"</td>"
 						);
 

@@ -16,7 +16,13 @@
 
     date_default_timezone_set("Europe/Amsterdam");
 
-        // if user posted form
+    // get current user's dorm
+    $dorm = query(" SELECT dorm_id 
+                    FROM   users 
+                    WHERE  user_id = ?", 
+                           $_SESSION["user_id"]);
+
+    // if user posted form
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // if user entered a new item
@@ -55,7 +61,9 @@
                                     SET     solve_date = NOW(),
                                             user_id_solver = ?
                                     WHERE   item_id = ?', 
-                                    $_SESSION["user_id"], $itemID);
+                                            $_SESSION["user_id"], 
+                                            $itemID);
+
             if ($storePurchase === false)
             {
                 // INSERT failed
@@ -73,12 +81,6 @@
         }
 
     }
-
-    // get current user's dorm
-    $dorm = query(" SELECT dorm_id 
-					FROM   users 
-					WHERE  user_id = ?", 
-					       $_SESSION["user_id"]);
     
 	$listItems = query("SELECT  item_id,
                                 item_name,
@@ -112,10 +114,6 @@
         }
     }
 
-    // prepare data for scoreboard
-
-
-    
     render("showshoplist.php", [
         "title" => "Shopping list",
 		"user_id" => $_SESSION["user_id"],

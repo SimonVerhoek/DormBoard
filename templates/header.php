@@ -29,11 +29,9 @@
 
                     <div class="container-fluid" id="header-container">
                     
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        
-                            <a class="navbar-brand" href="dinner.php">
-                                <img id="logo" src="<?= WEBSITEROOT ?>/img/DormBoardlogo-small.png"/>
-                            </a>
-                            <a class="navbar-brand" href="dinner.php" id="header-title">
-                                DormBoard
-                            </a>
+                        <a class="navbar-brand" href="dinner.php">
+                            <img id="logo" src="<?= WEBSITEROOT ?>/img/DormBoardlogo-small.png"/>
+                        </a>
+                        <a class="navbar-brand" href="dinner.php" id="header-title">
+                            DormBoard
+                        </a>
