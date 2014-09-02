@@ -1,5 +1,20 @@
 <?php
 
+    /*************************************************
+     *   finances.php
+     *
+     *   Shows:
+     *  -   a list with items that have been bought for
+     *      use by one or more roommates. shows:
+     *      -   the registry date
+     *      -   the item's name (as entered by the user)
+     *      -   the name of the roommate that made the purchase
+     *      -   the costs of the spend
+     *  -   a table with all the roommate's balances of 
+     *      money spent - costs made. 
+     *      
+     **************************************************/
+
     // configuration
     require("../includes/config.php"); 
 
