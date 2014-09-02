@@ -1,58 +1,25 @@
-<!--
- |
- |  Shows a list with groceries and other articles 
- |	that have to be bought for dorm use.
- |
- -->
-
  <?php
+
+    /*************************************************
+    *   shoplist.php
+    *
+    *   Shows:
+    *   -   a list with groceries and other articles 
+    *       that have to be bought for dorm use.
+    *   -   a scoreboard with ranking of the roommates'
+    *       amount of items bought/solved.
+    *   
+    **************************************************/
 
     // configuration
     require("../includes/config.php"); 
 
     date_default_timezone_set("Europe/Amsterdam");
 
-    // get current user's dorm
-    $dorm = query(" SELECT dorm_id 
-					FROM   users 
-					WHERE  user_id = ?", 
-					       $_SESSION["user_id"]);
-    
-	$listItems = query("SELECT  item_id,
-                                item_name,
-                                post_date,
-                                solve_date,
-                                user_id_poster,
-                                user_id_solver
-                        FROM    shoplist
-                        WHERE   dorm_id = ?
-                        ORDER BY post_date DESC",
-                                $dorm[0]["dorm_id"]);
-
-    $roommates = query("SELECT      user_id,
-                                    first_name,
-                                    last_name
-                        FROM        users
-                        WHERE       dorm_id = ?
-                        ORDER BY    first_name ASC",
-                                $dorm[0]["dorm_id"]);
-
-    // make array of unsolved item ids
-    $unsolvedItems = [];
-
-    foreach ($listItems as $i => $item) 
-    {
-        // if item is unsolved
-        if (empty($items[$i]["user_id_solver"]))
-        {
-            array_push($unsolvedItems, $item["item_id"]);
-        }
-    }
-
-    // if user posted form
+        // if user posted form
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-    	// if user entered a new item
+        // if user entered a new item
         if (isset($_POST["item_name"]))
         {
             // insert new item
@@ -106,6 +73,48 @@
         }
 
     }
+
+    // get current user's dorm
+    $dorm = query(" SELECT dorm_id 
+					FROM   users 
+					WHERE  user_id = ?", 
+					       $_SESSION["user_id"]);
+    
+	$listItems = query("SELECT  item_id,
+                                item_name,
+                                post_date,
+                                solve_date,
+                                user_id_poster,
+                                user_id_solver
+                        FROM    shoplist
+                        WHERE   dorm_id = ?
+                        ORDER BY post_date DESC",
+                                $dorm[0]["dorm_id"]);
+
+    $roommates = query("SELECT      user_id,
+                                    first_name,
+                                    last_name,
+                                    shoplist_score
+                        FROM        users
+                        WHERE       dorm_id = ?
+                        ORDER BY    shoplist_score DESC",
+                                    $dorm[0]["dorm_id"]);
+
+    // make array of unsolved item ids
+    $unsolvedItems = [];
+
+    foreach ($listItems as $i => $item) 
+    {
+        // if item is unsolved
+        if (empty($items[$i]["user_id_solver"]))
+        {
+            array_push($unsolvedItems, $item["item_id"]);
+        }
+    }
+
+    // prepare data for scoreboard
+
+
     
     render("showshoplist.php", [
         "title" => "Shopping list",

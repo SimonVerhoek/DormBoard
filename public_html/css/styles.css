@@ -249,6 +249,15 @@ table img {
     margin-right: 13px;
 }
 
+#shoplist-scoreboard td {
+    border: 0;
+    max-width: 90px;
+    word-wrap: break-word;
+    font-size: 0.9em;
+    padding: 5px;
+    margin: 0;
+}
+
 /* ---------- FINANCES ---------- */
 #add-spend-button {
     /* levels button text with title */
