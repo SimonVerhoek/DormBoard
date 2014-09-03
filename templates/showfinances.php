@@ -75,25 +75,20 @@
 	
 </script>
 
-<div class="col-xs-7 column">
+<div class="col-xs-7 column" id="finances-column">
 
-	<!-- add new spend -->
-	<div class="panel" id="spends-panel">
+		<div class="tab-header">
 
-		<div class="panel-heading">
-			<div class="panel-header-title">
-				<p class="panel-title tab-header">Finances</p>
-			</div>
+			<h1>Finances</h1>
 
-			<div class="panel-header-rest">
-				<button class="btn btn-primary btn-lg pull-right" id="add-spend-button" data-toggle="modal" data-target="#myModal">
-					Add
-				</button>
-			</div>
+			<button class="btn btn-primary btn-lg pull-right" id="add-spend-button" data-toggle="modal" data-target="#myModal">
+				Add
+			</button>
+
 		</div>
 
-		<div class="panel-body">
-			<!-- spends table -->
+		<div class="tab-content">
+
 			<div class="table-responsive">
 				<table class="table" id="spendstable">
 					<!--
@@ -141,12 +136,11 @@
 						?>
 					</tbody>
 				</table>
-			</div> <!-- close table-responsive -->
+			</div> <!-- ./ table-responsive -->
 
-		</div> <!-- close panel body -->
-	</div> <!-- close panel -->
+		</div> <!-- ./ tab-content -->
 
-</div> <!-- close spends column -->
+</div> <!-- ./ spends column -->
 
 
 <!-- roommates' cash balances -->
