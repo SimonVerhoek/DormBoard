@@ -225,7 +225,7 @@
 <div class="col-xs-3 column right-column">
 	<table class="table" id="shoplist-scoreboard">
 		<legend align="center">
-			Buyers scoreboard
+			Buyer rankings
 		</legend>
 		<tbody>
 			<?php
@@ -235,17 +235,19 @@
 
 					echo 	"<tr>";
 
-					echo(		"<td>" .
-								$rank . ". " .
+					echo(		"<td class='shoplist-scoreboard-rank' align='right'>" .
+									"<strong>" .
+									$rank . ". " .
+									"</strong>" .
 								"</td>"
 						);
 
-					echo(		"<td>" .
+					echo(		"<td class='shoplist-scoreboard-name'>" .
 								$roommate["first_name"] .
 								"</td>"
 						);
 
-					echo(		"<td>" .
+					echo(		"<td class='shoplist-scoreboard-score' align='right'>" .
 								$roommate["shoplist_score"] .
 								"</td>"
 						);

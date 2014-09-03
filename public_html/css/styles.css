@@ -286,7 +286,10 @@ table img {
     word-wrap: break-word;
 }
 
+
 /* ---------- SHOPPING LIST ---------- */
+
+/* ----- LIST OF ITEMS ----- */
 #shoplist {
     margin: auto;
 }
@@ -315,7 +318,8 @@ table img {
     word-wrap: break-word;
 }
 
-.checkmark-todo, .checkmark-done {
+.checkmark-todo, 
+.checkmark-done {
     margin-top: 2em;
 }
 
@@ -323,16 +327,32 @@ table img {
     margin-right: 13px;
 }
 
+/* ----- BUYER RANKINGS ----- */
 #shoplist-scoreboard td {
     border: 0;
     max-width: 90px;
     word-wrap: break-word;
-    font-size: 0.9em;
+    color: white;
     padding: 5px;
     margin: 0;
+    padding-bottom: 0;
+    vertical-align: bottom;
 }
 
+.shoplist-scoreboard-rank {
+    width: 10px;
+}
+
+/* make name and score slightly smaller than rank no. */ 
+.shoplist-scoreboard-name, 
+.shoplist-scoreboard-score {
+    font-size: 0.9em;
+}
+
+
 /* ---------- FINANCES ---------- */
+
+/* ----- LIST OF ITEMS ----- */
 #add-spend-button {
     /* levels button text with title */
     margin-top: -7px;
@@ -395,6 +415,7 @@ table img {
     font-size: 0.9em;
 }
 
+/* ----- BALANCES ----- */
 #rm-balances th, #rm-balances td {
     border: 0;
     max-width: 80px;
