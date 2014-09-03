@@ -25,7 +25,7 @@
         
         <div id="header">
             
-            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <nav class="navbar navbar-static-top" role="navigation" id="header-navbar">
 
                     <div class="container-fluid" id="header-container">
                     
