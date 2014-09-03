@@ -4,7 +4,7 @@
  |
  -->
 
-<div class="col-xs-2 column">
+<div class="col-xs-2 column" id="nav-column">
 
 	<!-- navigation -->
 	<div class="nav nav-pills nav-stacked" id="nav-tab-buttons" role="navigation">

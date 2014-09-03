@@ -15,7 +15,7 @@
 </script>
 
 <!-- show schedule -->
-<div class="col-xs-10 column">
+<div class="col-xs-10 column" id="dinner-column">
 
 	<div class="panel">
 

@@ -106,7 +106,7 @@
 </script>
 
 
-<div class="col-xs-8 column">
+<div class="col-xs-7 column">
 
 	<div class="panel" id="shoplist">
 
@@ -222,10 +222,10 @@
 </div> <!-- /.col-md-9 column -->
 
 <!-- scoreboard -->
-<div class="col-xs-2">
+<div class="col-xs-3 column right-column">
 	<table class="table" id="shoplist-scoreboard">
-		<legend>
-			Best buyers
+		<legend align="center">
+			Buyers scoreboard
 		</legend>
 		<tbody>
 			<?php

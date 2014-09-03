@@ -75,7 +75,7 @@
 	
 </script>
 
-<div class="col-xs-8 column">
+<div class="col-xs-7 column">
 
 	<!-- add new spend -->
 	<div class="panel" id="spends-panel">
@@ -150,7 +150,7 @@
 
 
 <!-- roommates' cash balances -->
-<div class="col-xs-2 column">
+<div class="col-xs-3 column right-column">
 	<table class="table" id="rm-balances">
 		<legend align="center">Balances</legend>
 		<tbody>

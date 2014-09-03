@@ -40,16 +40,21 @@ table img {
 
 /* determines width of page */
 .container, #header-container {
-    max-width: 900px !important;
+    max-width: 960px !important;
 }
 
-/* ---------- HEADER ---------- */
-#header-container {
-    /* equals sides of container to width of elements in #middle */
+/* align navbar items with outer columns */
+.container, #header-container, #nav-column {  
     padding-left: 0;
     padding-right: 0;
 }
 
+#dinner-column, .right-column  {
+    padding-right: 0;
+}
+/* ./ align navbar items with outer columns */
+
+/* ---------- HEADER ---------- */
 #header-navbar, #session-dropdown-box, #login-dropdown {
     background-color: #B98860;  /* header & header dropdown background color */
 }
@@ -129,6 +134,9 @@ table img {
 }
 
 /* ---------- NAVPANEL ---------- */
+#nav-column {
+    padding-left: 0;
+}
 
 /* navpanel background */
 .nav-pills {
@@ -364,15 +372,15 @@ table img {
 }
 
 #th-date, .td-date {
-    width: 18%;
+    width: 20%;
 }
 
 #th-spendname, .td-spendname {
-    width: 46.5%;
+    width: 50%;
 }
 
 #th-whopaidwhat, .td-whopaidwhat {
-    width: 35%;
+    width: 28%;
 }
 
 .td-date {
@@ -397,6 +405,7 @@ table img {
     margin: 0;
 }
 
+/* rm-balances colors */
 .negative-balance {
     color: red;
 }
@@ -408,3 +417,4 @@ table img {
 .neutral-balance {
     color: white;
 }
+/* ./ rm-balances colors */
