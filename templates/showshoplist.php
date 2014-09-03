@@ -105,123 +105,116 @@
 
 </script>
 
+<!-- Shopping list -->
+<div class="col-xs-7 column" id="shoplist">
 
-<div class="col-xs-7 column">
+	<div class="tab-header">
+    	
+		<h1>Shopping List</h1>
 
-	<div class="panel" id="shoplist">
-
-		<div class="panel-heading">
-	    	
-    		<div class="panel-header-title">
-    			<p class="panel-title tab-header">Shopping List</p>
-    		</div>
-
-    		<div class="panel-header-rest">
-				<!-- text input -->
-				<form id="shoplist-form" role="form" action="shoplist.php" name="newitem" method="post">
-					<div class="form-group">
-						<div id="item_input" class="input-group">
-				      		<input autofocus type="text" class="form-control" name="item_name" placeholder="What do we need?">
-				      		<span class="input-group-btn">
-				        		<button class="btn btn-primary" type="submit" name="submitButton">Add</button>
-				      		</span>
-				    	</div>
-					</div>
-				</form>
+		<form id="shoplist-form" role="form" action="shoplist.php" name="newitem" method="post">
+			<div class="form-group">
+				<div id="item_input" class="input-group">
+		      		<input autofocus type="text" class="form-control" name="item_name" placeholder="What do we need?">
+		      		<span class="input-group-btn">
+		        		<button class="btn btn-primary" type="submit" name="submitButton">Add</button>
+		      		</span>
+		    	</div>
 			</div>
-			
-		</div>
-		<div class="panel-body">
-			<!-- item list -->    
-			<ol id="shoplistitems">
-				<?php 
-					foreach ($listItems as $item) 
+		</form>
+		
+	</div>
+
+	<div class="tab-content"> 
+
+		<ol id="shoplistitems">
+			<?php 
+				foreach ($listItems as $item) 
+				{
+					$postDate = strtotime($item["post_date"]);
+					$solveDate = strtotime($item["solve_date"]);
+
+					// get name of this item's poster and solver
+					foreach ($roommates as $roommate) 
 					{
-						$postDate = strtotime($item["post_date"]);
-						$solveDate = strtotime($item["solve_date"]);
-
-						// get name of this item's poster and solver
-						foreach ($roommates as $roommate) 
+						if ($roommate["user_id"] == $item["user_id_poster"])
 						{
-							if ($roommate["user_id"] == $item["user_id_poster"])
-							{
-								$namePoster = 	$roommate["first_name"] . 
-												' ' . 
-												$roommate["last_name"];
-							}
-
-							if ($roommate["user_id"] == $item["user_id_solver"])
-							{
-								$nameSolver =	$roommate["first_name"] .
-												' ' .
-												$roommate["last_name"];
-							}
+							$namePoster = 	$roommate["first_name"] . 
+											' ' . 
+											$roommate["last_name"];
 						}
 
-						echo(	
-								'<li>' .
-									'<div class="text_holder">' 	
-							);
-
-						// if not solved yet
-						if (empty($item["user_id_solver"]))
+						if ($roommate["user_id"] == $item["user_id_solver"])
 						{
-							echo(
-										// hidden value 	
-										'<a type="submit" href="#myModal" ' .
-											'data-id="' . $item["item_name"] . '" ' . 
-								 			'data-value="' . $item["item_id"] . '"'  .
-								 			'class="open-modal btn btn-success pull-right checkmark-todo"' . 
-								 			'id="solve-button"' .
-								 			'data-target="#myModal" >' .
-							 				'<span class="glyphicon glyphicon-ok"></span>' .
-						 				'</a>'
-								);	
+							$nameSolver =	$roommate["first_name"] .
+											' ' .
+											$roommate["last_name"];
 						}
-						else
-						{
-							echo 		'<span class="glyphicon glyphicon-ok pull-right checkmark-done"></span>';
-						}
-
-						echo(	
-										'<p class="lead">' . $item["item_name"] . '</p>' .
-										'<em>' .
-											'Posted by: ' .
-											$namePoster .
-											', at ' . 
-											date('l F jS, H:i',$postDate)
-							);
-
-						// if solved
-						if (!empty($item["user_id_solver"]))
-						{
-							echo( 			
-											'<br>' .
-											'Bought by: ' .
-											$nameSolver . 
-											', at ' .
-											date('l F jS, H:i', $solveDate)
-								);			
-						}
-						else
-						{
-							// add white line
-							echo 			'<br>&nbsp<br>';
-						}
-						// placeholder
-						echo(			'</em>' .
-									'</div>' . 
-								'</li>'
-							);		
 					}
-				?>
-			</ol>
 
-		</div> <!-- /.panel-body --> 
-	</div> <!-- /.panel -->
-</div> <!-- /.col-md-9 column -->
+					echo(	
+							'<li>' .
+								'<div class="text_holder">' 	
+						);
 
-<!-- scoreboard -->
+					// if not solved yet
+					if (empty($item["user_id_solver"]))
+					{
+						echo(
+									// hidden value 	
+									'<a type="submit" href="#myModal" ' .
+										'data-id="' . $item["item_name"] . '" ' . 
+							 			'data-value="' . $item["item_id"] . '"'  .
+							 			'class="open-modal btn btn-success pull-right checkmark-todo"' . 
+							 			'id="solve-button"' .
+							 			'data-target="#myModal" >' .
+						 				'<span class="glyphicon glyphicon-ok"></span>' .
+					 				'</a>'
+							);	
+					}
+					else
+					{
+						echo 		'<span class="glyphicon glyphicon-ok pull-right checkmark-done"></span>';
+					}
+
+					echo(	
+									'<p class="lead">' . $item["item_name"] . '</p>' .
+									'<em>' .
+										'Posted by: ' .
+										$namePoster .
+										', at ' . 
+										date('l F jS, H:i',$postDate)
+						);
+
+					// if solved
+					if (!empty($item["user_id_solver"]))
+					{
+						echo( 			
+										'<br>' .
+										'Bought by: ' .
+										$nameSolver . 
+										', at ' .
+										date('l F jS, H:i', $solveDate)
+							);			
+					}
+					else
+					{
+						// add white line
+						echo 			'<br>&nbsp<br>';
+					}
+					// placeholder
+					echo(			'</em>' .
+								'</div>' . 
+							'</li>'
+						);		
+				}
+			?>
+		</ol>
+
+	</div> <!-- /.tab-content --> 
+</div> <!-- /.col-md-7 column #shoplist -->
+
+<!-- Boyer rankings -->
 <div class="col-xs-3 column right-column">
 	<table class="table" id="shoplist-scoreboard">
 		<legend align="center">
