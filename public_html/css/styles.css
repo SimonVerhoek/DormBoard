@@ -47,7 +47,7 @@ table img {
 }
 
 #header-navbar, #session-dropdown-box, #login-dropdown {
-    background-color: #D4CDC5;  /* header & header dropdown background color */
+    background-color: #B98860;  /* header & header dropdown background color */
 }
 
 /* header border */
@@ -64,7 +64,7 @@ table img {
 /* session dropdown button hover color */
 .navbar-nav > li > a:hover, 
 .navbar-nav > li > a:focus {
-    background-color: #BDB6AE;
+    background-color: #946c4c;
 }
 
 /* session dropdown button onclick color */
@@ -76,7 +76,7 @@ table img {
 .navbar-nav > .open > a:focus
 {
     color: #000000;
-    background-color: #BDB6AE;
+    background-color: #946c4c;
 }
 
 #logo {
@@ -93,7 +93,7 @@ table img {
 
 /* override navbar hyperlink color */
 #header-title, .navbar-nav li a {
-    color: #4D4D4D;
+    color: black;
 }
 
 /* override navbar hyperlink hover color */
@@ -125,6 +125,12 @@ table img {
 }
 
 /* ---------- NAVPANEL ---------- */
+#nav-tab-buttons .active a,
+#nav-tab-buttons .active a:hover {
+    color: black;
+    background-color: #B98860;
+}
+
 #roommates-panel {
     margin-top: 3em;
     font-size: 0.9em;

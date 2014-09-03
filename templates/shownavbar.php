@@ -7,7 +7,7 @@
 <div class="col-xs-2 column">
 
 	<!-- navigation -->
-	<div class="nav nav-pills nav-stacked" role="navigation">
+	<div class="nav nav-pills nav-stacked" id="nav-tab-buttons" role="navigation">
 	    <li id="navdinner">   <a href="dinner.php">	  dinner		</a></li>
 	    <li id="navshoplist"> <a href="shoplist.php"> Shopping List </a></li>
 	    <li id="navfinances"> <a href="finances.php"> finances		</a></li>
