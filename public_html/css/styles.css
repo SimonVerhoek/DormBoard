@@ -6,11 +6,11 @@
  * index of this file:
  * - global css
  * - header
+ * - session
+ * - navpanel
  * - body
  * - footer
  * --------
- * - session
- * - navpanel
  * - home
  * - dinner
  * - shopping list
@@ -125,10 +125,23 @@ table img {
 }
 
 /* ---------- NAVPANEL ---------- */
-#nav-tab-buttons .active a,
-#nav-tab-buttons .active a:hover {
-    color: black;
+
+/* navpanel background */
+.nav-pills {
+    padding: 10%;
     background-color: #B98860;
+    border-radius: 1em;
+}
+
+.nav-pills a {
+    color: black;
+}
+
+#nav-tab-buttons .active a,
+#nav-tab-buttons .active a:hover,
+#nav-tab-buttons a:hover {
+    color: black;
+    background-color: #946c4c;
 }
 
 #roommates-panel {
