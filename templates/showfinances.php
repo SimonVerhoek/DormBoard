@@ -150,9 +150,9 @@
 
 
 <!-- roommates' cash balances -->
-<div class="col-xs-2">
+<div class="col-xs-2 column">
 	<table class="table" id="rm-balances">
-		<legend>Balances</legend>
+		<legend align="center">Balances</legend>
 		<tbody>
 			<?php
 				foreach ($roommates as $roommate) 
@@ -161,15 +161,15 @@
 					// apply cell based on balance level
 					if ($roommate["cash_balance"] < 0)
 					{
-						echo '<td class="danger">';
+						echo '<td class="negative-balance">';
 					}
 					else if ($roommate["cash_balance"] > 0)
 					{
-						echo '<td class="success">';
+						echo '<td class="positive-balance">';
 					}
 					else
 					{
-						echo '<td>';
+						echo '<td class="neutral-balance">';
 					}
 					echo(	$roommate["first_name"] .
 							"</td>" 
@@ -178,15 +178,15 @@
 					// color cell based on balance level
 					if ($roommate["cash_balance"] < 0)
 					{
-						echo '<td class="danger text-right">';
+						echo '<td class="negative-balance text-right">';
 					}
 					else if ($roommate["cash_balance"] > 0)
 					{
-						echo '<td class="success text-right">';
+						echo '<td class="positive-balance text-right">';
 					}
 					else
 					{
-						echo '<td class="text-right">';
+						echo '<td class="neutral-balance text-right">';
 					}
 					
 					echo "$ ";

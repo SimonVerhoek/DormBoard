@@ -23,6 +23,10 @@ html, body {
     font-family: 'Raleway', sans-serif;
 }
 
+legend {
+    color: white;
+}
+
 th {
     font-weight: 100;
 }
@@ -391,4 +395,16 @@ table img {
     font-size: 0.9em;
     padding: 5px;
     margin: 0;
+}
+
+.negative-balance {
+    color: red;
+}
+
+.positive-balance {
+    color: #2FDE34;
+}
+
+.neutral-balance {
+    color: white;
 }
