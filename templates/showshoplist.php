@@ -154,7 +154,7 @@
 
 					echo(	
 							'<li>' .
-								'<div class="text_holder">' 	
+								'<div class="text-holder">' 	
 						);
 
 					// if not solved yet
@@ -174,36 +174,38 @@
 					}
 					else
 					{
-						echo 		'<span class="glyphicon glyphicon-ok pull-right checkmark-done"></span>';
+						echo 		'<span class="glyphicon glyphicon-ok pull-right checkmark-done shoplist-checkmark-done"></span>';
 					}
 
 					echo(	
-									'<p class="lead">' . $item["item_name"] . '</p>' .
-									'<em>' .
-										'Posted by: ' .
-										$namePoster .
-										', at ' . 
-										date('l F jS, H:i',$postDate)
+									'<p class="shoplist-item-name">' . $item["item_name"] . '</p>' .
+									'<p class="shoplist-item-data">' . 
+										'<em>' .
+											'Posted by: ' .
+											$namePoster .
+											', at ' . 
+											date('l F jS, H:i',$postDate)
 						);
 
 					// if solved
 					if (!empty($item["user_id_solver"]))
 					{
 						echo( 			
-										'<br>' .
-										'Bought by: ' .
-										$nameSolver . 
-										', at ' .
-										date('l F jS, H:i', $solveDate)
+											'<br>' .
+											'Bought by: ' .
+											$nameSolver . 
+											', at ' .
+											date('l F jS, H:i', $solveDate)
 							);			
 					}
 					else
 					{
 						// add white line
-						echo 			'<br>&nbsp<br>';
+						echo 				'<br>&nbsp<br>';
 					}
 					// placeholder
-					echo(			'</em>' .
+					echo(				'</em>' .
+									'</p>' . 
 								'</div>' . 
 							'</li>'
 						);		

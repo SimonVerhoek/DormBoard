@@ -85,6 +85,11 @@ table img {
     float: left;
 }
 
+.tab-header {
+    height: 100px;
+    color: white;
+}
+
 /* ---------- HEADER ---------- */
 #header-navbar, #session-dropdown-box, #login-dropdown {
     background-color: #B98860;  /* header & header dropdown background color */
@@ -273,14 +278,15 @@ table img {
     min-height: 50px;
     height: 50px;
 }
-
-#dinner-table th {
-    text-align: center;
+ 
+#dinner-table th, 
+#dinner-table td {
+    color: white;
 }
 
 #dinner-table th {
-    /* prevent dates from expanding outside panel */
-    font-size: 0.95em;
+    text-align: center;
+    font-size: 0.95em;  /* prevents dates from expanding outside panel */
 }
 
 #dinner-table td {
@@ -296,7 +302,7 @@ table img {
 
 /* ---------- SHOPPING LIST ---------- */
 
-/* ----- LIST OF ITEMS ----- */
+/* ----- SHOPLIST ----- */
 #shoplist {
     margin: auto;
 }
@@ -317,11 +323,21 @@ table img {
     margin-bottom: 30px;
 }
 
-#shoplistitems em {
-    color: #A8A8A8;
+.shoplist-item-name,
+.shoplist-checkmark-done {
+    color: white;
 }
 
-.text_holder {
+.shoplist-item-name {
+    font-size: 1.5em;
+}
+
+.shoplist-item-data {
+    color: #A8A8A8;
+    font-size: 0.9em;
+}
+
+.text-holder {
     word-wrap: break-word;
 }
 
