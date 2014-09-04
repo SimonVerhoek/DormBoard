@@ -168,7 +168,7 @@
 							 			'class="open-modal btn btn-success pull-right checkmark-todo"' . 
 							 			'id="solve-button"' .
 							 			'data-target="#myModal" >' .
-						 				'<span class="glyphicon glyphicon-ok"></span>' .
+						 				'Check!' .
 					 				'</a>'
 							);	
 					}
