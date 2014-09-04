@@ -17,7 +17,7 @@
  * - finances
  */
 
-/* ---------- GLOBAL CSS ---------- */
+/* -------------------- GLOBAL CSS -------------------- */
 html, body {
     height: 100%;
     background-color: #525252;
@@ -90,7 +90,7 @@ table img {
     color: white;
 }
 
-/* ---------- HEADER ---------- */
+/* -------------------- HEADER -------------------- */
 #header-navbar, #session-dropdown-box, #login-dropdown {
     background-color: #B98860;  /* header & header dropdown background color */
 }
@@ -160,7 +160,7 @@ table img {
     margin-top: 15px;
 }
 
-/* ---------- SESSION ---------- */
+/* -------------------- SESSION -------------------- */
 #navigation-bar {
     margin-right: 0;
 }
@@ -169,16 +169,20 @@ table img {
     margin-right: 0;
 }
 
-/* ---------- NAVPANEL ---------- */
+/* -------------------- NAVPANEL -------------------- */
 #nav-column {
     padding-left: 0;
 }
 
 /* navpanel background */
-.nav-pills {
-    padding: 10%;
+#nav-and-dorm {
+    padding-top: 0.5em;
     background-color: #B98860;
     border-radius: 1em;
+}
+
+.nav-pills {
+    padding: 10%;
 }
 
 .nav-pills a {
@@ -190,6 +194,10 @@ table img {
 #nav-tab-buttons a:hover {
     color: black;
     background-color: #946c4c;
+}
+
+#dorm-name {
+    font-size: 1.3em;
 }
 
 #roommates-panel {
@@ -217,7 +225,16 @@ table img {
 }
 /* ./ disable nav responsiveness
 
-/* ---------- BODY ---------- */
+/* ----- ROOMMATES LIST ----- */
+#roommates-list {
+    margin-top: 2em;
+    font-size: 0.9em;
+    word-wrap: break-word;
+    color: white;
+}
+
+
+/* -------------------- BODY -------------------- */
 #middle {
     margin-top: 1em;
     margin: auto;
@@ -227,7 +244,7 @@ table img {
     font-weight: 100;
 }
 
-/* ---------- FOOTER ---------- */
+/* -------------------- FOOTER -------------------- */
 #footer, .push {
     height: 150px;
 }
@@ -249,7 +266,7 @@ table img {
     display: inline-block;
 }
 
-/* ---------- HOME ---------- */
+/* -------------------- HOME -------------------- */
 #home {
     background-color: #525252;
     height: 700px;
@@ -268,7 +285,7 @@ table img {
     padding: 10%;
 }
 
-/* ---------- DINNER ---------- */
+/* -------------------- DINNER -------------------- */
 #dinner-panel {
     min-width: 100%;
 }
@@ -300,7 +317,7 @@ table img {
 }
 
 
-/* ---------- SHOPPING LIST ---------- */
+/* -------------------- SHOPPING LIST -------------------- */
 
 /* ----- SHOPLIST ----- */
 #shoplist {
@@ -373,7 +390,7 @@ table img {
 }
 
 
-/* ---------- FINANCES ---------- */
+/* -------------------- FINANCES -------------------- */
 
 /* ----- LIST OF ITEMS ----- */
 #add-spend-button {
