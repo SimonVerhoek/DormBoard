@@ -183,7 +183,7 @@
                                     cash_balance
                         FROM        users
                         WHERE       dorm_id = ?
-                        ORDER BY    first_name ASC",
+                        ORDER BY    cash_balance DESC",
                                 $dorm[0]["dorm_id"]);
 
     // get all dorm's spend data up to a week earlier
