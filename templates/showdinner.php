@@ -121,64 +121,84 @@
                 <h4 class="modal-title">Add action</h4>
             </div> <!-- close modal-header -->
 
-            <div class="modal-body">
+            <form role="form" class="form" action="dinner.php" method="post">
+				<fieldset>
 
-	            <form role="form" class="form-inline" action="dinner.php" method="post">
-					<fieldset>
+            		<div class="modal-body row">
 
-					
-						<div class="form-group">
-							I will
-							<select autofocus class="form-control" name="what">
-								<option value="">Choose what...</option>
-								<option value="1">cook</option>
-								<option value="2">join dinner</option>
-								<option value="3">NOT join dinner</option>
-							</select>
+						<div class="col-md-6">
+							<div class="form-group">
+								I will:
+								<div class="radio dinner-radio">
+									<label>
+										<input type="radio" class="dinner-radio-button" name="what" value="1">
+										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/cook3.png">
+										Cook
+									</label>
+								</div>
+								<div class="radio dinner-radio">
+									<label>
+										<input type="radio" class="dinner-radio-button" name="what" value="2">
+										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/join3.png">
+										Join dinner
+									</label>
+								</div>
+								<div class="radio dinner-radio">
+									<label>
+										<input type="radio" class="dinner-radio-button" name="what" value="3">
+										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/notjoin.png">
+										NOT join dinner
+									</label>
+								</div>
+							</div>
+						</div> <!-- ./ column -->
 
-							<select autofocus class="form-control" name="when">
-								<option value="">Choose when...</option>
-								<?php 
-									foreach ($days as $i => $day) 
-									{ 
-								    	// store day in variable for easy storing in db
-								    	$dayDate = $day->format('y-m-d');
+						<div class="col-md-6">
+							<div class="form-group">
+								<select autofocus class="form-control" name="when">
+									<option value="">Choose when...</option>
+									<?php 
+										foreach ($days as $i => $day) 
+										{ 
+									    	// store day in variable for easy storing in db
+									    	$dayDate = $day->format('y-m-d');
 
-								    	// show "Today" and "Tomorrow" instead of day of week
-								    	echo "<option value=$dayDate>";
-								    	switch ($i) 
-								    	{
-								    		case 0:
-								    			echo ("Today");
-								    			break;
-								    		case 1:
-								    			echo ("Tomorrow");
-								    			break;
-								    		default:
-								    			echo ($day->format('l'));
-								    			break;
-								    	}
-						    			echo(	" (" . 
-						    					$day->format("F jS") .	    					 
-						    					")");
-								    	echo "</option>";
-									} 	
-								?>
-							</select>
-						</div>
+									    	// show "Today" and "Tomorrow" instead of day of week
+									    	echo "<option value=$dayDate>";
+									    	switch ($i) 
+									    	{
+									    		case 0:
+									    			echo ("Today");
+									    			break;
+									    		case 1:
+									    			echo ("Tomorrow");
+									    			break;
+									    		default:
+									    			echo ($day->format('l'));
+									    			break;
+									    	}
+							    			echo(	" (" . 
+							    					$day->format("F jS") .	    					 
+							    					")");
+									    	echo "</option>";
+										} 	
+									?>
+								</select>
+							</div> <!-- ./ form-group -->
+						</div> <!-- ./ column -->
 
-	                    <div class="modal-footer">
-	                        <button type="button" class="btn btn-default" data-dismiss="modal">
-	                            Cancel
-	                        </button>
-	                        <input type="hidden" name="leave-dorm" value="leave-dorm" />
-	                        <button type="submit" class="btn btn-primary">Add</button> 
-	                    </div> <!-- closes modal-footer -->
+					</div> <!-- /. modal-body -->	
 
-	                </fieldset>
-	            </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Cancel
+                        </button>
+                        <input type="hidden" name="leave-dorm" value="leave-dorm" />
+                        <button type="submit" class="btn btn-primary">Add</button> 
+                    </div> <!-- closes modal-footer -->
 
-            </div> <!-- closes modal-body -->
+                </fieldset>
+            </form>
 
         </div> <!-- closes modal-content -->
     </div> <!-- closes modal-dialog -->

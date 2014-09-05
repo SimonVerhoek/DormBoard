@@ -316,6 +316,14 @@ table img {
     word-wrap: break-word;
 }
 
+.dinner-radio {
+    height: 100px;
+}
+
+.dinner-modal-icon {
+    max-height: 50px;
+}
+
 
 /* -------------------- SHOPPING LIST -------------------- */
 
