@@ -14,13 +14,9 @@
 
 		<h1>Dinner Schedule</h1>
 
-		<div>
-			<?php 
-				build("dinner_form.php", [
-					"days" => $days
-					]) ;
-			?>
-		</div>
+		<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">
+            Add
+        </button>
 		
 	</div>
 
@@ -112,5 +108,80 @@
 	</div> <!-- ./ .tab-content -->
 
 </div> <!-- ./ dinner-column -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Add action</h4>
+            </div> <!-- close modal-header -->
+
+            <div class="modal-body">
+
+	            <form role="form" class="form-inline" action="dinner.php" method="post">
+					<fieldset>
+
+					
+						<div class="form-group">
+							I will
+							<select autofocus class="form-control" name="what">
+								<option value="">Choose what...</option>
+								<option value="1">cook</option>
+								<option value="2">join dinner</option>
+								<option value="3">NOT join dinner</option>
+							</select>
+
+							<select autofocus class="form-control" name="when">
+								<option value="">Choose when...</option>
+								<?php 
+									foreach ($days as $i => $day) 
+									{ 
+								    	// store day in variable for easy storing in db
+								    	$dayDate = $day->format('y-m-d');
+
+								    	// show "Today" and "Tomorrow" instead of day of week
+								    	echo "<option value=$dayDate>";
+								    	switch ($i) 
+								    	{
+								    		case 0:
+								    			echo ("Today");
+								    			break;
+								    		case 1:
+								    			echo ("Tomorrow");
+								    			break;
+								    		default:
+								    			echo ($day->format('l'));
+								    			break;
+								    	}
+						    			echo(	" (" . 
+						    					$day->format("F jS") .	    					 
+						    					")");
+								    	echo "</option>";
+									} 	
+								?>
+							</select>
+						</div>
+
+	                    <div class="modal-footer">
+	                        <button type="button" class="btn btn-default" data-dismiss="modal">
+	                            Cancel
+	                        </button>
+	                        <input type="hidden" name="leave-dorm" value="leave-dorm" />
+	                        <button type="submit" class="btn btn-primary">Add</button> 
+	                    </div> <!-- closes modal-footer -->
+
+	                </fieldset>
+	            </form>
+
+            </div> <!-- closes modal-body -->
+
+        </div> <!-- closes modal-content -->
+    </div> <!-- closes modal-dialog -->
+</div> <!-- closes modal -->
 
 
