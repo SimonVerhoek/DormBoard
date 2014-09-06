@@ -81,7 +81,7 @@
 
 			<h1>Finances</h1>
 
-			<button class="btn btn-primary btn-lg pull-right" id="add-spend-button" data-toggle="modal" data-target="#myModal">
+			<button class="btn btn-primary btn-lg pull-right" id="add-spend-button" data-toggle="modal" data-target="#myModalCustom">
 				Add
 			</button>
 
@@ -200,12 +200,12 @@
 </div> <!-- close cash balances column -->
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal custom fade" id="myModalCustom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
     	<div class="modal-content">
     		<div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        <h4 class="modal-title" id="myModalLabel">Add spend</h4>
+		        <h4 class="modal-title" id="myModalLabel" align="center">Add spend</h4>
 		    </div>
 
 		    <form id="finances-form" role="form" class="form-horizontal" action="finances.php" name="newspend" method="post">
@@ -269,8 +269,8 @@
 					</div> <!-- ./ modal-body -->
 	      		
 			      	<div class="modal-footer">
-			        	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-			        	<button name="submitButton" type="submit" class="btn btn-primary" value="from-finances">Add</button>
+			        	<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+			        	<button name="submitButton" type="submit" class="btn btn-success" value="from-finances">Add</button>
 			      	</div>
 			      	
 	      		</fieldset>

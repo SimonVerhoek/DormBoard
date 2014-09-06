@@ -90,15 +90,21 @@ table img {
     color: white;
 }
 
-.modal-header, .modal-footer {
-    color: white;
+/* ----- modals ----- */
+.modal.custom .modal-header, 
+.modal.custom .modal-footer {
     background-color: #B98860;
+    border: 0;
 }
 
-.modal-header {
+.modal.custom .modal-body {
+    color: white;
+    background-color: #525252;
+}
+
+.modal.custom .modal-header {
     /* prevent rounded corners to be overridden */
     padding:9px 15px;
-    border-bottom:1px solid #eee;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
@@ -107,10 +113,11 @@ table img {
     border-top-right-radius: 5px;
 }
 
-.modal-footer {
+.modal.custom .modal-footer {
+    margin-top: 0; /* prevents gap between modal-body and modal-footer */
+
     /* prevent rounded corners to be overridden */
     padding:9px 15px;
-    border-top:1px solid #eee;
     -webkit-border-bottom-left-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
     -moz-border-radius-bottomleft: 5px;
