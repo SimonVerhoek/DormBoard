@@ -257,16 +257,17 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
+	<div class="modal-dialog">
     	<div class="modal-content">
     		<div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title" id="myModalLabel">Add spend</h4>
 		    </div>
-      		<div class="modal-body">
 
-      			<form id="finances-form" role="form" class="form-horizontal" action="finances.php" name="newspend" method="post">
-					<fieldset>
+		    <form id="finances-form" role="form" class="form-horizontal" action="finances.php" name="newspend" method="post">
+				<fieldset>
+  					<div class="modal-body">
+
 						<div class="form-group">
 							<label class="col-sm-4 control-label">You bought:</label>
 							<div class="col-sm-7">
@@ -319,16 +320,18 @@
 								?>
 							</div>
 						</div>
+					</div> <!-- ./ modal-body -->
 
-						<input type="hidden" name="from-shoplist" id="from-shoplist" value="" />
-		      		
-				      	<div class="modal-footer">
-				        	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				        	<button name="submitButton" type="submit" class="btn btn-primary" id="submit-button">Add spend</button>
-				      	</div>
-		      		</fieldset>
-				</form>
-			</div> <!-- close modal-body -->
-    	</div> <!-- close modal-content -->
-  	</div> <!-- close modal-dialog -->
-</div> <!-- close modal -->
+					<input type="hidden" name="from-shoplist" id="from-shoplist" value="" />
+	      		
+			      	<div class="modal-footer">
+			        	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			        	<button name="submitButton" type="submit" class="btn btn-primary" id="submit-button">Add spend</button>
+			      	</div>
+			      	
+	      		</fieldset>
+			</form>
+
+		</div> <!-- ./ modal-content -->
+	</div> <!-- ./ modal-dialog -->
+</div> <!-- ./ modal -->
