@@ -117,7 +117,7 @@
 				<div id="item_input" class="input-group">
 		      		<input autofocus type="text" class="form-control" name="item_name" placeholder="What do we need?">
 		      		<span class="input-group-btn">
-		        		<button class="btn btn-primary" type="submit" name="submitButton">Add</button>
+		        		<button class="btn btn-custom" type="submit" name="submitButton">Add</button>
 		      		</span>
 		    	</div>
 			</div>

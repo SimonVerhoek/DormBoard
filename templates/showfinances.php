@@ -81,7 +81,7 @@
 
 			<h1>Finances</h1>
 
-			<button class="btn btn-primary btn-lg pull-right" id="add-spend-button" data-toggle="modal" data-target="#myModalCustom">
+			<button class="btn btn-custom btn-lg pull-right" id="add-spend-button" data-toggle="modal" data-target="#myModalCustom">
 				Add
 			</button>
 
