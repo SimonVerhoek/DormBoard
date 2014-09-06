@@ -162,12 +162,12 @@
 					{
 						echo(
 									// hidden value 	
-									'<a type="submit" href="#myModal" ' .
+									'<a type="submit" href="#myModalCustom" ' .
 										'data-id="' . $item["item_name"] . '" ' . 
 							 			'data-value="' . $item["item_id"] . '"'  .
 							 			'class="open-modal btn btn-success pull-right checkmark-todo"' . 
 							 			'id="solve-button"' .
-							 			'data-target="#myModal" >' .
+							 			'data-target="#myModalCustom" >' .
 						 				'Check!' .
 					 				'</a>'
 							);	
@@ -256,7 +256,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal custom fade" id="myModalCustom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
     	<div class="modal-content">
     		<div class="modal-header">
@@ -318,8 +318,8 @@
 											);
 									}
 								?>
-							</div>
-						</div>
+							</div> <!-- ./ column -->
+						</div> <!-- ./ form-group -->
 					</div> <!-- ./ modal-body -->
 
 					<input type="hidden" name="from-shoplist" id="from-shoplist" value="" />
@@ -327,7 +327,7 @@
 			      	<div class="modal-footer">
 			        	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			        	<button name="submitButton" type="submit" class="btn btn-primary" id="submit-button">Add spend</button>
-			      	</div>
+			      	</div> <!-- ./ modal-footer -->
 			      	
 	      		</fieldset>
 			</form>
