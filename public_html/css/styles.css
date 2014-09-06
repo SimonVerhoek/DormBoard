@@ -453,7 +453,6 @@ fieldset[disabled] .btn-custom-dinner.active {
 
 .dinner-button {
     width: 100%;
-    text-align: left;
 }
 
 .dinner-modal-icon {
@@ -461,7 +460,7 @@ fieldset[disabled] .btn-custom-dinner.active {
 }
 
 #dinner-button-label-column {
-    margin-left: 0;
+    margin-left: 0; /* moves action 'labels' closer to buttons */
 }
 
 .dinner-button-label {
@@ -469,7 +468,7 @@ fieldset[disabled] .btn-custom-dinner.active {
 }
 
 .dinner-button-label p {
-    padding-top: 2em;
+    padding-top: 2em; /* vertically align action 'labels' */
 }
 
 
