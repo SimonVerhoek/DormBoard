@@ -22,7 +22,7 @@
 			<thead id="dinner-table-header">
 				<tr>
 					<td>
-						<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModalCustom">
+						<button class="btn-custom btn-lg" data-toggle="modal" data-target="#myModalCustom">
 				            Add
 				        </button>
 					</td>
