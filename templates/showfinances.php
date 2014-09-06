@@ -207,14 +207,16 @@
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title" id="myModalLabel">Add spend</h4>
 		    </div>
-      		<div class="modal-body">
 
-      			<form id="finances-form" role="form" class="form-horizontal" action="finances.php" name="newspend" method="post">
-					<fieldset>
+		    <form id="finances-form" role="form" class="form-horizontal" action="finances.php" name="newspend" method="post">
+				<fieldset>
+
+      				<div class="modal-body">
+      			
 						<div class="form-group">
 							<label class="col-sm-4 control-label">What did you buy?</label>
 							<div class="col-sm-7">
-								<input autofocus type="text" class="form-control" name="spend_name" placeholder="e.g. butter, bread and toilet paper">
+								<input type="text" class="form-control" name="spend_name" placeholder="e.g. butter, bread and toilet paper">
 							</div>
 						</div>
 
@@ -262,18 +264,18 @@
 											);
 									}
 								?>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-sm-offset-3 col-sm-10">
-		  						<button name="submitButton" type="submit" class="btn btn-primary" value="from-finances">Add</button>
-							</div>
-						</div>	
-					</fieldset>
-				</form>
-
-			</div> <!-- close modal-body -->
+							</div> <!-- ./ column -->
+						</div> <!-- ./ form-group -->
+					</div> <!-- ./ modal-body -->
+	      		
+			      	<div class="modal-footer">
+			        	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			        	<button name="submitButton" type="submit" class="btn btn-primary" value="from-finances">Add</button>
+			      	</div>
+			      	
+	      		</fieldset>
+			</form>
+					
     	</div> <!-- close modal-content -->
   	</div> <!-- close modal-dialog -->
 </div> <!-- close modal -->
