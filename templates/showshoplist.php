@@ -261,7 +261,7 @@
     	<div class="modal-content">
     		<div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        <h4 class="modal-title" id="myModalLabel">Add spend</h4>
+		        <h4 class="modal-title" id="myModalLabel" align="center">Add spend</h4>
 		    </div>
 
 		    <form id="finances-form" role="form" class="form-horizontal" action="finances.php" name="newspend" method="post">
@@ -325,8 +325,8 @@
 					<input type="hidden" name="from-shoplist" id="from-shoplist" value="" />
 	      		
 			      	<div class="modal-footer">
-			        	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-			        	<button name="submitButton" type="submit" class="btn btn-primary" id="submit-button">Add spend</button>
+			        	<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+			        	<button name="submitButton" type="submit" class="btn btn-success" id="submit-button">Add spend</button>
 			      	</div> <!-- ./ modal-footer -->
 			      	
 	      		</fieldset>

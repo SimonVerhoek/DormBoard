@@ -124,7 +124,7 @@
 
             <form role="form" class="form" action="dinner.php" method="post">
 				<fieldset>
-					
+
             		<div class="modal-body row" id="dinner-modal-body">
 
 						<div class="col-xs-6 dinner-modal-column">
@@ -189,11 +189,11 @@
 					</div> <!-- /. modal-body -->	
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
                             Cancel
                         </button>
                         <input type="hidden" name="leave-dorm" value="leave-dorm" />
-                        <button type="submit" class="btn btn-primary">Add</button> 
+                        <button type="submit" class="btn btn-success">Add</button> 
                     </div> <!-- ./ modal-footer -->
 
                 </fieldset>
