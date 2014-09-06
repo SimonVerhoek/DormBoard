@@ -373,6 +373,18 @@ table img {
     height: 60px;
 }
 
+#dinner-button-label-column {
+    margin-left: 0;
+}
+
+.dinner-button-label {
+   height: 75px; /* matches button height */
+}
+
+.dinner-button-label p {
+    padding-top: 2em;
+}
+
 
 /* -------------------- SHOPPING LIST -------------------- */
 

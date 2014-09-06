@@ -127,29 +127,38 @@
 
             		<div class="modal-body row" id="dinner-modal-body">
 
-						<div class="col-xs-6 dinner-modal-column">
+						<div class="col-xs-3 dinner-modal-column">
 							<div class="form-group">
 
 								<div class="btn-group dinner-buttons" data-toggle="buttons">
 									<label class="btn btn-default dinner-button">
 										<input type="radio" class="dinner-radio-button" name="what" value="1">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/cook3.png">
-										Cook
 									</label>
 									<label class="btn btn-default dinner-button">
 										<input type="radio" class="dinner-radio-button" name="what" value="2">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/join3.png">
-										Join dinner
 									</label>
 									<label class="btn btn-default dinner-button">
 										<input type="radio" class="dinner-radio-button" name="what" value="3">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/notjoin.png">
-										NOT join dinner
 									</label>
 								</div> <!-- ./ .dinner-buttons -->
 
 							</div> <!-- ./ form-group -->
 						</div> <!-- ./ column -->
+
+						<div class="col-xs-3" id="dinner-button-label-column">
+							<div class="row-fluid dinner-button-label">
+								<p>Cook</p>
+							</div>
+							<div class="row-fluid dinner-button-label">
+								<p>Join dinner</p>
+							</div>
+							<div class="row-fluid dinner-button-label">
+								<p>NOT join dinner</p>
+							</div>
+						</div>
 
 						<div class="col-xs-6 dinner-modal-column">
 							<div class="form-group">
