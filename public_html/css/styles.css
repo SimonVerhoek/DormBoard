@@ -90,6 +90,35 @@ table img {
     color: white;
 }
 
+.modal-header, .modal-footer {
+    color: white;
+    background-color: #B98860;
+}
+
+.modal-header {
+    /* prevent rounded corners to be overridden */
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modal-footer {
+    /* prevent rounded corners to be overridden */
+    padding:9px 15px;
+    border-top:1px solid #eee;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 /* -------------------- HEADER -------------------- */
 #header-navbar, #session-dropdown-box, #login-dropdown {
     background-color: #B98860;  /* header & header dropdown background color */
