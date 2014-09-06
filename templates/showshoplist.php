@@ -271,7 +271,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">You bought:</label>
 							<div class="col-sm-7">
-								<input autofocus type="text" class="form-control" name="spend_name" id="spend_name">
+								<input type="text" class="form-control" name="spend_name" id="spend_name">
 							</div>
 						</div>
 
