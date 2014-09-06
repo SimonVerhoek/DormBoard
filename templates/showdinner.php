@@ -13,10 +13,6 @@
 	<div class="tab-header">
 
 		<h1>Dinner Schedule</h1>
-
-		<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">
-            Add
-        </button>
 		
 	</div>
 
@@ -25,7 +21,11 @@
 		<table class="table table-condensed" id="dinner-table">
 			<thead id="dinner-table-header">
 				<tr>
-					<td></td>
+					<td>
+						<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">
+				            Add
+				        </button>
+					</td>
 					<?php 
 						foreach ($days as $i => $day) 
 						{
@@ -128,29 +128,27 @@
 
 						<div class="col-md-6">
 							<div class="form-group">
-								I will:
-								<div class="radio dinner-radio">
-									<label>
+
+								<p>I will:</p>
+								<div class="btn-group dinner-buttons">
+									<label class="btn btn-default dinner-button">
 										<input type="radio" class="dinner-radio-button" name="what" value="1">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/cook3.png">
 										Cook
 									</label>
-								</div>
-								<div class="radio dinner-radio">
-									<label>
+									<label class="btn btn-default dinner-button">
 										<input type="radio" class="dinner-radio-button" name="what" value="2">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/join3.png">
 										Join dinner
 									</label>
-								</div>
-								<div class="radio dinner-radio">
-									<label>
+									<label class="btn btn-default dinner-button">
 										<input type="radio" class="dinner-radio-button" name="what" value="3">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/notjoin.png">
 										NOT join dinner
 									</label>
-								</div>
-							</div>
+								</div> <!-- ./ .dinner-buttons -->
+
+							</div> <!-- ./ form-group -->
 						</div> <!-- ./ column -->
 
 						<div class="col-md-6">
