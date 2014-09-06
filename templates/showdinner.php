@@ -22,7 +22,7 @@
 			<thead id="dinner-table-header">
 				<tr>
 					<td>
-						<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">
+						<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModalCustom">
 				            Add
 				        </button>
 					</td>
@@ -110,7 +110,7 @@
 
 </div> <!-- ./ dinner-column -->
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal custom fade" id="myModalCustom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -124,10 +124,10 @@
 
             <form role="form" class="form" action="dinner.php" method="post">
 				<fieldset>
-
+					
             		<div class="modal-body row" id="dinner-modal-body">
 
-						<div class="col-md-6 dinner-modal-column">
+						<div class="col-xs-6 dinner-modal-column">
 							<div class="form-group">
 
 								<div class="btn-group dinner-buttons" data-toggle="buttons">
@@ -151,7 +151,7 @@
 							</div> <!-- ./ form-group -->
 						</div> <!-- ./ column -->
 
-						<div class="col-md-6 dinner-modal-column">
+						<div class="col-xs-6 dinner-modal-column">
 							<div class="form-group">
 
 								<div class="btn-group dinner-buttons" data-toggle="buttons">

@@ -102,7 +102,7 @@ table img {
     background-color: #525252;
 }
 
-.modal.custom .modal-header {
+.modal.custom .modal-header {   
     /* prevent rounded corners to be overridden */
     padding:9px 15px;
     -webkit-border-top-left-radius: 5px;
@@ -357,7 +357,11 @@ table img {
 
 /* ----- modal ----- */
 #dinner-modal-body {
-    height: 260px;
+    /* prevents modal body from overflowing modal */
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .dinner-button {
