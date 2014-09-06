@@ -101,6 +101,37 @@ table img {
     border-bottom: 1px solid black;
 }
 
+#logo {
+    /* makes logo fit in box */
+    width: 29px;
+    height: 29px;  
+    margin-top: -6px;
+}
+
+#header-title {
+    font-family: 'Londrina Sketch', cursive;
+    font-size: 3em;
+}
+
+/* override navbar hyperlink color */
+#header-title, .navbar-nav li a {
+    color: black;
+}
+
+/* override navbar hyperlink hover color */
+#header-title:hover {
+    color: black;
+}
+
+/* ----- SESSION ----- */
+#navigation-bar {
+    margin-right: 0;
+}
+
+#session-dropdown {
+    margin-right: 0;
+}
+
 /* dropdown box border */
 #session-dropdown-box {
     border: 1px solid black;
@@ -124,28 +155,6 @@ table img {
     background-color: #946c4c;
 }
 
-#logo {
-    /* makes logo fit in box */
-    width: 29px;
-    height: 29px;  
-    margin-top: -6px;
-}
-
-#header-title {
-    font-family: 'Londrina Sketch', cursive;
-    font-size: 3em;
-}
-
-/* override navbar hyperlink color */
-#header-title, .navbar-nav li a {
-    color: black;
-}
-
-/* override navbar hyperlink hover color */
-#header-title:hover {
-    color: black;
-}
-
 #login-dropdown {
     width: 250px;
 }
@@ -158,15 +167,6 @@ table img {
 #header-or {
     margin: 10px;
     margin-top: 15px;
-}
-
-/* -------------------- SESSION -------------------- */
-#navigation-bar {
-    margin-right: 0;
-}
-
-#session-dropdown {
-    margin-right: 0;
 }
 
 /* -------------------- NAVPANEL -------------------- */
@@ -244,6 +244,7 @@ table img {
     font-weight: 100;
 }
 
+
 /* -------------------- FOOTER -------------------- */
 #footer, .push {
     height: 150px;
@@ -266,6 +267,7 @@ table img {
     display: inline-block;
 }
 
+
 /* -------------------- HOME -------------------- */
 #home {
     background-color: #525252;
@@ -284,6 +286,7 @@ table img {
     color: white;
     padding: 10%;
 }
+
 
 /* -------------------- DINNER -------------------- */
 #dinner-panel {
