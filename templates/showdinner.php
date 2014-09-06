@@ -22,7 +22,7 @@
 			<thead id="dinner-table-header">
 				<tr>
 					<td>
-						<button class="btn-custom btn-lg" data-toggle="modal" data-target="#myModalCustom">
+						<button class="btn btn-custom btn-lg" data-toggle="modal" data-target="#myModalCustom">
 				            Add
 				        </button>
 					</td>
@@ -131,15 +131,15 @@
 							<div class="form-group">
 
 								<div class="btn-group dinner-buttons" data-toggle="buttons">
-									<label class="btn btn-default dinner-button">
+									<label class="btn btn-custom-dinner dinner-button">
 										<input type="radio" class="dinner-radio-button" name="what" value="1">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/cook3.png">
 									</label>
-									<label class="btn btn-default dinner-button">
+									<label class="btn btn-custom-dinner dinner-button">
 										<input type="radio" class="dinner-radio-button" name="what" value="2">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/join3.png">
 									</label>
-									<label class="btn btn-default dinner-button">
+									<label class="btn btn-custom-dinner dinner-button">
 										<input type="radio" class="dinner-radio-button" name="what" value="3">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/notjoin.png">
 									</label>
@@ -169,7 +169,7 @@
 										// store day in variable for easy storing in db
 										$dayDate = $day->format('y-m-d');
 
-										echo(	'<label class="btn btn-default dinner-button">' .
+										echo(	'<label class="btn btn-custom-dinner dinner-button">' .
 													'<input type="radio" class="dinner-radio-button" name="when"' .
 													'value="' . $dayDate . '">'
 											);
