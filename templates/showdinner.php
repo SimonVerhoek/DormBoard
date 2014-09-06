@@ -30,6 +30,7 @@
 						foreach ($days as $i => $day) 
 						{
 							echo "<th>";
+							// show "Today" and "Tomorrow" instead of day of week
 							switch ($i) 
 					    	{
 					    		case 0:
@@ -118,19 +119,18 @@
                     <span aria-hidden="true">&times;</span>
                     <span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title">Add action</h4>
+                <h4 class="modal-title" align="center">I will:</h4>
             </div> <!-- close modal-header -->
 
             <form role="form" class="form" action="dinner.php" method="post">
 				<fieldset>
 
-            		<div class="modal-body row">
+            		<div class="modal-body row" id="dinner-modal-body">
 
-						<div class="col-md-6">
+						<div class="col-md-6 dinner-modal-column">
 							<div class="form-group">
 
-								<p>I will:</p>
-								<div class="btn-group dinner-buttons">
+								<div class="btn-group dinner-buttons" data-toggle="buttons">
 									<label class="btn btn-default dinner-button">
 										<input type="radio" class="dinner-radio-button" name="what" value="1">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/cook3.png">
@@ -151,37 +151,38 @@
 							</div> <!-- ./ form-group -->
 						</div> <!-- ./ column -->
 
-						<div class="col-md-6">
+						<div class="col-md-6 dinner-modal-column">
 							<div class="form-group">
-								<select autofocus class="form-control" name="when">
-									<option value="">Choose when...</option>
-									<?php 
-										foreach ($days as $i => $day) 
-										{ 
-									    	// store day in variable for easy storing in db
-									    	$dayDate = $day->format('y-m-d');
 
-									    	// show "Today" and "Tomorrow" instead of day of week
-									    	echo "<option value=$dayDate>";
-									    	switch ($i) 
-									    	{
-									    		case 0:
-									    			echo ("Today");
-									    			break;
-									    		case 1:
-									    			echo ("Tomorrow");
-									    			break;
-									    		default:
-									    			echo ($day->format('l'));
-									    			break;
-									    	}
-							    			echo(	" (" . 
-							    					$day->format("F jS") .	    					 
-							    					")");
-									    	echo "</option>";
-										} 	
-									?>
-								</select>
+								<div class="btn-group dinner-buttons" data-toggle="buttons">
+								<?php
+									foreach ($days as $i => $day) {
+										// store day in variable for easy storing in db
+										$dayDate = $day->format('y-m-d');
+
+										echo(	'<label class="btn btn-default dinner-button">' .
+													'<input type="radio" class="dinner-radio-button" name="when"' .
+													'value="' . $dayDate . '">'
+											);
+
+										// show "Today" and "Tomorrow" instead of day of week
+										switch ($i) 
+								    	{
+								    		case 0:
+								    			echo ("Today");
+								    			break;
+								    		case 1:
+								    			echo ("Tomorrow");
+								    			break;
+								    		default:
+								    			echo ($day->format('l'));
+								    			break;
+								    	}
+								    	echo " (" . $day->format("F jS") . ")";
+								    	echo "</label>";
+									}
+								?>
+								</div> <!-- ./ btn-group .dinner-buttons -->
 							</div> <!-- ./ form-group -->
 						</div> <!-- ./ column -->
 
@@ -193,13 +194,13 @@
                         </button>
                         <input type="hidden" name="leave-dorm" value="leave-dorm" />
                         <button type="submit" class="btn btn-primary">Add</button> 
-                    </div> <!-- closes modal-footer -->
+                    </div> <!-- ./ modal-footer -->
 
                 </fieldset>
             </form>
 
-        </div> <!-- closes modal-content -->
-    </div> <!-- closes modal-dialog -->
-</div> <!-- closes modal -->
+        </div> <!-- ./ modal-content -->
+    </div> <!-- ./ modal-dialog -->
+</div> <!-- ./ modal -->
 
 
