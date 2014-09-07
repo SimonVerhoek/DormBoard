@@ -12,7 +12,8 @@
  * - footer
  * --------
  * - home
- * - dinner
+ * - settings
+ * - your account
  * - shopping list
  * - finances
  */
@@ -364,6 +365,12 @@ fieldset[disabled] .btn-custom.active {
 #home-body {
     color: white;
     padding: 10%;
+}
+
+
+/* -------------------- YOUR ACCOUNT -------------------- */
+#account-page {
+    color: white;
 }
 
 
