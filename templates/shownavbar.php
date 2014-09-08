@@ -11,11 +11,13 @@
 		<h2 id="dorm-name" align="center"><?= $dorm[0]["dorm_name"] ?></h2>
 
 		<!-- navigation -->
-		<div class="nav nav-pills nav-stacked" id="nav-tab-buttons" role="navigation">
-		    <li id="navdinner">   <a href="dinner.php">	  dinner		</a></li>
-		    <li id="navshoplist"> <a href="shoplist.php"> Shopping List </a></li>
-		    <li id="navfinances"> <a href="finances.php"> finances		</a></li>
-		</div>
+		<nav role="navigation">
+			<ul class="nav nav-stacked" id="nav-tab-buttons" role="navigation">
+			    <li id="navdinner">   <a href="dinner.php">	  dinner		</a></li>
+			    <li id="navshoplist"> <a href="shoplist.php"> Shopping List </a></li>
+			    <li id="navfinances"> <a href="finances.php"> finances		</a></li>
+	    	</ul>
+    	</nav>
 
 	</div>
 

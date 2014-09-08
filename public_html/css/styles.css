@@ -256,29 +256,35 @@ fieldset[disabled] .btn-custom.active {
 
 /* navpanel background */
 #nav-and-dorm {
-    padding-top: 0.5em;
-    background-color: #B98860;
-    border-radius: 1em;
+    margin-top: 0;
+    color: white;
 }
 
-.nav-pills {
-    padding: 10%;
+#dorm-name {
+    font-size: 1.3em;
+    color: white;
+    border: 10px solid #ffd700;
+
+    margin-top: 0;
+    padding-top: 20px;
+    padding-bottom: 20px; 
 }
 
-.nav-pills a {
-    color: black;
+/* nav buttons */
+#nav-tab-buttons li a {
+    margin: 5px;
+    color: white; /* overrides default hyperlink color */
+    border: 2px solid white;
+    border-radius: 7px;
 }
 
 #nav-tab-buttons .active a,
 #nav-tab-buttons .active a:hover,
 #nav-tab-buttons a:hover {
-    color: black;
-    background-color: #946c4c;
+    color: #525252;
+    background-color: white;
 }
-
-#dorm-name {
-    font-size: 1.3em;
-}
+/* ./ nav buttons */
 
 #roommates-panel {
     margin-top: 3em;
@@ -303,7 +309,7 @@ fieldset[disabled] .btn-custom.active {
 .navbar-right {
     float: right!important;
 }
-/* ./ disable nav responsiveness
+/* ./ disable nav responsiveness *?
 
 /* ----- ROOMMATES LIST ----- */
 #roommates-list {
