@@ -131,15 +131,15 @@
 							<div class="form-group">
 
 								<div class="btn-group dinner-buttons" data-toggle="buttons">
-									<label class="btn btn-custom-dinner dinner-button">
+									<label class="btn btn-custom-dinner dinner-button" id="button-cook">
 										<input type="radio" class="dinner-radio-button" name="what" value="1">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/cook3.png">
 									</label>
-									<label class="btn btn-custom-dinner dinner-button">
+									<label class="btn btn-custom-dinner dinner-button" id="button-join">
 										<input type="radio" class="dinner-radio-button" name="what" value="2">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/join3.png">
 									</label>
-									<label class="btn btn-custom-dinner dinner-button">
+									<label class="btn btn-custom-dinner dinner-button" id="button-notjoin">
 										<input type="radio" class="dinner-radio-button" name="what" value="3">
 										<img class='dinner-modal-icon' src="<?= WEBSITEROOT ?>/img/notjoin.png">
 									</label>
@@ -149,13 +149,13 @@
 						</div> <!-- ./ column -->
 
 						<div class="col-xs-3" id="dinner-button-label-column">
-							<div class="row-fluid dinner-button-label">
+							<div class="row-fluid dinner-button-label" id="label-cook">
 								<p>Cook</p>
 							</div>
-							<div class="row-fluid dinner-button-label">
+							<div class="row-fluid dinner-button-label" id="label-join">
 								<p>Join dinner</p>
 							</div>
-							<div class="row-fluid dinner-button-label">
+							<div class="row-fluid dinner-button-label" id="label-notjoin">
 								<p>NOT join dinner</p>
 							</div>
 						</div>
