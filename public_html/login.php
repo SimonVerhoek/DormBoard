@@ -18,11 +18,7 @@
 
         // query database for user
         $rows = query(" SELECT  user_id,
-                                hash,
-                                first_name,
-                                last_name,
-                                cash_balance,
-                                dorm_id 
+                                hash
                         FROM    users 
                         WHERE   email = ?",
                                 $_POST["email"]);
