@@ -237,4 +237,35 @@
         $html_output .= '</div>'."\n";
         return $html_output;
     }
+
+    /**
+     * Gets user data and stores it in session.
+     */
+    function getUserData($userID)
+    {
+        $userData = query(" SELECT  first_name,
+                                    last_name,
+                                    birth_date,
+                                    cash_balance,
+                                    dorm_id,
+                                    shoplist_score
+                            FROM    users 
+                            WHERE   user_id = ?",
+                                    $userID);
+
+        if (count($userData) == 1)
+        {
+            $userData = $userData[0];
+
+            $_SESSION["first_name"] = $userData["first_name"];
+            $_SESSION["last_name"] = $userData["last_name"];
+            $_SESSION["birth_date"] = $userData["birth_date"];
+            $_SESSION["cash_balance"] = $userData["cash_balance"];
+            $_SESSION["dorm_id"] = $userData["dorm_id"];
+            $_SESSION["shoplist_score"] = $userData["shoplist_score"];
+        }
+
+        
+
+    }
 ?>

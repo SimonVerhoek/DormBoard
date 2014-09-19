@@ -35,6 +35,8 @@
                 // remember that user's now logged in by storing user's ID in session
                 $_SESSION["user_id"] = $row["user_id"];
 
+                getUserData($_SESSION["user_id"]);
+
                 // redirect to dashboard
                 redirect("getdorm.php");
             }
