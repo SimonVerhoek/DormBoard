@@ -16,12 +16,6 @@
 
     date_default_timezone_set("Europe/Amsterdam");
 
-    // get current user's dorm
-    $dorm = query(" SELECT dorm_id 
-                    FROM   users 
-                    WHERE  user_id = ?", 
-                           $_SESSION["user_id"]);
-
     // if user posted form
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -32,7 +26,7 @@
             post_date,
             user_id_poster
             ) VALUES (?, ?, NOW(), ?)",
-                $dorm[0]["dorm_id"],
+                $_SESSION["dorm_id"],
                 $_POST["item_name"],
                 $_SESSION["user_id"]
         );
@@ -49,16 +43,16 @@
         }
     }
     
-	$listItems = query("SELECT  item_id,
-                                item_name,
-                                post_date,
-                                solve_date,
-                                user_id_poster,
-                                user_id_solver
-                        FROM    shoplist
-                        WHERE   dorm_id = ?
-                        ORDER BY post_date DESC",
-                                $dorm[0]["dorm_id"]);
+	$listItems = query("SELECT      item_id,
+                                    item_name,
+                                    post_date,
+                                    solve_date,
+                                    user_id_poster,
+                                    user_id_solver
+                        FROM        shoplist
+                        WHERE       dorm_id = ?
+                        ORDER BY    post_date DESC",
+                                    $_SESSION["dorm_id"]);
 
     $roommates = query("SELECT      user_id,
                                     first_name,
@@ -67,7 +61,7 @@
                         FROM        users
                         WHERE       dorm_id = ?
                         ORDER BY    shoplist_score DESC",
-                                    $dorm[0]["dorm_id"]);
+                                    $_SESSION["dorm_id"]);
 
     // make array of unsolved item ids
     $unsolvedItems = [];
