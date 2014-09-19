@@ -3,12 +3,6 @@
     // configuration
     require("../includes/config.php");
 
-    // if user is already member of a dorm, query dorm id
-    $existingDormId = query("	SELECT 	dorm_id
-								FROM 	users 
-								WHERE 	user_id = ?", 
-										$_SESSION["user_id"]);
-
     // if user posted dorm form
     if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
@@ -123,7 +117,7 @@
 		}
 	}
 	// if user is already member of a dorm, render dashboard
-	else if (!empty($existingDormId[0]["dorm_id"]))
+	else if (!empty($_SESSION["dorm_id"]))
 	{
 		redirect("dinner.php");
 	}
