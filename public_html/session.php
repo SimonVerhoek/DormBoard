@@ -11,22 +11,13 @@
 	}
 	else
 	{
-		// show current user logged in
-		$user = query("	SELECT 	first_name, 
-								last_name, 
-								dorm_id 
-						FROM 	users 
-						WHERE 	user_id = ?", 
-								$_SESSION["user_id"]);
-
-		$dorm = query("	SELECT 	dorm_name 
-						FROM 	dorms 
-						WHERE 	dorm_id = ?", 
-								$user[0]["dorm_id"]);
+		$userName = $_SESSION["first_name"] . 
+					" " . 
+					$_SESSION["first_name"];
 
 		// show dropdown menu
 		build("../templates/showuser.php", [
-			"user" => $user
+			"userName" => $userName
 			]);
 	}
 ?>
