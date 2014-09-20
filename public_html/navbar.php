@@ -15,12 +15,6 @@
 						WHERE 	dorm_id = ?", 
 						$_SESSION["dorm_id"]);
 
-		// query dorm name
-		$dorm = query("	SELECT 	dorm_name 
-						FROM 	dorms 
-						WHERE 	dorm_id =?", 
-						$_SESSION["dorm_id"]);
-
 		$roomMates = [];
 
 		// for each roommate
@@ -33,8 +27,8 @@
 		}
 
 		build("../templates/shownavbar.php", [
-			"dorm" => $dorm,
-			"roomMates" => $roomMates,
+			"dormName" => $_SESSION["dorm_name"],
+			"roomMates" => $roomMates
 			]);
 	}
 ?>
