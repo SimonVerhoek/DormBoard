@@ -170,12 +170,6 @@
         redirect("finances.php");  	
     }
 
-    // get current user's dorm
-    $dorm = query(" SELECT  dorm_id 
-                    FROM    users 
-                    WHERE   user_id = ?", 
-                            $_SESSION["user_id"]);
-
     // get roommates and their cash balances
     $roommates = query("SELECT      user_id,
                                     first_name,
@@ -184,7 +178,7 @@
                         FROM        users
                         WHERE       dorm_id = ?
                         ORDER BY    cash_balance DESC",
-                                $dorm[0]["dorm_id"]);
+                                    $_SESSION["dorm_id"]);
 
     // get all dorm's spend data up to a week earlier
     $spends = query("SELECT     finances.spend_id,
@@ -200,7 +194,7 @@
                      WHERE      users.dorm_id = ?
                      AND        finances.date_added between date_sub(now(),INTERVAL 1 WEEK) and now()
                      ORDER BY   finances.date_added DESC",
-                                $dorm[0]["dorm_id"]);
+                                $_SESSION["dorm_id"]);
 
     render("showfinances.php", [
         "title" => "Dorm finances",

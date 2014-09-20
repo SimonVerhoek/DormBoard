@@ -8,7 +8,7 @@
 
 	<div id="nav-and-dorm">
 
-		<h2 id="dorm-name" align="center"><?= $dorm[0]["dorm_name"] ?></h2>
+		<h2 id="dorm-name" align="center"><?= $dormName ?></h2>
 
 		<!-- navigation -->
 		<nav role="navigation">

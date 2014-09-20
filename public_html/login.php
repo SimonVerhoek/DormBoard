@@ -18,11 +18,7 @@
 
         // query database for user
         $rows = query(" SELECT  user_id,
-                                hash,
-                                first_name,
-                                last_name,
-                                cash_balance,
-                                dorm_id 
+                                hash
                         FROM    users 
                         WHERE   email = ?",
                                 $_POST["email"]);
@@ -38,6 +34,8 @@
             {
                 // remember that user's now logged in by storing user's ID in session
                 $_SESSION["user_id"] = $row["user_id"];
+
+                getUserData($_SESSION["user_id"]);
 
                 // redirect to dashboard
                 redirect("getdorm.php");

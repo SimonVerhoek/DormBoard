@@ -3,15 +3,6 @@
     // configuration
     require("../includes/config.php");
 
-    $user = query("	SELECT 	user_id,
-    						first_name,
-    						last_name,
-    						cash_balance,
-    						dorm_id 
-    				FROM 	users 
-					WHERE 	user_id = ?", 
-					$_SESSION["user_id"]);
-
 	$passwordUpdated = false;
 
 	// if form posted
@@ -22,6 +13,9 @@
 		{
 			$cash = 0;
 			$dormId = 0;
+
+			// erase from session
+			unset($_SESSION["dorm_id"]);
 
 			query("	UPDATE 	users 
 					SET 	dorm_id = ?,
@@ -96,7 +90,7 @@
 		}
 	}
 	// if user is member of a dorm, show leave dorm option
-    else if (!empty($user[0]["dorm_id"]))
+    else if (!empty($_SESSION["dorm_id"]))
 	{
 		render("showaccount.php", [
 			"title" => "Your account",
