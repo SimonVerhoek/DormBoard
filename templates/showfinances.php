@@ -165,9 +165,8 @@
 					{
 						echo '<td class="neutral-balance">';
 					}
-					echo(	$roommate["first_name"] .
-							"</td>" 
-						);
+					
+					echo $roommate["first_name"] . "</td>";
 
 					// color cell based on balance level
 					if ($roommate["cash_balance"] < 0)
