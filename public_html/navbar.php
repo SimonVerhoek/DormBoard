@@ -12,7 +12,7 @@
 	//show navbar only when logged in
 	if (!preg_match("{(?:login|register|getdorm)\.php$}", $_SERVER["PHP_SELF"]))
 	{
-		// get roommate data
+		// get roommate data for navbar
 		$roommatesList = getRoommateData($_SESSION["user_id"], 1);
 
 		build("../templates/shownavbar.php", [
