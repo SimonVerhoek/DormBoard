@@ -600,15 +600,15 @@ fieldset[disabled] .btn-custom-dinner.active {
     word-wrap: break-word;
 }
 
-#th-date, .td-date {
+.td-date {
     width: 20%;
 }
 
-#th-spendname, .td-spendname {
+.td-spendname {
     width: 50%;
 }
 
-#th-whopaidwhat, .td-whopaidwhat {
+.td-whopaidwhat {
     width: 28%;
 }
 

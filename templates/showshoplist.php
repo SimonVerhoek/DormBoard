@@ -1,9 +1,3 @@
-<!--
- |
- |  Shows the dorm's shopping list.
- |
- -->
-
 <script type="text/javascript">
 
 	$(document).ready(function() {
@@ -119,11 +113,11 @@
 		      		<span class="input-group-btn">
 		        		<button class="btn btn-custom" type="submit" name="submitButton">Add</button>
 		      		</span>
-		    	</div>
-			</div>
+		    	</div> <!-- ./ #item_input -->
+			</div> <!-- ./ .form-group -->
 		</form>
 		
-	</div>
+	</div> <!-- ./ .tab-header -->
 
 	<div class="tab-content"> 
 
@@ -216,7 +210,7 @@
 	</div> <!-- /.tab-content --> 
 </div> <!-- /.col-md-7 column #shoplist -->
 
-<!-- Boyer rankings -->
+<!-- Buyer rankings -->
 <div class="col-xs-3 column right-column">
 	<table class="table" id="shoplist-scoreboard">
 		<legend align="center">
@@ -252,7 +246,7 @@
 			?>
 		</tbody>
 	</table>
-</div>
+</div> <!-- ./ buyer rankings column -->
 
 
 <!-- Modal -->

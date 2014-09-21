@@ -1,9 +1,3 @@
-<!--
- |
- |  Shows the navigation bar.
- |
- -->
-
 <div class="col-xs-2 column" id="nav-column">
 
 	<div id="nav-and-dorm">
@@ -19,7 +13,7 @@
 	    	</ul>
     	</nav>
 
-	</div>
+	</div> <!-- ./ #nav-and-dorm -->
 
 	<div id="roommates-list">
 		<legend align="center">Roommates</legend>
@@ -37,6 +31,6 @@
 			?>
 		</ul>
 
-	</div>
+	</div> <!-- ./ #roommates-list -->
 
-</div> <!-- close navbar column -->
+</div> <!-- ./ navbar column -->

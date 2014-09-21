@@ -79,7 +79,7 @@
                 </div>
             </fieldset>
         </form>
-    </div>
+    </div> <!-- ./ col-md-6 column -->
 
     <div class="col-md-6 column">
 
@@ -110,6 +110,6 @@
                 </div>
             </fieldset>
         </form>
-    </div>
+    </div> <!-- ./ col-md-6 column -->
 
 </div>

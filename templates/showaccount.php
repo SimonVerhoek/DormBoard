@@ -4,8 +4,6 @@
         <h1>Your account</h1>
     </div>
 
-    <!-- change timezone -->
-
     <!-- change password -->
     <form action="account.php" class="form-horizontal" role="form"  method="post">
         <fieldset>
@@ -69,7 +67,7 @@
                         <span class="sr-only">Close</span>
                     </button>
                     <h4 class="modal-title">Leave dorm</h4>
-                </div> <!-- close modal-header -->
+                </div> <!-- ./ modal-header -->
 
                 <form action="account.php" method="post">
                     <fieldset>

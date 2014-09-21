@@ -91,15 +91,6 @@
 
 			<div class="table-responsive">
 				<table class="table" id="spendstable">
-					<!--
-					<thead>
-						<tr>
-							<th id="th-date">Date</th>
-							<th id="th-spendname">Name</th>
-							<th id="th-whopaidwhat" class="text-right">Who paid what</th>
-						</tr>
-					</thead>
-				-->
 					<tbody id="spendstable-body">
 						<?php
 							// for each spend

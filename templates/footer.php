@@ -1,4 +1,4 @@
-        </div> <!-- closes middle -->
+        </div> <!-- ./ middle -->
         <div class="push"></div>
 
         <div id="footer">
@@ -6,7 +6,7 @@
 		        <h1>Made by Simon Verhoek</h1>
 		        <h3>Minor Programmeren - Programmeren 2</h3>
 		    </div>
-        </div> <!-- closes footer -->
+        </div> <!-- ./ footer -->
 
     </body>
 </html>

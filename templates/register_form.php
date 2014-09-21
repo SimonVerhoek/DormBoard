@@ -122,6 +122,6 @@
             </fieldset> 
         </form>
         <a href="login.php">< Back</a>
-    </div>
+    </div> <!-- ./ col-md-3 column -->
    
-</div>
+</div> <!-- ./ row clearfix -->

@@ -1,9 +1,3 @@
-<!--
- |
- |  Shows homepage.
- |
- -->
-
 <div class="row clearfix">
     <div class="col-md-12 column">
         <div class="panel" id="home">
@@ -17,7 +11,7 @@
                 <p class="lead">
                     This is a web application built for Programmeren 2, a course of UvA's Programming Minor.
                 </p>
-            </div> 
-        </div>
-    </div>
-</div>
+            </div> <!-- ./ .panel-body -->
+        </div> <!-- ./ .panel -->
+    </div> <!-- ./ col-md-12 column -->
+</div> <!-- ./ row clearfix -->

@@ -7,6 +7,7 @@
 
 <form role="form" class="form-inline" action="dinner.php" method="post">
 	<fieldset>
+
 		<div class="form-group">
 			I will
 			<select autofocus class="form-control" name="what">
@@ -46,6 +47,7 @@
 				?>
 			</select>
             <button type="submit" class="btn btn-primary">Submit</button>
-		</div>
+		</div> <!-- ./ .form-group -->
+		
 	</fieldset>
 </form>

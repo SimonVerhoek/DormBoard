@@ -158,7 +158,7 @@
 							<div class="row-fluid dinner-button-label" id="label-notjoin">
 								<p>NOT join dinner</p>
 							</div>
-						</div>
+						</div> <!-- ./ #dinner-button-label-column -->
 
 						<div class="col-xs-6 dinner-modal-column">
 							<div class="form-group">
