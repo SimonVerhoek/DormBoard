@@ -42,6 +42,9 @@
             redirect("shoplist.php");
         }
     }
+
+    // get roommate data and buyer rankings
+    $roommates = getRoommateData($_SESSION["user_id"], 2);
     
 	$listItems = query("SELECT      item_id,
                                     item_name,
@@ -53,9 +56,6 @@
                         WHERE       dorm_id = ?
                         ORDER BY    post_date DESC",
                                     $_SESSION["dorm_id"]);
-
-    // get roommate data and buyer rankings
-    $roommates = getRoommateData($_SESSION["user_id"], 2);
 
     // make array of unsolved item ids
     $unsolvedItems = [];
