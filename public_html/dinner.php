@@ -14,6 +14,9 @@
     // configuration
     require("../includes/config.php"); 
 
+    // number of days shown in dinner schedule
+    define("NRDAYSINCALENDAR", 6);
+
     date_default_timezone_set("Europe/Amsterdam");
 
     // if user posted form
@@ -88,8 +91,7 @@
                         in      ({$usersStr})");
 
     // create dates of upcoming days
-    $nrDays = 6;
-	$days = new DatePeriod(new DateTime, new DateInterval('P1D'), $nrDays);
+	$days = new DatePeriod(new DateTime, new DateInterval('P1D'), NRDAYSINCALENDAR);
 
     render("showdinner.php", [
         "title" => "Dinner schedule",
