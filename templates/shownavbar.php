@@ -25,7 +25,7 @@
 		<legend align="center">Roommates</legend>
 		<ul class="list-unstyled">
 			<?php
-				foreach ($roomMates as $roommate) 
+				foreach ($test as $roommate) 
 				{
 					echo(	'<li>' .
 								$roommate["first_name"] .

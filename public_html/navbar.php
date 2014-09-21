@@ -9,15 +9,11 @@
 	if (!preg_match("{(?:login|register|getdorm)\.php$}", $_SERVER["PHP_SELF"]))
 	{
 		// query all users that are member of same dorm
-		$roomMates = query("	SELECT 	first_name, 
-										last_name 
-								FROM 	users 
-								WHERE 	dorm_id = ?", 
-										$_SESSION["dorm_id"]);
+		$test = getRoommateData($_SESSION["user_id"], 1);
 
 		build("../templates/shownavbar.php", [
 			"dormName" => $_SESSION["dorm_name"],
-			"roomMates" => $roomMates
+			"test" => $test
 			]);
 	}
 ?>

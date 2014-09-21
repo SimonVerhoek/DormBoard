@@ -286,4 +286,40 @@
         }
         
     }
+
+    function getRoommateData($userID, $queryID)
+    {
+        switch ($queryID) 
+        {
+            // navbar
+            case 1:
+                $column = "first_name, last_name";
+                $order = "last_name ASC";
+                break;
+
+            // buyer rankings
+            case 2:
+                $column = 0;
+                $order = 0;
+                break;
+
+            // cash balances
+            case 3:
+                $column = 0;
+                $order = 0;
+                break;
+        }
+
+        $roommateData = query(" SELECT      $column
+                                FROM        users
+                                WHERE       dorm_id = ?
+                                ORDER BY    $order",
+                                            $_SESSION["dorm_id"]);
+        if ($roommateData === false)
+        {
+            errorMsg("test");
+        }
+
+        return $roommateData;
+    }
 ?>
