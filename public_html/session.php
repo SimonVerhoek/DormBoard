@@ -1,4 +1,14 @@
 <?php
+    /*************************************************
+     *  session.php
+     *
+     *  Shows user data of logged in user at top right.
+     *	If no user is logged in, shows:
+     *	-	login button
+     *	-	signup button
+     *   
+     **************************************************/
+
 	// if on register page, show nothing
 	if (preg_match("{(?:register)\.php$}", $_SERVER["PHP_SELF"]))
 	{
