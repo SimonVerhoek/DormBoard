@@ -290,10 +290,10 @@
     /**
      * Gets roommate data of user. 
      * 
-     * Output depends on where the request comes from ($queryID):
-     *  - navbar / roommates list   == 1
-     *  - shoplist / buyer rankings == 2
-     *  - finances / cash balances  == 3
+     * Queried columns depend on where the request comes from ($queryID):
+     *  - navbar / roommates list   == case 1
+     *  - shoplist / buyer rankings == case 2
+     *  - finances / cash balances  == case 3
      */
     function getRoommateData($userID, $queryID)
     {
