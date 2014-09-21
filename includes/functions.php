@@ -293,14 +293,14 @@
         {
             // navbar
             case 1:
-                $column = " first_name, 
+                $colums = " first_name, 
                             last_name";
                 $order = "  last_name ASC";
                 break;
 
             // buyer rankings
             case 2:
-                $column = " user_id,
+                $colums = " user_id,
                             first_name,
                             last_name,
                             shoplist_score";
@@ -309,12 +309,15 @@
 
             // cash balances
             case 3:
-                $column = 0;
-                $order = 0;
+                $colums = " user_id,
+                            first_name,
+                            last_name,
+                            cash_balance";
+                $order = "  cash_balance DESC";
                 break;
         }
 
-        $roommateData = query(" SELECT      $column
+        $roommateData = query(" SELECT      $colums
                                 FROM        users
                                 WHERE       dorm_id = ?
                                 ORDER BY    $order",
