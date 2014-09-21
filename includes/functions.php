@@ -323,6 +323,8 @@
                             cash_balance";
                 $order = "  cash_balance DESC";
                 break;
+
+            // no default so error is returned when given wrong input
         }
 
         $roommateData = query(" SELECT      $colums
