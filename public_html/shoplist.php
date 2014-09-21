@@ -54,14 +54,7 @@
                         ORDER BY    post_date DESC",
                                     $_SESSION["dorm_id"]);
 
-    $roommates = query("SELECT      user_id,
-                                    first_name,
-                                    last_name,
-                                    shoplist_score
-                        FROM        users
-                        WHERE       dorm_id = ?
-                        ORDER BY    shoplist_score DESC",
-                                    $_SESSION["dorm_id"]);
+    $roommates = getRoommateData($_SESSION["user_id"], 2);
 
     // make array of unsolved item ids
     $unsolvedItems = [];
