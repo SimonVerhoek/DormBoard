@@ -1,4 +1,10 @@
 <?php
+    /*************************************************
+     *  register.php
+     *
+     *  Processes new user registrations.
+     *   
+     **************************************************/
 	
     // configuration
     require("../includes/config.php");
@@ -6,10 +12,12 @@
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     { 
-        if (empty($_POST["firstname"])) {
+        if (empty($_POST["firstname"])) 
+        {
             errorMsg("Please fill in your first name.");
         }
-        if (empty($_POST["lastname"])) {
+        if (empty($_POST["lastname"])) 
+        {
             errorMsg("Please fill in your last name.");
         }
         if(!preg_match("/^[a-zA-Z -]+$/", $_POST['firstname'] . $_POST['lastname']))
@@ -96,7 +104,7 @@
                     // remember that user is now logged in
                     $_SESSION["user_id"] = $row["user_id"];
 
-                    // redirect to dashboard
+                    // redirect to dorm entry
                     redirect("getdorm.php");
                 }               
             }
@@ -104,9 +112,9 @@
     }
     else
     {
-      // else render form
-      render("register_form.php", [
-        "title" => "Register"
+        // else render form
+        render("register_form.php", [
+            "title" => "Register"
         ]);
     }
 
