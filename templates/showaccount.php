@@ -52,7 +52,7 @@
         </fieldset>
     </form>
 
-    <!-- change password -->
+    <!-- leave dorm -->
     <legend>Leave dorm</legend>
     
     <button class="btn btn-danger" data-toggle="modal" data-target="#myModalCustom">

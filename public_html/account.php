@@ -1,4 +1,13 @@
 <?php
+    /*************************************************
+     *  account.php
+     *
+     *  Processes changes in account settings.
+     *	Shows following account settings:
+     *	-	change password
+     *	-	leave dorm
+     *   
+     **************************************************/
 
     // configuration
     require("../includes/config.php");
