@@ -1,13 +1,10 @@
 <?php
-
-    /**
-     * functions.php
+    /*************************************************
+     *   functions.php
      *
-     * Programmeren 2 - Final Project
-     * Made by Simon Verhoek.
-     *
-     * Helper functions.
-     */ 
+     *   Shows all helper functions.
+     *   
+     **************************************************/
 
     require_once("constants.php");
 
