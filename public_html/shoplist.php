@@ -14,8 +14,6 @@
     // configuration
     require("../includes/config.php"); 
 
-    date_default_timezone_set("Europe/Amsterdam");
-
     // if user posted form
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {

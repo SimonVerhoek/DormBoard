@@ -9,8 +9,6 @@
     // configuration
     require("../includes/config.php");
 
-    date_default_timezone_set("Europe/Amsterdam");
-
     // include PHPMailer 
     require_once("libs/PHPMailer/PHPMailerAutoload.php");
 

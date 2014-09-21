@@ -201,7 +201,6 @@
     /**
      * Creates a dropdown menu for picking a date of birth.
      */
-    date_default_timezone_set("Europe/Amsterdam");
 
     function date_dropdown($year_limit = 1900)
     {

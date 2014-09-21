@@ -14,6 +14,9 @@
     ini_set("display_errors", true);
     error_reporting(E_ALL);
 
+    // set timezone
+    date_default_timezone_set("Europe/Amsterdam");
+
     // requirements
     require("constants.php");
     require("functions.php");
