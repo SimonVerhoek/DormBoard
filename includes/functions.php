@@ -293,14 +293,18 @@
         {
             // navbar
             case 1:
-                $column = "first_name, last_name";
-                $order = "last_name ASC";
+                $column = " first_name, 
+                            last_name";
+                $order = "  last_name ASC";
                 break;
 
             // buyer rankings
             case 2:
-                $column = 0;
-                $order = 0;
+                $column = " user_id,
+                            first_name,
+                            last_name,
+                            shoplist_score";
+                $order = "  shoplist_score DESC";
                 break;
 
             // cash balances
