@@ -1,4 +1,20 @@
 <?php
+    /*************************************************
+     *	getdorm.php
+     *
+     *  Handles user's dorm information.
+     *
+     *	Processes:
+     *	-	user joining an existing dorm
+     *	- 	user creating (and joining) a new dorm
+     *
+     *	Redirects user:
+     * 	- 	if user is member of a dorm 
+     *		--> redirect to dinner.php
+     *	-	if user is not member of a dorm 
+     *		--> redirect to getdorm_form.php
+     *   
+     **************************************************/
 
     // configuration
     require("../includes/config.php");
