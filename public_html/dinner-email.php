@@ -1,4 +1,11 @@
 <?php
+    /*************************************************
+     *  dinner-email.php
+     *
+     *  Forms and sends dinner email notification.
+     *   
+     **************************************************/
+
     // configuration
     require("../includes/config.php");
 
@@ -79,7 +86,6 @@
     $body = str_replace('$dateCooking', $dateCooking, $body);
     $body = str_replace('$goToDinner', WEBSITEROOT, $body);
 
-    /*
     foreach ($roommates as $roommate) 
     {
         $fullname = $roommate["first_name"] . " " . $roommate["last_name"];
@@ -88,7 +94,6 @@
         $mail->AddAddress($roommate["email"], $fullname);     
         $body = str_replace('$firstName', $firstName, $body);
     }
-    */
 
     // test
     $mail->AddAddress("saverhoek@gmail.com"); 
