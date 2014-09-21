@@ -1,13 +1,14 @@
 <?php
 
-    /**
-     * config.php
+    /*************************************************
+     *  config.php
      *
-     * Programmeren 2 - Final Project
-     * Made by Simon Verhoek.
-     *
-     * Configures pages.
-     */ 
+     *  Configures pages.
+     *  If user redirects to page that requires
+     *  authentication when not logged in, user is
+     *  redirected to homepage (login.php).
+     *   
+     **************************************************/
 
     // display errors, warnings, and notices
     ini_set("display_errors", true);
