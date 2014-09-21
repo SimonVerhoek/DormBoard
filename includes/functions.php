@@ -287,6 +287,14 @@
         
     }
 
+    /**
+     * Gets roommate data of user. 
+     * 
+     * Output depends on where the request comes from ($queryID):
+     *  - navbar / roommates list   == 1
+     *  - shoplist / buyer rankings == 2
+     *  - finances / cash balances  == 3
+     */
     function getRoommateData($userID, $queryID)
     {
         switch ($queryID) 

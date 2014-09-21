@@ -170,7 +170,7 @@
         redirect("finances.php");  	
     }
 
-    // get roommates and their cash balances
+    // get roommate data and cash balances
     $roommates = getRoommateData($_SESSION["user_id"], 3);
 
     // get all dorm's spend data up to a week earlier
