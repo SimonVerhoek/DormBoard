@@ -13,21 +13,9 @@
 
     // include PHPMailer 
     require_once("libs/PHPMailer/PHPMailerAutoload.php");
-    
-    $user = query(" SELECT  first_name,
-                            last_name,
-                            dorm_id
-                    FROM    users  
-                    WHERE   user_id = ?",
-                            $_SESSION["user_id"]);
 
-    $roommates = query("SELECT  user_id,
-                                first_name,
-                                last_name,
-                                email
-                        FROM    users
-                        WHERE   dorm_id = ?",
-                                $user[0]["dorm_id"]);
+    // get roommate data and email addresses
+    $roommates = getRoommateData($_SESSION["user_id"], 4);
 
     // get today's date
     $today = new DateTime("today");
@@ -55,7 +43,7 @@
     }
 
     // set variables for html doc 
-    $cookingRoommateFirstName = $user[0]["first_name"];
+    $cookingRoommateFirstName = $_SESSION["first_name"];
 
     // redirect to dinner tab
     $goToDinner = WEBSITEROOT . "/dinner.php";
@@ -94,9 +82,6 @@
         $mail->AddAddress($roommate["email"], $fullname);     
         $body = str_replace('$firstName', $firstName, $body);
     }
-
-    // test
-    $mail->AddAddress("saverhoek@gmail.com"); 
 
     $mail->msgHTML($body);
     $mail->IsHTML(true); // send as HTML

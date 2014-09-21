@@ -291,6 +291,7 @@
      *  - navbar / roommates list   == case 1
      *  - shoplist / buyer rankings == case 2
      *  - finances / cash balances  == case 3
+     *  - dinner email              == case 4
      */
     function getRoommateData($userID, $queryID)
     {
@@ -298,14 +299,14 @@
         {
             // navbar
             case 1:
-                $colums = " first_name, 
+                $columns = "first_name, 
                             last_name";
                 $order = "  last_name ASC";
                 break;
 
             // buyer rankings
             case 2:
-                $colums = " user_id,
+                $columns = "user_id,
                             first_name,
                             last_name,
                             shoplist_score";
@@ -314,17 +315,26 @@
 
             // cash balances
             case 3:
-                $colums = " user_id,
+                $columns = "user_id,
                             first_name,
                             last_name,
                             cash_balance";
                 $order = "  cash_balance DESC";
                 break;
 
+            // dinner email
+            case 4:
+                $columns = "user_id,
+                            first_name,
+                            last_name,
+                            email";
+                $order = "  user_id ASC";
+                break;
+
             // no default so error is returned when given wrong input
         }
 
-        $roommateData = query(" SELECT      $colums
+        $roommateData = query(" SELECT      $columns
                                 FROM        users
                                 WHERE       dorm_id = ?
                                 ORDER BY    $order",
