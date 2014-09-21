@@ -1,8 +1,8 @@
 <?php
     /*************************************************
-     *   finances.php
+     *  finances.php
      *
-     *   Shows:
+     *  Shows:
      *  -   a list with items that have been bought for
      *      use by one or more roommates. shows:
      *      -   the registry date

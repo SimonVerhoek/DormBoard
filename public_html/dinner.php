@@ -1,13 +1,13 @@
 <?php
     /*************************************************
-     *   dinner.php
+     *  dinner.php
      *
-     *   Shows:
-     *   -  a table containing the upfollowing days
-     *      as columns
-     *   -  roommates and their "dinner actions" (cook,
-     *      join dinner, NOT join dinner) for these days
-     *      per row.
+     *  Shows:
+     *  -  a table containing the upfollowing days
+     *     as columns
+     *  -  roommates and their "dinner actions" (cook,
+     *     join dinner, NOT join dinner) for these days
+     *     per row.
      *   
      **************************************************/
 

@@ -1,9 +1,9 @@
 <?php 
     /*************************************************
-     *   navbar.php
+     *	navbar.php
      *
-     *   Shows:
-     *	-   dorm name
+     *	Shows:
+     *	-	dorm name
      *	-	nav pills to dinner, shoplist and finances tabs
      * 	-   list of roommates.
      *   
