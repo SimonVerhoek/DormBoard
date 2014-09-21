@@ -1,4 +1,10 @@
 <?php
+    /*************************************************
+     *  logout.php
+     *
+     *  Processes logout requests.
+     *   
+     **************************************************/
 
     // configuration
     require("../includes/config.php"); 

@@ -1,4 +1,12 @@
 <?php
+    /*************************************************
+     *  login.php
+     *
+     *  Processes login requests.
+     *  If no login request has been done, visitor is
+     *  redirected to homepage (home.php).
+     *   
+     **************************************************/
 
     // configuration
     require("../includes/config.php"); 
