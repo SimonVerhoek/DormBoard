@@ -57,18 +57,6 @@
                         ORDER BY    post_date DESC",
                                     $_SESSION["dorm_id"]);
 
-    // make array of unsolved item ids
-    $unsolvedItems = [];
-
-    foreach ($listItems as $i => $item) 
-    {
-        // if item is unsolved
-        if (empty($items[$i]["user_id_solver"]))
-        {
-            array_push($unsolvedItems, $item["item_id"]);
-        }
-    }
-
     render("showshoplist.php", [
         "title" => "Shopping list",
 		"user_id" => $_SESSION["user_id"],
