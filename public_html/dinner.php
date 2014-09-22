@@ -65,12 +65,7 @@
     }
 
     // get who his roommates are
-    $roommates = query("SELECT 	user_id, 
-    							first_name, 
-    							last_name 
-                        FROM    users 
-                        WHERE   dorm_id = ?", 
-                                $_SESSION["dorm_id"]);
+    $roommates = getRoommateData($_SESSION["user_id"], 2);
 
     // get statuses of all user's roommates
     $rmList = [];

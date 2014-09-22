@@ -287,10 +287,11 @@
      * Gets roommate data of user. 
      * 
      * Queried columns depend on where the request comes from ($queryID):
-     *  - navbar / roommates list   == case 1
-     *  - shoplist / buyer rankings == case 2
-     *  - finances / cash balances  == case 3
-     *  - dinner email              == case 4
+     *  - navbar (roommates list)   == case 1
+     *  - dinner (dinner schedule)  == case 2
+     *  - shoplist (buyer rankings) == case 3
+     *  - finances (cash balances)  == case 4
+     *  - dinner email              == case 5
      */
     function getRoommateData($userID, $queryID)
     {
@@ -303,8 +304,16 @@
                 $order = "  last_name ASC";
                 break;
 
-            // buyer rankings
+            // dinner
             case 2:
+                $columns = "user_id,
+                            first_name, 
+                            last_name";
+                $order = "  first_name ASC";
+                break;
+
+            // buyer rankings
+            case 3:
                 $columns = "user_id,
                             first_name,
                             last_name,
@@ -313,7 +322,7 @@
                 break;
 
             // cash balances
-            case 3:
+            case 4:
                 $columns = "user_id,
                             first_name,
                             last_name,
@@ -322,7 +331,7 @@
                 break;
 
             // dinner email
-            case 4:
+            case 5:
                 $columns = "user_id,
                             first_name,
                             last_name,
