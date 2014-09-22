@@ -306,17 +306,13 @@
 
             // dinner
             case 2:
-                $columns = "user_id,
-                            first_name, 
-                            last_name";
+                $columns = "user_id";
                 $order = "  first_name ASC";
                 break;
 
             // buyer rankings
             case 3:
                 $columns = "user_id,
-                            first_name,
-                            last_name,
                             shoplist_score";
                 $order = "  shoplist_score DESC";
                 break;
@@ -324,8 +320,6 @@
             // cash balances
             case 4:
                 $columns = "user_id,
-                            first_name,
-                            last_name,
                             cash_balance";
                 $order = "  cash_balance DESC";
                 break;
@@ -333,8 +327,6 @@
             // dinner email
             case 5:
                 $columns = "user_id,
-                            first_name,
-                            last_name,
                             email";
                 $order = "  user_id ASC";
                 break;
@@ -342,7 +334,9 @@
             // no default so error is returned when given wrong input
         }
 
-        $roommateData = query(" SELECT      $columns
+        $roommateData = query(" SELECT      first_name,
+                                            last_name,
+                                            $columns
                                 FROM        users
                                 WHERE       dorm_id = ?
                                 ORDER BY    $order",
