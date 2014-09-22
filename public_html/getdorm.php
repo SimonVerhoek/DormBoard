@@ -66,6 +66,9 @@
 			                errorMsg("Something went wrong while joining your dorm. Please try again.");
 			            }
 
+                        // save new dorm id in session
+                        $_SESSION["dorm_id"] = $dorm["dorm_id"];
+
 		                // redirect to dashboard
 		                redirect("dinner.php");
 		            }

@@ -20,17 +20,18 @@
 		// if user opted to leave dorm
 		if (isset($_POST["leave-dorm"]))
 		{
-			$cash = 0;
 			$dormId = 0;
+			$cash = 0;
+			$shoplistScore = 0;
 
 			// erase from session
 			unset($_SESSION["dorm_id"]);
 
 			query("	UPDATE 	users 
-					SET 	dorm_id = ?,
-							cash_balance = $cash 
-					WHERE 	user_id = ?", 
-							$dormId, 
+					SET 	dorm_id = $dormId,
+							cash_balance = $cash,
+							shoplist_score = $shoplistScore 
+					WHERE 	user_id = ?",
 							$_SESSION["user_id"]);
 
 			redirect("getdorm.php");
