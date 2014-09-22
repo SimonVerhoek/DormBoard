@@ -169,7 +169,7 @@
     }
 
     // get roommate data and cash balances
-    $roommates = getRoommateData($_SESSION["user_id"], 4);
+    $roommates = getRoommateData(4);
 
     // get all dorm's spend data up to a week earlier
     $spends = query("SELECT     finances.spend_id,

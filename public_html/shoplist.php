@@ -42,7 +42,7 @@
     }
 
     // get roommate data and buyer rankings
-    $roommates = getRoommateData($_SESSION["user_id"], 3);
+    $roommates = getRoommateData(3);
     
 	$listItems = query("SELECT      item_id,
                                     item_name,

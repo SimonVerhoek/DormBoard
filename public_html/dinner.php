@@ -65,7 +65,7 @@
     }
 
     // get who his roommates are
-    $roommates = getRoommateData($_SESSION["user_id"], 2);
+    $roommates = getRoommateData(2);
 
     // get statuses of all user's roommates
     $rmList = [];

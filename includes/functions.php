@@ -293,7 +293,7 @@
      *  - finances (cash balances)  == case 4
      *  - dinner email              == case 5
      */
-    function getRoommateData($userID, $queryID)
+    function getRoommateData($queryID)
     {
         switch ($queryID) 
         {

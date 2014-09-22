@@ -13,7 +13,7 @@
     require_once("libs/PHPMailer/PHPMailerAutoload.php");
 
     // get roommate data and email addresses
-    $roommates = getRoommateData($_SESSION["user_id"], 5);
+    $roommates = getRoommateData(5);
 
     // get today's date
     $today = new DateTime("today");
