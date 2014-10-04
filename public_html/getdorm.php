@@ -100,6 +100,11 @@
             	) VALUES(?, ?)", 
             	$_POST["dormname"],
             	crypt($_POST["dormpassword"]));
+            if ($createNewDorm === false)
+            {
+                // INSERT failed
+                errorMsg("Something went wrong while creating your dorm. Please try again.");
+            }
 
             $dorms = query("SELECT 	dorm_id 
             				FROM 	dorms 
@@ -123,13 +128,15 @@
             						WHERE 	user_id = ?", 
             								$dorm["dorm_id"], 
             								$_SESSION["user_id"]);
+                if ($joinDorm === false)
+                {
+                    // dorm not found
+                    errorMsg("Something went wrong while joining your dorm. Please try again.");
+                }
         	}
 
-            if ($createNewDorm === false)
-        	{
-				// INSERT failed
-                errorMsg("Something went wrong while creating your dorm. Please try again.");
-            }
+            // save new dorm id in session
+            $_SESSION["dorm_id"] = $dorm["dorm_id"];
 
 	    	// redirect to dashboard
 	    	redirect("dinner.php");
