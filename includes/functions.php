@@ -331,7 +331,7 @@
                 $order = "  user_id ASC";
                 break;
 
-            // no default so error is returned when given wrong input
+            // no default case so error is returned when given wrong input
         }
 
         $roommateData = query(" SELECT      first_name,
@@ -343,7 +343,7 @@
                                             $_SESSION["dorm_id"]);
         if ($roommateData === false)
         {
-            errorMsg("test");
+            errorMsg("Something went wrong while processing your request. Please try again.");
         }
 
         return $roommateData;
