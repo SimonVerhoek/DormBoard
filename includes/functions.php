@@ -348,4 +348,20 @@
 
         return $roommateData;
     }
+
+    /**
+     * Sanitizes user (string) input.
+     * 
+     * Clears input from:
+     *  - spaces at outer left of right of input
+     *  - slashes
+     *  - html characters (< and >)
+     */
+    function checkInput($input)
+    {
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+        return $input;
+    }
 ?>
