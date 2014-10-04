@@ -148,13 +148,15 @@
             } 
         }
 
+        $spendName = checkInput($_POST["spend_name"]);
+
         // store spend in db
         $storeAction = query("INSERT INTO finances (
             spend_name,
             spend_cost,
             user_id_poster
             ) VALUES (?, ?, ?)", 
-            $_POST["spend_name"],
+            $spendName,
             $cost,
             $_SESSION["user_id"]);
 
