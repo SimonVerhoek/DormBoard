@@ -17,6 +17,8 @@
     // if user posted form
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
+        $newItem = checkInput($_POST["item_name"]);
+
         // insert new item
         $storeNewItem = query("INSERT INTO shoplist (
             dorm_id,
@@ -25,7 +27,7 @@
             user_id_poster
             ) VALUES (?, ?, NOW(), ?)",
                 $_SESSION["dorm_id"],
-                $_POST["item_name"],
+                $newItem,
                 $_SESSION["user_id"]
         );
 
