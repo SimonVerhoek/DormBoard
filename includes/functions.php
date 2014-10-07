@@ -265,20 +265,27 @@
                                 WHERE   dorm_id = ?",
                                         $userData["dorm_id"]);
 
-            if (count($dormData) == 1)
+            switch (count($dormData)) 
             {
-                $dormData = $dormData[0];
+                case 0:
+                    // user is not member of a dorm yet
+                    // --> do nothing
+                    break;
 
-                $_SESSION["dorm_name"] = $dormData["dorm_name"];
-            }
-            else
-            {
-                errorMsg("Something went wrong while logging in to your account. Please try again.");
+                case 1:
+                    $dormData = $dormData[0];
+
+                    $_SESSION["dorm_name"] = $dormData["dorm_name"];
+                    break;
+                
+                default:
+                    errorMsg("Something went wrong while logging in to your account. Please try again. 1");
+                    break;
             }
         } 
         else
         {
-            errorMsg("Something went wrong while logging in to your account. Please try again.");
+            errorMsg("Something went wrong while logging in to your account. Please try again. 2");
         }
         
     }
