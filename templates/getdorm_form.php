@@ -18,9 +18,14 @@
                             message: "Please fill in a name for the dorm you want to create."
                         },
                         stringLength: {
-                            min: 2,
+                            min: 5,
                             max: 50,
                             message: "Please pick a name that is between 2 and 50 characters long."
+                        },
+                        regexp: {
+                            // reject input string of digits only
+                            regexp: /.*[a-zA-Z]{5,}.*/g,
+                            message: "The full name shouldn't consist of digits only."
                         }
                     }
                 },
