@@ -37,6 +37,7 @@
 
 	    	// search for dorms that match data
 	        $dorms = query("SELECT 	dorm_id,
+                                    dorm_name,
 	        						hash 
 	        				FROM 	dorms 
         					WHERE 	dorm_name = ?", 
@@ -66,8 +67,9 @@
 			                errorMsg("Something went wrong while joining your dorm. Please try again.");
 			            }
 
-                        // save new dorm id in session
+                        // save new dorm data in session
                         $_SESSION["dorm_id"] = $dorm["dorm_id"];
+                        $_SESSION["dorm_name"] = $dorm["dorm_name"];
 
 		                // redirect to dashboard
 		                redirect("dinner.php");
