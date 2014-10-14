@@ -133,16 +133,12 @@
 					{
 						if ($roommate["user_id"] == $item["user_id_poster"])
 						{
-							$namePoster = 	$roommate["first_name"] . 
-											' ' . 
-											$roommate["last_name"];
+							$namePoster = 	$roommate["first_name"];
 						}
 
 						if ($roommate["user_id"] == $item["user_id_solver"])
 						{
-							$nameSolver =	$roommate["first_name"] .
-											' ' .
-											$roommate["last_name"];
+							$nameSolver =	$roommate["first_name"];
 						}
 					}
 
