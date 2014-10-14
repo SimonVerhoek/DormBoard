@@ -123,24 +123,10 @@
 
 		<ol id="shoplistitems">
 			<?php 
-				foreach ($listItems as $item) 
+				foreach ($items as $item) 
 				{
 					$postDate = strtotime($item["post_date"]);
 					$solveDate = strtotime($item["solve_date"]);
-
-					// get name of this item's poster and solver
-					foreach ($roommates as $roommate) 
-					{
-						if ($roommate["user_id"] == $item["user_id_poster"])
-						{
-							$namePoster = 	$roommate["first_name"];
-						}
-
-						if ($roommate["user_id"] == $item["user_id_solver"])
-						{
-							$nameSolver =	$roommate["first_name"];
-						}
-					}
 
 					echo(	
 							'<li>' .
@@ -172,7 +158,7 @@
 									'<p class="shoplist-item-data">' . 
 										'<em>' .
 											'Posted by: ' .
-											$namePoster .
+											$item["namePoster"] .
 											', at ' . 
 											date('l F jS, H:i',$postDate)
 						);
@@ -183,7 +169,7 @@
 						echo( 			
 											'<br>' .
 											'Bought by: ' .
-											$nameSolver . 
+											$item["nameSolver"] . 
 											', at ' .
 											date('l F jS, H:i', $solveDate)
 							);			
