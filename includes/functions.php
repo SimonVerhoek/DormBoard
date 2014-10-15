@@ -582,10 +582,6 @@
         putParagraph(   "shoplist-item-data", "Posted by: " . $namePoster . ", at " . $postDate .
                         "<br>" .
                         'Bought by: ' . $nameSolver . ', at ' . $solveDate);
-
-        echo(           '</em>' .
-                    '</p>' 
-        );
     }
 
 
