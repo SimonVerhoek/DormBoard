@@ -384,6 +384,11 @@
         print(sprintf("<td class=%s>%s</td>", $class, $output));
     }
 
+    function putParagraph($class, $text)
+    {
+        print(sprintf("<p class=%s>" . $text . "</p>", $class));
+    }
+
     /**
      * Prints "Buyer rankings" scoreboard
      * 
