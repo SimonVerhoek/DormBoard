@@ -384,6 +384,7 @@
         print(sprintf("<td class=%s>" . $text . "</td>", $class));
     }
 
+
     function putParagraph($class, $text)
     {
         print(sprintf("<p class=%s>" . $text . "</p>", $class));
@@ -431,6 +432,9 @@
 
         $roommates = getRoommateData(3);
 
+        // preset empty value to prevent undefined error
+        $nameSolver = 0;
+
         foreach ($shoplistItems as $shoplistItem) 
         {
             foreach ($roommates as $roommate) 
@@ -467,10 +471,19 @@
         
         foreach ($items as $item) 
         {
+            // format dates
             $postDate = strtotime($item["post_date"]);
-            $solveDate = strtotime($item["solve_date"]);
+            $postDate = date('l F jS, H:i', $postDate);
 
-            // if not solved yet
+            $solveDate = strtotime($item["solve_date"]);
+            $solveDate = date('l F jS, H:i', $solveDate);
+
+            echo(   
+                '<li>' .
+                    '<div class="text-holder">'     
+            );
+
+            // check if item is solved or not
             if (empty($item["user_id_solver"]))
             {
                 putUnsolvedItem($item["item_name"], $item["item_id"], $item["item_name"], $item["namePoster"], $postDate);
@@ -479,16 +492,16 @@
             {
                 putSolvedItem($item["item_name"], $item["namePoster"], $item["nameSolver"], $postDate, $solveDate);
             }
+
+            echo(          
+                '</div>' . 
+            '</li>'
+        );
         }
     }
 
     function putUnsolvedItem($dataID, $dataValue, $itemName, $namePoster, $postDate)
     {
-        echo(   
-            '<li>' .
-                '<div class="text-holder">'     
-        );
-
         echo(
                     // hidden value     
                     '<a type="submit" href="#myModalCustom" ' .
@@ -501,57 +514,24 @@
                     '</a>'
         );  
 
-        echo(   
-                    '<p class="shoplist-item-name">' . $itemName . '</p>' .
-                    '<p class="shoplist-item-data">' . 
-                        '<em>' .
-                            'Posted by: ' .
-                            $namePoster .
-                            ', at ' . 
-                            date('l F jS, H:i',$postDate)
-        );
+        putParagraph("shoplist-item-name", $itemName);
+        putParagraph("shoplist-item-data", "Posted by: " . $namePoster . ", at " . $postDate);
 
-        echo                '<br>&nbsp<br>';
-
-        echo(           '</em>' .
-                    '</p>' . 
-                '</div>' . 
-            '</li>'
-        );
+        echo "<br>&nbsp<br>";
     }
 
-    function putSolvedItem($itemName, $namePoster, $nameSolver, $postDate ,$solveDate)
+    function putSolvedItem($itemName, $namePoster, $nameSolver, $postDate, $solveDate)
     {
-        echo(   
-            '<li>' .
-                '<div class="text-holder">'     
-        );
+        echo'<span class="glyphicon glyphicon-ok pull-right checkmark-done shoplist-checkmark-done"></span>' ;
 
-        echo        '<span class="glyphicon glyphicon-ok pull-right checkmark-done shoplist-checkmark-done"></span>';
-
-        echo(   
-                    '<p class="shoplist-item-name">' . $itemName . '</p>' .
-                    '<p class="shoplist-item-data">' . 
-                        '<em>' .
-                            'Posted by: ' .
-                            $namePoster .
-                            ', at ' . 
-                            date('l F jS, H:i',$postDate)
-        );
-
-        echo(           
-                            '<br>' .
-                            'Bought by: ' .
-                            $nameSolver . 
-                            ', at ' .
-                            date('l F jS, H:i', $solveDate)
-        );  
+        putParagraph("shoplist-item-name", $itemName);
+        putParagraph(   "shoplist-item-data", "Posted by: " . $namePoster . ", at " . $postDate .
+                        "<br>" .
+                        'Bought by: ' . $nameSolver . ', at ' . $solveDate);
 
         echo(           '</em>' .
-                    '</p>' . 
-                '</div>' . 
-            '</li>'
-        );      
+                    '</p>' 
+        );
     }
 
 
