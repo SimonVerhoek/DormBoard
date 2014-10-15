@@ -371,4 +371,61 @@
         $input = htmlspecialchars($input);
         return $input;
     }
+
+    /**
+     * Prints "Buyer rankings" scoreboard
+     * 
+     * prints three table cells (placed in separate 
+     * functions):
+     *  - rank (#1 to #No. of roommates)
+     *  - name (first name of roommate)
+     *  - score (amount of items solved/bought)
+     */
+    function printScoreboard()
+    {
+        $roommates = getRoommateData(3);
+
+        foreach ($roommates as $i => $roommate) 
+        {
+            $rank = $i + 1;
+
+            echo "<tr>";
+
+            putScoreboardRank($rank);
+            putScoreboardName($roommate["first_name"]);
+            putScoreboardScore($roommate["shoplist_score"]);
+
+            echo "</tr>";
+        }
+    }
+
+        function putScoreboardRank($rank)
+        {
+            print(sprintf('
+                <td class="shoplist-scoreboard-rank" align="right">
+                    <strong>
+                        %s.
+                    </strong>
+                </td>', 
+                $rank));
+        }
+
+        function putScoreboardName($firstName)
+        {
+            print(sprintf('
+                <td class="shoplist-scoreboard-name">
+                    %s
+                </td>',
+                $firstName));
+        }
+
+        function putScoreboardScore($score)
+        {
+            print(sprintf('
+                <td class="shoplist-scoreboard-score" align="right">
+                  %s
+                </td>',
+                $score));
+        }
+
 ?>

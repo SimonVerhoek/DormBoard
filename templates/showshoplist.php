@@ -199,33 +199,7 @@
 			Buyer rankings
 		</legend>
 		<tbody>
-			<?php
-				foreach ($roommates as $i => $roommate) 
-				{
-					$rank = $i + 1;
-
-					echo 	"<tr>";
-
-					echo(		"<td class='shoplist-scoreboard-rank' align='right'>" .
-									"<strong>" .
-									$rank . ". " .
-									"</strong>" .
-								"</td>"
-						);
-
-					echo(		"<td class='shoplist-scoreboard-name'>" .
-								$roommate["first_name"] .
-								"</td>"
-						);
-
-					echo(		"<td class='shoplist-scoreboard-score' align='right'>" .
-								$roommate["shoplist_score"] .
-								"</td>"
-						);
-
-					echo 	"</tr>";
-				}
-			?>
+			<?php printScoreBoard() ?>
 		</tbody>
 	</table>
 </div> <!-- ./ buyer rankings column -->
