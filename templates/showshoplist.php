@@ -123,69 +123,7 @@
 
 		<ol id="shoplistitems">
 			<?php 
-				foreach ($items as $item) 
-				{
-					$postDate = strtotime($item["post_date"]);
-					$solveDate = strtotime($item["solve_date"]);
-
-					echo(	
-							'<li>' .
-								'<div class="text-holder">' 	
-						);
-
-					// if not solved yet
-					if (empty($item["user_id_solver"]))
-					{
-						echo(
-									// hidden value 	
-									'<a type="submit" href="#myModalCustom" ' .
-										'data-id="' . $item["item_name"] . '" ' . 
-							 			'data-value="' . $item["item_id"] . '"'  .
-							 			'class="open-modal btn btn-success pull-right checkmark-todo"' . 
-							 			'id="solve-button"' .
-							 			'data-target="#myModalCustom" >' .
-						 				'Check!' .
-					 				'</a>'
-							);	
-					}
-					else
-					{
-						echo 		'<span class="glyphicon glyphicon-ok pull-right checkmark-done shoplist-checkmark-done"></span>';
-					}
-
-					echo(	
-									'<p class="shoplist-item-name">' . $item["item_name"] . '</p>' .
-									'<p class="shoplist-item-data">' . 
-										'<em>' .
-											'Posted by: ' .
-											$item["namePoster"] .
-											', at ' . 
-											date('l F jS, H:i',$postDate)
-						);
-
-					// if solved
-					if (!empty($item["user_id_solver"]))
-					{
-						echo( 			
-											'<br>' .
-											'Bought by: ' .
-											$item["nameSolver"] . 
-											', at ' .
-											date('l F jS, H:i', $solveDate)
-							);			
-					}
-					else
-					{
-						// add white line
-						echo 				'<br>&nbsp<br>';
-					}
-					// placeholder
-					echo(				'</em>' .
-									'</p>' . 
-								'</div>' . 
-							'</li>'
-						);		
-				}
+				printShoplist();
 			?>
 		</ol>
 

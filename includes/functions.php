@@ -455,4 +455,99 @@
 
         return $items;
     }
+
+    function printShoplist()
+    {
+        $items = getShoplistItems();
+        
+        foreach ($items as $item) 
+        {
+            $postDate = strtotime($item["post_date"]);
+            $solveDate = strtotime($item["solve_date"]);
+
+            // if not solved yet
+            if (empty($item["user_id_solver"]))
+            {
+                putUnsolvedItem($item["item_name"], $item["item_id"], $item["item_name"], $item["namePoster"], $postDate);
+            }
+            else
+            {
+                putSolvedItem($item["item_name"], $item["namePoster"], $item["nameSolver"], $postDate, $solveDate);
+            }
+        }
+    }
+
+    function putUnsolvedItem($dataID, $dataValue, $itemName, $namePoster, $postDate)
+    {
+        echo(   
+            '<li>' .
+                '<div class="text-holder">'     
+        );
+
+        echo(
+                    // hidden value     
+                    '<a type="submit" href="#myModalCustom" ' .
+                        'data-id="' . $dataID . '" ' . 
+                        'data-value="' . $dataValue . '"'  .
+                        'class="open-modal btn btn-success pull-right checkmark-todo"' . 
+                        'id="solve-button"' .
+                        'data-target="#myModalCustom" >' .
+                        'Check!' .
+                    '</a>'
+        );  
+
+        echo(   
+                    '<p class="shoplist-item-name">' . $itemName . '</p>' .
+                    '<p class="shoplist-item-data">' . 
+                        '<em>' .
+                            'Posted by: ' .
+                            $namePoster .
+                            ', at ' . 
+                            date('l F jS, H:i',$postDate)
+        );
+
+        echo                '<br>&nbsp<br>';
+
+        echo(           '</em>' .
+                    '</p>' . 
+                '</div>' . 
+            '</li>'
+        );
+    }
+
+    function putSolvedItem($itemName, $namePoster, $nameSolver, $postDate ,$solveDate)
+    {
+        echo(   
+            '<li>' .
+                '<div class="text-holder">'     
+        );
+
+        echo        '<span class="glyphicon glyphicon-ok pull-right checkmark-done shoplist-checkmark-done"></span>';
+
+        echo(   
+                    '<p class="shoplist-item-name">' . $itemName . '</p>' .
+                    '<p class="shoplist-item-data">' . 
+                        '<em>' .
+                            'Posted by: ' .
+                            $namePoster .
+                            ', at ' . 
+                            date('l F jS, H:i',$postDate)
+        );
+
+        echo(           
+                            '<br>' .
+                            'Bought by: ' .
+                            $nameSolver . 
+                            ', at ' .
+                            date('l F jS, H:i', $solveDate)
+        );  
+
+        echo(           '</em>' .
+                    '</p>' . 
+                '</div>' . 
+            '</li>'
+        );      
+    }
+
+
 ?>
