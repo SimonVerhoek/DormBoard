@@ -372,9 +372,16 @@
         return $input;
     }
 
-    function putTableCell($class, $input)
+    /**
+     * Puts input data in HTML table cell and
+     * adds class.
+     *
+     *  - $class should be a string.
+     *  - $output should be the value to output.
+     */
+    function putTableCell($class, $output)
     {
-        print(sprintf("<td class=%s>%s</td>", $class, $input));
+        print(sprintf("<td class=%s>%s</td>", $class, $output));
     }
 
     /**
