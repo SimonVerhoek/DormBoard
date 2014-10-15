@@ -46,45 +46,8 @@
     // get roommate data and buyer rankings
     $roommates = getRoommateData(3);
     
-	$shoplistItems = query("SELECT      item_id,
-                                        item_name,
-                                        post_date,
-                                        solve_date,
-                                        user_id_poster,
-                                        user_id_solver
-                            FROM        shoplist
-                            WHERE       dorm_id = ?
-                            ORDER BY    post_date DESC",
-                                        $_SESSION["dorm_id"]);
-
-    $items = [];
-
-    foreach ($shoplistItems as $shoplistItem) 
-    {
-        foreach ($roommates as $roommate) 
-        {
-            if ($roommate["user_id"] == $shoplistItem["user_id_poster"])
-            {
-                $namePoster = $roommate["first_name"];
-            }
-
-            if ($roommate["user_id"] == $shoplistItem["user_id_solver"])
-            {
-                $nameSolver = $roommate["first_name"];
-            }
-        }
-
-        $items[] = [
-        "item_id" => $shoplistItem["item_id"],
-        "item_name" => $shoplistItem["item_name"],
-        "post_date" => $shoplistItem["post_date"],
-        "solve_date" => $shoplistItem["solve_date"],
-        "user_id_poster" => $shoplistItem["user_id_poster"],
-        "user_id_solver" => $shoplistItem["user_id_solver"],
-        "namePoster" => $namePoster,
-        "nameSolver" => $nameSolver
-        ];
-    }
+    // get shoplist items
+	$items = getShoplistItems();
 
     render("showshoplist.php", [
         "title" => "Shopping list",
