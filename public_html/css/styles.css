@@ -549,12 +549,17 @@ fieldset[disabled] .btn-custom-dinner.active {
 
 .shoplist-scoreboard-rank {
     width: 10px;
+    font-weight: bold;
 }
 
 /* make name and score slightly smaller than rank no. */ 
 .shoplist-scoreboard-name, 
 .shoplist-scoreboard-score {
     font-size: 0.9em;
+}
+
+.shoplist-scoreboard-score {
+    text-align: right;
 }
 
 
