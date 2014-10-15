@@ -384,7 +384,12 @@
         print(sprintf("<td class=%s>" . $text . "</td>", $class));
     }
 
-
+    /**
+     * Puts input data in HTML paragraph element.
+     *
+     *  - $class should be a string.
+     *  - $text should be the value to output.
+     */
     function putParagraph($class, $text)
     {
         print(sprintf("<p class=%s>" . $text . "</p>", $class));
@@ -417,6 +422,14 @@
         }
     }
 
+    /**
+     * Gets shoplist items. 
+     * 
+     *  - queries database for shoplist items
+     *  - queries database for roommate names
+     *  - links roommate names to shoplist items
+     *  - returns outcome in multitimensional array $items
+     */
     function getShoplistItems()
     {
         $shoplistItems = query("SELECT      item_id,
@@ -465,6 +478,13 @@
         return $items;
     }
 
+    /**
+     * Prints shopping list.
+     * 
+     *  - retrieves shoplist items from getShoplistItems()
+     *  - formats date of posting and solving
+     *  - prints either unsolved or solved item
+     */
     function printShoplist()
     {
         $items = getShoplistItems();
@@ -504,18 +524,35 @@
         }
     }
 
+    /**
+     * Returns unsolved item in HTML format.
+     *
+     * First, a hidden <a> element is created, containing 
+     * a data-id ($dataID) and a data-value ($dataValue) 
+     * value, that are passed on finances.php when 
+     * the item is solved by the user (= solving form is posted).
+     * Then, the item's name is printed and the posting data
+     * (who & when).
+     *
+     * Requires:
+     *  - $dataID       = string of the item's name (gets shown in modal)
+     *  - $dataValue    = the item's ID (gets passed on to finances.php)
+     *  - $itemName     = string of the item's name
+     *  - $namePoster   = string of the name of the poster
+     *  - $postDate     = date of posting in date() format
+     */
     function putUnsolvedItem($dataID, $dataValue, $itemName, $namePoster, $postDate)
     {
         echo(
-                    // hidden value     
-                    '<a type="submit" href="#myModalCustom" ' .
-                        'data-id="' . $dataID . '" ' . 
-                        'data-value="' . $dataValue . '"'  .
-                        'class="open-modal btn btn-success pull-right checkmark-todo"' . 
-                        'id="solve-button"' .
-                        'data-target="#myModalCustom" >' .
-                        'Check!' .
-                    '</a>'
+            // hidden element  
+            '<a type="submit" href="#myModalCustom" ' .
+                'data-id="' . $dataID . '" ' . 
+                'data-value="' . $dataValue . '"'  .
+                'class="open-modal btn btn-success pull-right checkmark-todo"' . 
+                'id="solve-button"' .
+                'data-target="#myModalCustom" >' .
+                'Check!' .
+            '</a>'
         );  
 
         putParagraph("shoplist-item-name", $itemName);
@@ -524,6 +561,19 @@
         echo "<br>&nbsp<br>";
     }
 
+    /**
+     * Returns solved item in HTML format.
+     *
+     * Prints a checkmark glyphicon first, then prints the item's name,
+     * posting data (who & when) and solving data (who & when).
+     *
+     * Requires:
+     *  - $itemName     = string of the item's name
+     *  - $namePoster   = string of the name of the poster
+     *  - $nameSolver   = string of the name of the solver
+     *  - $postDate     = date of posting in date() format
+     *  - $solveDate    = date of solving in date() format
+     */
     function putSolvedItem($itemName, $namePoster, $nameSolver, $postDate, $solveDate)
     {
         echo'<span class="glyphicon glyphicon-ok pull-right checkmark-done shoplist-checkmark-done"></span>' ;
