@@ -122,9 +122,7 @@
 	<div class="tab-content"> 
 
 		<ol id="shoplistitems">
-			<?php 
-				printShoplist();
-			?>
+			<?php printShoplist() ?>
 		</ol>
 
 	</div> <!-- /.tab-content --> 

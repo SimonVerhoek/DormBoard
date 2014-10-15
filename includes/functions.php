@@ -478,25 +478,29 @@
             $solveDate = strtotime($item["solve_date"]);
             $solveDate = date('l F jS, H:i', $solveDate);
 
-            echo(   
-                '<li>' .
-                    '<div class="text-holder">'     
-            );
+            echo "<li><div class='text-holder'>";
 
             // check if item is solved or not
             if (empty($item["user_id_solver"]))
             {
-                putUnsolvedItem($item["item_name"], $item["item_id"], $item["item_name"], $item["namePoster"], $postDate);
+                putUnsolvedItem(
+                    $item["item_name"], 
+                    $item["item_id"], 
+                    $item["item_name"], 
+                    $item["namePoster"], 
+                    $postDate);
             }
             else
             {
-                putSolvedItem($item["item_name"], $item["namePoster"], $item["nameSolver"], $postDate, $solveDate);
+                putSolvedItem(
+                    $item["item_name"], 
+                    $item["namePoster"], 
+                    $item["nameSolver"], 
+                    $postDate, 
+                    $solveDate);
             }
 
-            echo(          
-                '</div>' . 
-            '</li>'
-        );
+            echo "</div></li>";
         }
     }
 

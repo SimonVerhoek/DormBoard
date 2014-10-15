@@ -45,14 +45,10 @@
 
     // get roommate data and buyer rankings
     $roommates = getRoommateData(3);
-    
-    // get shoplist items
-	$items = getShoplistItems();
 
     render("showshoplist.php", [
         "title" => "Shopping list",
 		"user_id" => $_SESSION["user_id"],
-        "roommates" => $roommates,
-        "items" => $items
+        "roommates" => $roommates
     	]);
 ?>
