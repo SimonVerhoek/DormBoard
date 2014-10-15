@@ -396,33 +396,11 @@
 
             echo "<tr>";
 
-            putScoreboardRank($rank);
-            putScoreboardName($roommate["first_name"]);
-            putScoreboardScore($roommate["shoplist_score"]);
+            putTableCell("shoplist-scoreboard-rank", $rank);
+            putTableCell("shoplist-scoreboard-name", $roommate["first_name"]);
+            putTableCell("shoplist-scoreboard-score", $roommate["shoplist_score"]);
 
             echo "</tr>";
         }
     }
-
-        function putScoreboardRank($rank)
-        {
-            $class = "shoplist-scoreboard-rank";
-
-            putTableCell($class, $rank);
-        }
-
-        function putScoreboardName($firstName)
-        {
-            $class = "shoplist-scoreboard-name";
-
-            putTableCell($class, $firstName);
-        }
-
-        function putScoreboardScore($score)
-        {
-            $class = "shoplist-scoreboard-score";
-
-            putTableCell($class, $score);
-        }
-
 ?>
