@@ -372,6 +372,11 @@
         return $input;
     }
 
+    function putTableCell($class, $input)
+    {
+        print(sprintf("<td class=%s>%s</td>", $class, $input));
+    }
+
     /**
      * Prints "Buyer rankings" scoreboard
      * 
@@ -401,31 +406,23 @@
 
         function putScoreboardRank($rank)
         {
-            print(sprintf('
-                <td class="shoplist-scoreboard-rank" align="right">
-                    <strong>
-                        %s.
-                    </strong>
-                </td>', 
-                $rank));
+            $class = "shoplist-scoreboard-rank";
+
+            putTableCell($class, $rank);
         }
 
         function putScoreboardName($firstName)
         {
-            print(sprintf('
-                <td class="shoplist-scoreboard-name">
-                    %s
-                </td>',
-                $firstName));
+            $class = "shoplist-scoreboard-name";
+
+            putTableCell($class, $firstName);
         }
 
         function putScoreboardScore($score)
         {
-            print(sprintf('
-                <td class="shoplist-scoreboard-score" align="right">
-                  %s
-                </td>',
-                $score));
+            $class = "shoplist-scoreboard-score";
+
+            putTableCell($class, $score);
         }
 
 ?>
