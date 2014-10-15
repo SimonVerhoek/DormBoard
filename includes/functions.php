@@ -377,11 +377,11 @@
      * adds class.
      *
      *  - $class should be a string.
-     *  - $output should be the value to output.
+     *  - $text should be the value to output.
      */
-    function putTableCell($class, $output)
+    function putTableCell($class, $text)
     {
-        print(sprintf("<td class=%s>%s</td>", $class, $output));
+        print(sprintf("<td class=%s>" . $text . "</td>", $class));
     }
 
     function putParagraph($class, $text)
