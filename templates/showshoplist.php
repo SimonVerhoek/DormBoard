@@ -181,25 +181,21 @@
 									foreach ($roommates as $roommate)
 									{
 										echo(	'<div class="checkbox">' .
-													'<label>' . 
-														'<input type="checkbox" name="check_list[]"' . 
-													'	value="' . $roommate["user_id"] . '" checked>'
+													'<input type="checkbox" name="check_list[]"' . 
+													'value="' . $roommate["user_id"] . '" checked>'
 											);
 										// print "me" instead of own name
 										if ($roommate["user_id"] == $_SESSION["user_id"])
 										{
-											echo 		"Me";
+											echo 	"Me";
 										}
 										else
 										{
-											echo(		$roommate["first_name"] .
-														" " .
-														$roommate["last_name"]
-												);
+											echo(	$roommate["first_name"] .
+													" " .
+													$roommate["last_name"]);
 										};
-										echo( 		'</label>' .
-												'</div>'
-											);
+										echo "</div>";
 									}
 								?>
 							</div> <!-- ./ column -->
