@@ -695,38 +695,20 @@
 
         foreach ($roommates as $roommate) 
         {
-            echo    "<tr>"; 
+            echo "<tr>"; 
 
-            
-
+            // print roommate's name and balance with correct color
             putTableCell(
                 setCashBalanceClass($roommate["cash_balance"]), 
                 $roommate["first_name"]);
             
-            // color cell based on balance level
-            if ($roommate["cash_balance"] < 0)
-            {
-                echo '<td class="negative-balance text-right">';
-            }
-            else if ($roommate["cash_balance"] > 0)
-            {
-                echo '<td class="positive-balance text-right">';
-            }
-            else
-            {
-                echo '<td class="neutral-balance text-right">';
-            }
+            putTableCell(
+                setCashBalanceClass($roommate["cash_balance"]), 
+                setCashPrefix($roommate["cash_balance"]) . 
+                $roommate["cash_balance"]);
+
             
-            echo "$ ";
-                
-            if ($roommate["cash_balance"] > 0) 
-            {
-                echo "+";
-            };
-            echo(   $roommate["cash_balance"] .
-                    "</td>" .
-                    "</tr>"
-                );
+            echo "</tr>";
         }
     }
 
@@ -740,9 +722,15 @@
         {
             return $class = "positive-balance";
         }
-        else
+        else return $class = "neutral-balance";
+    }
+
+    function setCashPrefix($cashBalance)
+    {
+        if ($cashBalance > 0)
         {
-            return $class = "neutral-balance";
+            return $prefix = "$ +";
         }
+        else return $prefix = "$ ";
     }
 ?>
