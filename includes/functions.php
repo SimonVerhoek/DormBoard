@@ -617,27 +617,28 @@
 
             putCheckbox("check_list[]", $roommate["user_id"], "checked");
 
-            echo checkIfMe($roommate);
+            if (checkIfMe($roommate)) 
+            {
+                echo "Me";
+            } 
+            else
+            {
+                echo $roommate["first_name"] . " " . $roommate["last_name"];
+            }
             
             echo "</div>";
         }
     }
 
     /**
-     * Checks if roommate is user.
-     * If so, replaces name with "Me".
+     * Checks if given roommate is user himself.
      */
     function checkIfMe($roommate) 
     {
         if ($roommate["user_id"] == $_SESSION["user_id"])
         {
-            return    "Me";
+            return true;
         }
-        else
-        {
-            return  $roommate["first_name"] .
-                    " " .
-                    $roommate["last_name"];
-        };
+        return false;
     }
 ?>
