@@ -3,8 +3,8 @@
 	// make Dinner tab active
 	$(document).ready(function() {
 		$("#navdinner").addClass("active");
-
 	});
+
 </script>
 
 <!-- Dinner schedule -->

@@ -1,8 +1,6 @@
-/**
- * scripts.js
+/*************************************************
+ *  scripts.js
  *
- * Programmeren 2 - Final Project
- * Made by Simon Verhoek
- *
- * Global JavaScript, if any.
- */
+ *  Holds global JS/jQuery functions.
+ *      
+ **************************************************/
