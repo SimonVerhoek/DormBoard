@@ -595,7 +595,7 @@
      */
     function putSolvedItem($itemName, $namePoster, $nameSolver, $postDate, $solveDate)
     {
-        echo'<span class="glyphicon glyphicon-ok pull-right checkmark-done shoplist-checkmark-done"></span>' ;
+        echo '<span class="glyphicon glyphicon-ok pull-right checkmark-done shoplist-checkmark-done"></span>' ;
 
         putParagraph(   "shoplist-item-name", $itemName);
         putParagraph(   "shoplist-item-data", "Posted by: " . $namePoster . ", at " . $postDate .
@@ -628,6 +628,7 @@
                         " " .
                         $roommate["last_name"]);
             };
+            
             echo "</div>";
         }
     }
