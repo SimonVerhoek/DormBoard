@@ -651,28 +651,18 @@
             echo "<tr>";
 
             // post date
-            echo(   "<td class='td-date'>" .
+            putTableCell("td-date", 
                     date('l F jS', strtotime($spend["date_added"])) .
                     "<br>" .
-                    date('H:i', strtotime($spend["date_added"])) .
-                    "</td>"
-                );
+                    date('H:i', strtotime($spend["date_added"])));
 
             // spend name
-            echo(   "<td class='td-spendname'>" .
-                    $spend["spend_name"] .
-                    "</td>"
-                );
+            putTableCell("td-spendname", $spend["spend_name"]);
 
             // who paid what
-            echo(   "<td class='td-whopaidwhat text-right'>" .
-                    $spend["first_name"] .
-                    " paid" .
-                    "<br>" .
-                    " $ " .
-                    $spend["spend_cost"] .
-                    "</td>"
-                );
+            putTableCell("td-whopaidwhat", 
+                $spend["first_name"] . " paid <br>" .
+                " $ " . $spend["spend_cost"]);
 
             echo "</tr>";
         }
