@@ -180,8 +180,6 @@
 								<?php
 									foreach ($roommates as $roommate)
 									{
-										$rmID = $roommate["user_id"];
-
 										echo(	'<div class="checkbox">' .
 													'<label>' . 
 														'<input type="checkbox" name="check_list[]"' . 
