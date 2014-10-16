@@ -92,39 +92,7 @@
 			<div class="table-responsive">
 				<table class="table" id="spendstable">
 					<tbody id="spendstable-body">
-						<?php
-							// for each spend
-							foreach ($spends as $spend)
-							{
-								echo "<tr>";
-
-								// post date
-								echo(	"<td class='td-date'>" .
-										date('l F jS', strtotime($spend["date_added"])) .
-										"<br>" .
-										date('H:i', strtotime($spend["date_added"])) .
-										"</td>"
-									);
-
-								// spend name
-								echo(	"<td class='td-spendname'>" .
-										$spend["spend_name"] .
-										"</td>"
-									);
-
-								// who paid what
-								echo(	"<td class='td-whopaidwhat text-right'>" .
-										$spend["first_name"] .
-										" paid" .
-										"<br>" .
-										" $ " .
-										$spend["spend_cost"] .
-										"</td>"
-									);
-
-								echo "</tr>";
-							}
-						?>
+						<?php printSpends() ?>
 					</tbody>
 				</table>
 			</div> <!-- ./ table-responsive -->

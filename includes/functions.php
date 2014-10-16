@@ -641,4 +641,54 @@
         }
         return false;
     }
+
+    function printSpends()
+    {
+        // get all dorm's spend data up to a week earlier
+        $spends = query("SELECT     finances.spend_id,
+                                    finances.spend_name,
+                                    finances.date_added,
+                                    finances.spend_cost,
+                                    finances.user_id_poster,
+                                    users.first_name,
+                                    users.last_name
+                         FROM       finances
+                         INNER JOIN users
+                         ON         finances.user_id_poster = users.user_id
+                         WHERE      users.dorm_id = ?
+                         AND        finances.date_added between date_sub(now(),INTERVAL 1 WEEK) and now()
+                         ORDER BY   finances.date_added DESC",
+                                    $_SESSION["dorm_id"]);
+
+        foreach ($spends as $spend)
+        {
+            echo "<tr>";
+
+            // post date
+            echo(   "<td class='td-date'>" .
+                    date('l F jS', strtotime($spend["date_added"])) .
+                    "<br>" .
+                    date('H:i', strtotime($spend["date_added"])) .
+                    "</td>"
+                );
+
+            // spend name
+            echo(   "<td class='td-spendname'>" .
+                    $spend["spend_name"] .
+                    "</td>"
+                );
+
+            // who paid what
+            echo(   "<td class='td-whopaidwhat text-right'>" .
+                    $spend["first_name"] .
+                    " paid" .
+                    "<br>" .
+                    " $ " .
+                    $spend["spend_cost"] .
+                    "</td>"
+                );
+
+            echo "</tr>";
+        }
+    }
 ?>

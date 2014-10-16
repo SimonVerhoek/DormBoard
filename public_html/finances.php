@@ -173,26 +173,9 @@
     // get roommate data and cash balances
     $roommates = getRoommateData(4);
 
-    // get all dorm's spend data up to a week earlier
-    $spends = query("SELECT     finances.spend_id,
-                                finances.spend_name,
-                                finances.date_added,
-                                finances.spend_cost,
-                                finances.user_id_poster,
-                                users.first_name,
-                                users.last_name
-                     FROM       finances
-                     INNER JOIN users
-                     ON         finances.user_id_poster = users.user_id
-                     WHERE      users.dorm_id = ?
-                     AND        finances.date_added between date_sub(now(),INTERVAL 1 WEEK) and now()
-                     ORDER BY   finances.date_added DESC",
-                                $_SESSION["dorm_id"]);
-
     render("showfinances.php", [
         "title" => "Dorm finances",
 		"user_id" => $_SESSION["user_id"],
-		"spends" => $spends,
 		"roommates" => $roommates
     	]);
 ?>
