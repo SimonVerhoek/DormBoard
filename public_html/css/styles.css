@@ -615,6 +615,7 @@ fieldset[disabled] .btn-custom-dinner.active {
 
 .td-whopaidwhat {
     width: 28%;
+    text-align: right;
 }
 
 .td-date {
