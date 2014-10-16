@@ -668,6 +668,14 @@
         }
     }
 
+    /**
+     * Retrieves all spends 
+     *
+     * Contains three classes:
+     *  - negative-balance  turns content red
+     *  - positive-balance  turns content green
+     *  - neutral-balance   turns content white
+     */
     function getSpends()
     {
         // get all dorm's spend data up to a week earlier
@@ -706,12 +714,20 @@
                 setCashBalanceClass($roommate["cash_balance"]), 
                 setCashPrefix($roommate["cash_balance"]) . 
                 $roommate["cash_balance"]);
-
-            
+ 
             echo "</tr>";
         }
     }
 
+    /**
+     * Returns appropriate class for cash balance
+     * table cells.
+     *
+     * Contains three classes:
+     *  - negative-balance  turns content red
+     *  - positive-balance  turns content green
+     *  - neutral-balance   turns content white
+     */
     function setCashBalanceClass($cashBalance)
     {
         if ($cashBalance < 0)
@@ -725,6 +741,11 @@
         else return $class = "neutral-balance";
     }
 
+    /**
+     * Returns appropriate prefix for cash balance
+     * table cell, by adding a "+" sign in front 
+     * of positive balances.
+     */
     function setCashPrefix($cashBalance)
     {
         if ($cashBalance > 0)
