@@ -396,6 +396,24 @@
     }
 
     /**
+     * Puts input data in HTML checkbox element.
+     *
+     *  - $name     = value for "name" characteristic
+     *  - $value    = value for "value" characteristic
+     *  - $checked  = whether box should be checked or not. 
+     *                input must be either "checked" or 
+     *                "unchecked".
+     */
+    function putCheckbox($name, $value, $checked)
+    {
+        if ($checked == "checked" ||
+            $checked == "unchecked") 
+        {
+            print(sprintf('<input type="checkbox" name=%s value=%s %s>', $name, $value, $checked));
+        }
+    }
+
+    /**
      * Prints "Buyer rankings" scoreboard
      * 
      * prints three table cells (placed in separate 
@@ -585,5 +603,30 @@
                         'Bought by: ' . $nameSolver . ', at ' . $solveDate);
     }
 
+    
 
+    function printRoommatesChecklist()
+    {
+        $roommates = getRoommateData(2);
+
+        foreach ($roommates as $roommate)
+        {
+            echo '<div class="checkbox">';
+
+            putCheckbox("check_list[]", $roommate["user_id"], "checked");
+
+            // print "me" instead of own name
+            if ($roommate["user_id"] == $_SESSION["user_id"])
+            {
+                echo    "Me";
+            }
+            else
+            {
+                echo(   $roommate["first_name"] .
+                        " " .
+                        $roommate["last_name"]);
+            };
+            echo "</div>";
+        }
+    }
 ?>

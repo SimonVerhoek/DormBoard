@@ -178,25 +178,7 @@
 							<label class="col-sm-4 control-label">Who is it for?</label>
 							<div class="col-sm-7">
 								<?php
-									foreach ($roommates as $roommate)
-									{
-										echo(	'<div class="checkbox">' .
-													'<input type="checkbox" name="check_list[]"' . 
-													'value="' . $roommate["user_id"] . '" checked>'
-											);
-										// print "me" instead of own name
-										if ($roommate["user_id"] == $_SESSION["user_id"])
-										{
-											echo 	"Me";
-										}
-										else
-										{
-											echo(	$roommate["first_name"] .
-													" " .
-													$roommate["last_name"]);
-										};
-										echo "</div>";
-									}
+									printRoommatesChecklist();
 								?>
 							</div> <!-- ./ column -->
 						</div> <!-- ./ form-group -->
