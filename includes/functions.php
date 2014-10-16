@@ -688,4 +688,54 @@
 
         return $spends;
     }
+
+    function printCashBalances()
+    {
+        $roommates = getRoommateData(4);
+
+        foreach ($roommates as $roommate) 
+        {
+            echo    "<tr>"; 
+            // apply cell based on balance level
+            if ($roommate["cash_balance"] < 0)
+            {
+                echo '<td class="negative-balance">';
+            }
+            else if ($roommate["cash_balance"] > 0)
+            {
+                echo '<td class="positive-balance">';
+            }
+            else
+            {
+                echo '<td class="neutral-balance">';
+            }
+            
+            echo $roommate["first_name"] . "</td>";
+
+            // color cell based on balance level
+            if ($roommate["cash_balance"] < 0)
+            {
+                echo '<td class="negative-balance text-right">';
+            }
+            else if ($roommate["cash_balance"] > 0)
+            {
+                echo '<td class="positive-balance text-right">';
+            }
+            else
+            {
+                echo '<td class="neutral-balance text-right">';
+            }
+            
+            echo "$ ";
+                
+            if ($roommate["cash_balance"] > 0) 
+            {
+                echo "+";
+            };
+            echo(   $roommate["cash_balance"] .
+                    "</td>" .
+                    "</tr>"
+                );
+        }
+    }
 ?>

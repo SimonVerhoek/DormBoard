@@ -170,12 +170,7 @@
         redirect("finances.php");  	
     }
 
-    // get roommate data and cash balances
-    $roommates = getRoommateData(4);
-
     render("showfinances.php", [
-        "title" => "Dorm finances",
-		"user_id" => $_SESSION["user_id"],
-		"roommates" => $roommates
+        "title" => "Dorm finances"
     	]);
 ?>
