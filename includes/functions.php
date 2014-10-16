@@ -644,21 +644,7 @@
 
     function printSpends()
     {
-        // get all dorm's spend data up to a week earlier
-        $spends = query("SELECT     finances.spend_id,
-                                    finances.spend_name,
-                                    finances.date_added,
-                                    finances.spend_cost,
-                                    finances.user_id_poster,
-                                    users.first_name,
-                                    users.last_name
-                         FROM       finances
-                         INNER JOIN users
-                         ON         finances.user_id_poster = users.user_id
-                         WHERE      users.dorm_id = ?
-                         AND        finances.date_added between date_sub(now(),INTERVAL 1 WEEK) and now()
-                         ORDER BY   finances.date_added DESC",
-                                    $_SESSION["dorm_id"]);
+        $spends = getSpends();
 
         foreach ($spends as $spend)
         {
@@ -690,5 +676,26 @@
 
             echo "</tr>";
         }
+    }
+
+    function getSpends()
+    {
+        // get all dorm's spend data up to a week earlier
+        $spends = query("SELECT     finances.spend_id,
+                                    finances.spend_name,
+                                    finances.date_added,
+                                    finances.spend_cost,
+                                    finances.user_id_poster,
+                                    users.first_name,
+                                    users.last_name
+                         FROM       finances
+                         INNER JOIN users
+                         ON         finances.user_id_poster = users.user_id
+                         WHERE      users.dorm_id = ?
+                         AND        finances.date_added between date_sub(now(),INTERVAL 1 WEEK) and now()
+                         ORDER BY   finances.date_added DESC",
+                                    $_SESSION["dorm_id"]);
+
+        return $spends;
     }
 ?>
