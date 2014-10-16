@@ -603,8 +603,10 @@
                         'Bought by: ' . $nameSolver . ', at ' . $solveDate);
     }
 
-    
-
+    /**
+     * Prints checklist for paying roommates in shoplist &
+     * finances modal.
+     */
     function printRoommatesChecklist()
     {
         $roommates = getRoommateData(2);

@@ -177,9 +177,7 @@
 						<div class="form-group">
 							<label class="col-sm-4 control-label">Who is it for?</label>
 							<div class="col-sm-7">
-								<?php
-									printRoommatesChecklist();
-								?>
+								<?php printRoommatesChecklist() ?>
 							</div> <!-- ./ column -->
 						</div> <!-- ./ form-group -->
 					</div> <!-- ./ modal-body -->
