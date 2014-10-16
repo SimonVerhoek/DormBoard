@@ -696,22 +696,13 @@
         foreach ($roommates as $roommate) 
         {
             echo    "<tr>"; 
-            // apply cell based on balance level
-            if ($roommate["cash_balance"] < 0)
-            {
-                echo '<td class="negative-balance">';
-            }
-            else if ($roommate["cash_balance"] > 0)
-            {
-                echo '<td class="positive-balance">';
-            }
-            else
-            {
-                echo '<td class="neutral-balance">';
-            }
-            
-            echo $roommate["first_name"] . "</td>";
 
+            
+
+            putTableCell(
+                setCashBalanceClass($roommate["cash_balance"]), 
+                $roommate["first_name"]);
+            
             // color cell based on balance level
             if ($roommate["cash_balance"] < 0)
             {
@@ -736,6 +727,22 @@
                     "</td>" .
                     "</tr>"
                 );
+        }
+    }
+
+    function setCashBalanceClass($cashBalance)
+    {
+        if ($cashBalance < 0)
+        {
+            return $class = "negative-balance";
+        }
+        else if ($cashBalance > 0)
+        {
+            return $class = "positive-balance";
+        }
+        else
+        {
+            return $class = "neutral-balance";
         }
     }
 ?>
