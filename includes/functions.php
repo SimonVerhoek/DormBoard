@@ -558,6 +558,7 @@
         putParagraph("shoplist-item-name", $itemName);
         putParagraph("shoplist-item-data", "Posted by: " . $namePoster . ", at " . $postDate);
 
+        // add empty line as placeholder for solving data
         echo "<br>&nbsp<br>";
     }
 
@@ -578,7 +579,7 @@
     {
         echo'<span class="glyphicon glyphicon-ok pull-right checkmark-done shoplist-checkmark-done"></span>' ;
 
-        putParagraph("shoplist-item-name", $itemName);
+        putParagraph(   "shoplist-item-name", $itemName);
         putParagraph(   "shoplist-item-data", "Posted by: " . $namePoster . ", at " . $postDate .
                         "<br>" .
                         'Bought by: ' . $nameSolver . ', at ' . $solveDate);
