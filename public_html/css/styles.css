@@ -642,15 +642,15 @@ fieldset[disabled] .btn-custom-dinner.active {
 }
 
 /* rm-balances colors */
-.negative-balance {
+.negative-balance td {
     color: red;
 }
 
-.positive-balance {
+.positive-balance td {
     color: #2FDE34;
 }
 
-.neutral-balance {
+.neutral-balance  td {
     color: white;
 }
 /* ./ rm-balances colors */
