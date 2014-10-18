@@ -27,28 +27,7 @@
 				        </button>
 					</td>
 					<?php 
-						foreach ($days as $i => $day) 
-						{
-							echo "<th>";
-							// show "Today" and "Tomorrow" instead of day of week
-							switch ($i) 
-					    	{
-					    		case 0:
-					    			echo ("Today");
-					    			break;
-					    		case 1:
-					    			echo ("Tomorrow");
-					    			break;
-					    		default:
-					    			echo ($day->format('l'));
-					    			break;
-					    	}
-					    	echo "<br>";
-
-					    	echo $day->format("F jS");
-
-					    	echo "</th>";
-						}
+						printUpcomingDays();
 					?>
 				</tr>
 			</thead>
