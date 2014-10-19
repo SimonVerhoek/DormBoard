@@ -7,7 +7,12 @@
      *   
      **************************************************/
 
-	/**
+	function putImage($class, $src)
+    {
+        print(sprintf("<img class=%s src=%s>", $class, $src));
+    }
+
+    /**
      * Puts input data in HTML table cell and
      * adds class.
      *
@@ -100,13 +105,13 @@
         switch ($status) 
         {
             case 1:
-                echo "<img class='icon' src=" . WEBSITEROOT . "/img/cook3.png>";
+                putImage("icon", WEBSITEROOT . "/img/cook3.png");
                 break;
             case 2:
-                echo "<img class='icon' src=" . WEBSITEROOT . "/img/join3.png>";
+                putImage("icon", WEBSITEROOT . "/img/join3.png");
                 break;
             case 3:
-                echo "<img class='icon' src=" . WEBSITEROOT . "/img/notjoin.png>";
+                putImage("icon", WEBSITEROOT . "/img/notjoin.png");
                 break;           
             default:
                 // print nothing
