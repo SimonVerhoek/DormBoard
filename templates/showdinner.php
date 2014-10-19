@@ -26,9 +26,7 @@
 				            Add
 				        </button>
 					</td>
-					<?php 
-						printUpcomingDays(6);
-					?>
+					<?php printUpcomingDays(6) ?>
 				</tr>
 			</thead>
 			<tbody id="dinner-table-body">
@@ -94,33 +92,7 @@
 							<div class="form-group">
 
 								<div class="btn-group dinner-buttons" data-toggle="buttons">
-								<?php
-									foreach ($days as $i => $day) {
-										// store day in variable for easy storing in db
-										$dayDate = $day->format('y-m-d');
-
-										echo(	'<label class="btn btn-custom-dinner dinner-button">' .
-													'<input type="radio" class="dinner-radio-button" name="when"' .
-													'value="' . $dayDate . '">'
-											);
-
-										// show "Today" and "Tomorrow" instead of day of week
-										switch ($i) 
-								    	{
-								    		case 0:
-								    			echo ("Today");
-								    			break;
-								    		case 1:
-								    			echo ("Tomorrow");
-								    			break;
-								    		default:
-								    			echo ($day->format('l'));
-								    			break;
-								    	}
-								    	echo " (" . $day->format("F jS") . ")";
-								    	echo "</label>";
-									}
-								?>
+								<?php printDinnerOptions(6) ?>
 								</div> <!-- ./ btn-group .dinner-buttons -->
 							</div> <!-- ./ form-group -->
 						</div> <!-- ./ column -->

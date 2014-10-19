@@ -766,7 +766,7 @@
                 {
                     // if status is from this user &
                     // status is from this day
-                    if (($status["user_id"] === $roommate["user_id"]) && 
+                    if (($status["user_id"] === $roommate["user_id"]) &&  
                         ($status["action_date"] === $today))
                     {
                         putDinnerIcon($status["status"]);
@@ -802,5 +802,23 @@
                             $_SESSION["dorm_id"]);
     }
 
+    function printDinnerOptions($numberOfDays)
+    {
+        $days = getUpcomingDays($numberOfDays);
 
+        foreach ($days as $i => $day) 
+        {
+            // store day in variable for easy storing in db
+            $dayDate = $day->format('y-m-d');
+
+            echo(   '<label class="btn btn-custom-dinner dinner-button">' .
+                        '<input type="radio" class="dinner-radio-button" name="when"' .
+                        'value="' . $dayDate . '">');
+
+            echo returnDay($day->format('l'));
+
+            echo " (" . $day->format("F jS") . ")";
+            echo "</label>";
+        }
+    }
 ?>
