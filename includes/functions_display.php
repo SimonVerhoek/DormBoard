@@ -14,6 +14,18 @@
      *  - $class should be a string.
      *  - $text should be the value to output.
      */
+    function putTableHeader($class, $text)
+    {
+        print(sprintf("<th class=%s>" . $text . "</th>", $class));
+    }
+
+    /**
+     * Puts input data in HTML table cell and
+     * adds class.
+     *
+     *  - $class should be a string.
+     *  - $text should be the value to output.
+     */
     function putTableCell($class, $text)
     {
         print(sprintf("<td class=%s>" . $text . "</td>", $class));
