@@ -736,10 +736,8 @@
         {
             // print roommate's name
             echo "<tr id='dinner-row'>";
-            echo(   "<td id='rm-names'>" . 
-                    $roommate["first_name"] .  
-                    "</td>"
-                );
+
+            putTableCell("rm-names", $roommate["first_name"]);
 
             // for every upcoming day
             foreach ($days as $day) 

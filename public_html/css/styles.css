@@ -405,7 +405,7 @@ fieldset[disabled] .btn-custom.active {
     border: 0;
 }
 
-#rm-names {
+.rm-names {
     vertical-align: middle;
     max-width: 120px;
     word-wrap: break-word;
