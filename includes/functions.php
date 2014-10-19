@@ -644,6 +644,16 @@
         return $spends;
     }
 
+    /**
+     * Prints a table with all roommates' cash balances
+     * 
+     * First, a table row is created with a class
+     * depending on the roommate's balance, to indicate
+     * its cells' background color. Then, two cells
+     * are printed:
+     *  - one with the roommate's first name
+     *  - one with the roommate's cash balance.
+     */
     function printCashBalances()
     {
         $roommates = getRoommateData(4);
@@ -723,12 +733,17 @@
         else return $day;
     }
 
+    /**
+     * Prints a table with a schedule of all dinner actions.
+     * 
+     * Prints a table row with on the most-left column/cell
+     * the roommate's first name, and the following cells
+     * containing any dinner actions this roommate has submitted.
+     */
     function printDinnerSchedule()
     {
         $days = getUpcomingDays(6);
-
         $roommates = getRoommateData(2);
-
         $statuses = getRoommateDinnerStatuses();
 
         // for every roommate
@@ -757,19 +772,23 @@
                         putDinnerIcon($status["status"]);
                     }
                 }
-
                 echo "</td>";   
             } 
-
             echo "</tr>";
         }
     }
 
+    /**
+     * Returns the specified number of upcoming days.
+     */
     function getUpcomingDays($numberOfDays)
     {
         return new DatePeriod(new DateTime, new DateInterval('P1D'), $numberOfDays);
     }
 
+    /**
+     * Returns any saved dinner statuses submitted by roommates.
+     */
     function getRoommateDinnerStatuses()
     {
         return $statuses = query(

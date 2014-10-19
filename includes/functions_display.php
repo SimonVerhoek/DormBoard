@@ -7,7 +7,14 @@
      *   
      **************************************************/
 
-	function putImage($class, $src)
+	/**
+     * Puts input data in HTML image element and
+     * adds class.
+     *
+     *  - $class should be a string.
+     *  - $src should be the filepath to the image file.
+     */
+    function putImage($class, $src)
     {
         print(sprintf("<img class=%s src=%s>", $class, $src));
     }
@@ -88,7 +95,10 @@
                         'Bought by: ' . $nameSolver . ', at ' . $solveDate);
     }
 
-
+    /**
+     * Prints the specified number of upcoming days inside
+     * table headers.
+     */
     function printUpcomingDays($numberOfDays)
     {
         // create dates of upcoming days
@@ -100,6 +110,13 @@
         }
     }
 
+    /**
+     * Prints the appropriate dinner icon regarding
+     * the specified dinner status.
+     * 
+     * Status should be the number stored under
+     * dinner["status"] in the mySQL db.
+     */
     function putDinnerIcon($status)
     {
         switch ($status) 
