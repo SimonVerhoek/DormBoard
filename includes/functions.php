@@ -729,14 +729,7 @@
 
         $roommates = getRoommateData(2);
 
-        $statuses = query(" SELECT      dinner.user_id, 
-                                        dinner.action_date, 
-                                        dinner.status 
-                            FROM        dinner 
-                            INNER JOIN  users
-                            ON          users.user_id = dinner.user_id
-                            WHERE       users.dorm_id = ?",
-                                        $_SESSION["dorm_id"]);
+        $statuses = getRoommateDinnerStatuses();
 
         // for every roommate
         foreach ($roommates as $roommate)
@@ -791,5 +784,18 @@
     function getUpcomingDays($numberOfDays)
     {
         return new DatePeriod(new DateTime, new DateInterval('P1D'), $numberOfDays);
+    }
+
+    function getRoommateDinnerStatuses()
+    {
+        return $statuses = query(
+            "   SELECT      dinner.user_id, 
+                            dinner.action_date, 
+                            dinner.status 
+                FROM        dinner 
+                INNER JOIN  users
+                ON          users.user_id = dinner.user_id
+                WHERE       users.dorm_id = ?",
+                            $_SESSION["dorm_id"]);
     }
 ?>
