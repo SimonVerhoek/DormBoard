@@ -811,12 +811,15 @@
             // store day in variable for easy storing in db
             $dayDate = $day->format('y-m-d');
 
-            echo(   '<label class="btn btn-custom-dinner dinner-button">' .
-                        '<input type="radio" class="dinner-radio-button" name="when"' .
+            echo(   '<label class="btn btn-custom-dinner dinner-button">');
+
+            echo(       '<input type="radio" class="dinner-radio-button" name="when"' .
                         'value="' . $dayDate . '">');
 
+            // print day name
             echo returnDay($day->format('l'));
 
+            // print day date
             echo " (" . $day->format("F jS") . ")";
             echo "</label>";
         }

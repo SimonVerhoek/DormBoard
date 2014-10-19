@@ -7,7 +7,7 @@
      *   
      **************************************************/
 
-	/**
+    /**
      * Puts input data in HTML image element and
      * adds class.
      *
