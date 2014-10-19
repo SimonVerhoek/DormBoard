@@ -698,4 +698,28 @@
         }
         else return $prefix = "$ ";
     }
+
+    /**
+     * Returns whether given day is today or tomorrow.
+     *
+     * required input: a DateTime variable, formatted
+     * as day only ('l').
+     */
+    function returnDay($day)
+    {
+        $today = date('l', time());
+
+        $tomorrow = new DateTime('tomorrow');
+        $tomorrow = $tomorrow->format('l');
+
+        if ($day == $today)
+        {
+            return "Today";
+        }
+        else if ($day == $tomorrow) 
+        {
+            return "Tomorrow";
+        }
+        else return $day;
+    }
 ?>
