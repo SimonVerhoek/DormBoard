@@ -806,7 +806,7 @@
     {
         $days = getUpcomingDays($numberOfDays);
 
-        foreach ($days as $i => $day) 
+        foreach ($days as $day) 
         {
             // store day in variable for easy storing in db
             $dayDate = $day->format('y-m-d');
