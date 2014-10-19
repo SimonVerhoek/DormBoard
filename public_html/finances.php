@@ -20,10 +20,7 @@
     // if user posted form
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-    	if (empty($_POST["spend_name"]))
-    	{
-    		errorMsg("Please fill in a name for what you bought.");
-    	}
+    	checkIfEmpty($_POST["spend_name"], "Please fill in a name for what you bought.");
 
         // check if form has at least 2 alphabetic characters in it.
         if (!preg_match("/([A-Za-z])\w+/", $_POST["spend_name"]))

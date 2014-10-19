@@ -830,4 +830,13 @@
             echo    "</label>";
         }
     }
+
+    function checkIfEmpty($input, $message)
+    {
+        if (empty($input)) 
+        {
+            errorMsg($message);
+        }
+    }
+
 ?>
