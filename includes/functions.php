@@ -802,6 +802,12 @@
                             $_SESSION["dorm_id"]);
     }
 
+    /**
+     * Prints the dinner action options inside the dinner modal.
+     * 
+     * Prints a list of radio buttons with optional dates
+     * for choosing a dinner action.
+     */
     function printDinnerOptions($numberOfDays)
     {
         $days = getUpcomingDays($numberOfDays);
@@ -817,11 +823,11 @@
                         'value="' . $dayDate . '">');
 
             // print day name
-            echo returnDay($day->format('l'));
+            echo         returnDay($day->format('l'));
 
             // print day date
-            echo " (" . $day->format("F jS") . ")";
-            echo "</label>";
+            echo        " (" . $day->format("F jS") . ")";
+            echo    "</label>";
         }
     }
 ?>
