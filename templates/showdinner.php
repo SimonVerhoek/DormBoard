@@ -27,7 +27,7 @@
 				        </button>
 					</td>
 					<?php 
-						printUpcomingDays();
+						printUpcomingDays(6);
 					?>
 				</tr>
 			</thead>

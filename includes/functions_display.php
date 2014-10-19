@@ -84,22 +84,14 @@
     }
 
 
-    function printUpcomingDays()
+    function printUpcomingDays($numberOfDays)
     {
         // create dates of upcoming days
-        $days = new DatePeriod(new DateTime, new DateInterval('P1D'), NRDAYSINCALENDAR);
+        $days = new DatePeriod(new DateTime, new DateInterval('P1D'), $numberOfDays);
 
         foreach ($days as $day) 
         {
-            echo "<th>";
-            // show "Today" and "Tomorrow" instead of day of week
-            echo returnDay($day->format('l'));
-
-            echo "<br>";
-
-            echo $day->format("F jS");
-
-            echo "</th>";
+            putTableHeader(" ", returnDay($day->format('l')) . "<br>" . $day->format("F jS"));
         }
     }
 ?>
