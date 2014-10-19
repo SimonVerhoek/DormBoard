@@ -101,10 +101,7 @@
      */
     function printUpcomingDays($numberOfDays)
     {
-        // create dates of upcoming days
-        $days = new DatePeriod(new DateTime, new DateInterval('P1D'), $numberOfDays);
-
-        foreach ($days as $day) 
+        foreach (getUpcomingDays($numberOfDays) as $day) 
         {
             putTableHeader(" ", returnDay($day->format('l')) . "<br>" . $day->format("F jS"));
         }
