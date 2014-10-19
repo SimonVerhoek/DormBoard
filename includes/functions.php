@@ -754,21 +754,7 @@
                     if (($status["user_id"] === $roommate["user_id"]) && 
                         ($status["action_date"] === $today))
                     {
-                        // show appropriate text
-                        switch ($status["status"])
-                        {
-                            case '1':
-                                echo "<img class='icon' src=" . WEBSITEROOT . "/img/cook3.png>";
-                                break;
-                            case '2':
-                                echo "<img class='icon' src=" . WEBSITEROOT . "/img/join3.png>";
-                                break;
-                            case '3':
-                                echo "<img class='icon' src=" . WEBSITEROOT . "/img/notjoin.png>";
-                            default:
-                                // print nothing
-                                break;
-                        }
+                        putDinnerIcon($status["status"]);
                     }
                 }
 
@@ -787,7 +773,7 @@
     function getRoommateDinnerStatuses()
     {
         return $statuses = query(
-            "   SELECT      dinner.user_id, 
+                "SELECT     dinner.user_id, 
                             dinner.action_date, 
                             dinner.status 
                 FROM        dinner 
@@ -796,4 +782,6 @@
                 WHERE       users.dorm_id = ?",
                             $_SESSION["dorm_id"]);
     }
+
+
 ?>
