@@ -839,4 +839,21 @@
         }
     }
 
+    function checkInputSpendCosts($wholeNumbers, $cents)
+    {
+        // check if costs are filled in properly
+        if (empty($wholeNumbers) && empty($cents))
+        {
+            errorMsg("Please fill what you spent.");
+        }
+        else if (!empty($wholeNumbers) && !is_numeric($wholeNumbers))
+        {
+            errorMsg("Please fill in the cost as digits only.");
+        }
+        else if (!empty($cents) && !is_numeric($cents))
+        {
+            errorMsg("Please fill in the cost as digits only.");
+        }
+    }
+
 ?>

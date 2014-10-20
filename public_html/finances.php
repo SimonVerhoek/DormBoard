@@ -28,29 +28,10 @@
             errorMsg("This looks a bit unclear for your roommates. Maybe you can think of a clearer name?");
         }
 
-        // check if costs are filled in properly
-    	if (empty($_POST["spend_cost_whole"]) && 
-            empty($_POST["spend_cost_cents"]))
-    	{
-    		errorMsg("Please fill what you spent.");
-    	}
-        else if (!is_numeric($_POST["spend_cost_whole"]) && 
-                 $_POST["spend_cost_whole"] != 0)
-        {
-            errorMsg("Please fill in the cost as digits only.");
-        }
-
-        if (!empty($_POST["spend_cost_cents"]) && 
-            !is_numeric($_POST["spend_cost_cents"]))
-        {
-            errorMsg("Please fill in the cost as digits only.");
-        }
+        checkInputSpendCosts($_POST["spend_cost_whole"], $_POST["spend_cost_cents"]);
 
         // check who spend is for
-        if (empty($_POST["check_list"]))
-        {
-            errorMsg("Please check at least one roommate who the spend is for.");
-        }
+        checkIfEmpty($_POST["check_list"], "Please check at least one roommate who the spend is for.");
 
         // if from shoplist, set item as solved 
         if (isset($_POST["from-shoplist"]))
