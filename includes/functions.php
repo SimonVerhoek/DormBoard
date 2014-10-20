@@ -856,4 +856,18 @@
         }
     }
 
+    function setShoplistItemSolveDate($itemID)
+    {
+        $setSolveDate = query(' UPDATE  shoplist
+                                SET     solve_date = NOW(),
+                                        user_id_solver = ?
+                                WHERE   item_id = ?', 
+                                $_SESSION["user_id"], $itemID);
+
+        if ($setSolveDate === false)
+        {
+            errorMsg("Something went wrong while storing your action. Please try again. 2");
+        }
+    }
+
 ?>

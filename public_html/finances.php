@@ -36,13 +36,7 @@
         // if from shoplist, set item as solved 
         if (isset($_POST["from-shoplist"]))
         {
-            $itemID = (int)$_POST["from-shoplist"];
-
-            $storePurchase = query('UPDATE  shoplist
-                                    SET     solve_date = NOW(),
-                                            user_id_solver = ?
-                                    WHERE   item_id = ?', 
-                                    $_SESSION["user_id"], $itemID);
+            setShoplistItemSolveDate($_POST["from-shoplist"]);
 
             $addScore = query(" UPDATE  users
                                 SET     shoplist_score = shoplist_score + 1
