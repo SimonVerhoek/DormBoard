@@ -831,6 +831,10 @@
         }
     }
 
+    /**
+     * Checks whether given input is empty.
+     * If so, returns the given error message.
+     */
     function checkIfEmpty($input, $message)
     {
         if (empty($input)) 
@@ -839,6 +843,10 @@
         }
     }
 
+    /**
+     * Checks if the spend costs are filled in correctly.
+     * if not, returns error message.
+     */
     function checkInputSpendCosts($wholeNumbers, $cents)
     {
         // check if costs are filled in properly
@@ -856,6 +864,9 @@
         }
     }
 
+    /**
+     * Sets the date of solving for given shoplist item. 
+     */
     function setShoplistItemSolveDate($itemID)
     {
         $setSolveDate = query(' UPDATE  shoplist
@@ -870,6 +881,9 @@
         }
     }
 
+    /**
+     * Updates the user's shoplist score.
+     */
     function updateShoplistScore()
     {
         $updateScore = query("  UPDATE  users
