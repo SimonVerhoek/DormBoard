@@ -903,26 +903,80 @@
         checkIfQueryFails($updateScore, "Something went wrong while updating your shoplist score. Please try again.");
     }
 
-    function updateBalances($credit, $postedChecklist, $costPerRM)
+    function updateFinances($spendCostWHoles, $spendCostCents, $postedChecklist, $spendName)
     {
-        $updateBalanceUser = query("UPDATE  users
-                                    SET     cash_balance = cash_balance + ?
-                                    WHERE   user_id = ?",
-                                            $credit, 
-                                            $_SESSION["user_id"]);
+        $wholes = $_POST["spend_cost_whole"];
+        $cents = $_POST["spend_cost_cents"];
 
-        checkIfQueryFails($updateBalanceUser, "Something went wrong while updating your cash balance. Please try again.");
+        if ($cents < 10)
+        {
+            // add 0 before digit
+            $cents = sprintf("%02s", $cents);
+        }
 
-        // put all paying roommates in string
-        $stringOfPayers = implode(',', $postedChecklist);
+        $cost = $wholes . '.' . $cents;
 
-        $updateBalancePayers = query("  UPDATE  users
-                                        SET     cash_balance = cash_balance - ?
-                                        WHERE   user_id 
-                                        in      ({$stringOfPayers})",
-                                                $costPerRM);
+        $numberOfPayers = count($postedChecklist);
+        
+        // if user bought item for himself only
+        if ($numberOfPayers == 1 && 
+            in_array($_SESSION["user_id"], $_POST["check_list"]))
+        {
+            // balances stay exactly like they are
+        }
+        else
+        {
+            // divide costs
+            $costPerRM = $cost / $numberOfPayers;
 
-        checkIfQueryFails($updateBalancePayers, "Something went wrong while updating the balances of your roommates. Please try again.");
+            // if user bought item but does not share the costs
+            if(($key = array_search($_SESSION["user_id"], $postedChecklist)) === false)
+            {
+                $credit = $cost;
+            }
+            else
+            {
+                $credit = $cost - $costPerRM;
+                unset($postedChecklist[$key]);
+            };
+
+            $updateBalanceUser = query("UPDATE  users
+                                        SET     cash_balance = cash_balance + ?
+                                        WHERE   user_id = ?",
+                                                $credit, 
+                                                $_SESSION["user_id"]);
+
+            checkIfQueryFails($updateBalanceUser, "Something went wrong while updating your cash balance. Please try again.");
+
+            // put all paying roommates in string
+            $stringOfPayers = implode(',', $postedChecklist);
+
+            $updateBalancePayers = query("  UPDATE  users
+                                            SET     cash_balance = cash_balance - ?
+                                            WHERE   user_id 
+                                            in      ({$stringOfPayers})",
+                                                    $costPerRM);
+
+            checkIfQueryFails($updateBalancePayers, "Something went wrong while updating the balances of your roommates. Please try again.");
+        }
+
+        $spendName = checkInput($_POST["spend_name"]);
+
+        // store spend in db
+        $storeAction = query("INSERT INTO finances (
+            spend_name,
+            spend_cost,
+            user_id_poster
+            ) VALUES (?, ?, ?)", 
+            $spendName,
+            $cost,
+            $_SESSION["user_id"]);
+
+        if ($storeAction === false)
+        {
+            // INSERT failed
+            errorMsg("Something went wrong while storing your spend. Please try again.");
+        }
     }
 
 ?>

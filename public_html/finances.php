@@ -41,65 +41,9 @@
             updateShoplistScore();
         }
 
-        $wholes = $_POST["spend_cost_whole"];
-        $cents = $_POST["spend_cost_cents"];
+        $postedChecklist = $_POST["check_list"];
 
-        if ($cents < 10)
-        {
-            // add 0 before digit
-            $cents = sprintf("%02s", $cents);
-        }
-
-        $cost = $wholes . '.' . $cents;
-
-        $payerIDs = $_POST["check_list"];
-
-        $numberOfPayers = count($payerIDs);
-        
-        // if user bought item for himself only
-        if ($numberOfPayers == 1 && 
-            in_array($_SESSION["user_id"], $_POST["check_list"]))
-        {
-            // balances stay exactly like they are
-        }
-        else
-        {
-            // divide costs
-            $costPerRM = $cost / $numberOfPayers;
-
-            // if user bought item but does not share the costs
-            if(($key = array_search($_SESSION["user_id"], $payerIDs)) === false)
-            {
-                $credit = $cost;
-            }
-            else
-            {
-                $credit = $cost - $costPerRM;
-                unset($payerIDs[$key]);
-            };
-
-
-
-            updateBalances($credit, $payerIDs, $costPerRM);
-        }
-
-        $spendName = checkInput($_POST["spend_name"]);
-
-        // store spend in db
-        $storeAction = query("INSERT INTO finances (
-            spend_name,
-            spend_cost,
-            user_id_poster
-            ) VALUES (?, ?, ?)", 
-            $spendName,
-            $cost,
-            $_SESSION["user_id"]);
-
-        if ($storeAction === false)
-        {
-            // INSERT failed
-            errorMsg("Something went wrong while storing your spend. Please try again.");
-        }
+        updateFinances($_POST["spend_cost_whole"], $_POST["spend_cost_cents"], $postedChecklist, $_POST["spend_name"]);
         
         // refresh page
         redirect("finances.php");  	
