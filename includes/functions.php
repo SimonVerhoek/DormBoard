@@ -903,4 +903,21 @@
         checkIfQueryFails($updateScore, "Something went wrong while updating your shoplist score. Please try again.");
     }
 
+    function updateBalances($credit)
+    {
+        $updateBalanceUser = query("UPDATE  users
+                                    SET     cash_balance = cash_balance + ?
+                                    WHERE   user_id = ?",
+                                            $credit, 
+                                            $_SESSION["user_id"]);
+
+        checkIfQueryFails($updateBalanceUser, "Something went wrong while updating your cash balance. Please try again.");
+
+        
+
+
+
+        
+    }
+
 ?>

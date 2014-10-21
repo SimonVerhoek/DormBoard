@@ -54,10 +54,10 @@
 
         $payerIDs = $_POST["check_list"];
 
-        $numPayers = count($payerIDs);
+        $numberOfPayers = count($payerIDs);
         
         // if user bought item for himself only
-        if ($numPayers == 1 && 
+        if ($numberOfPayers == 1 && 
             in_array($_SESSION["user_id"], $_POST["check_list"]))
         {
             // balances stay exactly like they are
@@ -65,7 +65,7 @@
         else
         {
             // divide costs
-            $costPerRM = $cost / $numPayers;
+            $costPerRM = $cost / $numberOfPayers;
 
             // if user bought item but does not share the costs
             if(($key = array_search($_SESSION["user_id"], $payerIDs)) === false)
