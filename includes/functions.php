@@ -903,7 +903,7 @@
         checkIfQueryFails($updateScore, "Something went wrong while updating your shoplist score. Please try again.");
     }
 
-    function updateBalances($credit)
+    function updateBalances($credit, $postedChecklist, $costPerRM)
     {
         $updateBalanceUser = query("UPDATE  users
                                     SET     cash_balance = cash_balance + ?
@@ -913,11 +913,16 @@
 
         checkIfQueryFails($updateBalanceUser, "Something went wrong while updating your cash balance. Please try again.");
 
-        
+        // put all paying roommates in string
+        $stringOfPayers = implode(',', $postedChecklist);
 
+        $updateBalancePayers = query("  UPDATE  users
+                                        SET     cash_balance = cash_balance - ?
+                                        WHERE   user_id 
+                                        in      ({$stringOfPayers})",
+                                                $costPerRM);
 
-
-        
+        checkIfQueryFails($updateBalancePayers, "Something went wrong while updating the balances of your roommates. Please try again.");
     }
 
 ?>

@@ -78,32 +78,9 @@
                 unset($payerIDs[$key]);
             };
 
-            $updateBalanceUser = query(
-                "UPDATE users
-                 SET    cash_balance = cash_balance + ?
-                 WHERE  user_id = ?",
-                 $credit, $_SESSION["user_id"]);
 
-            if ($updateBalanceUser === false)
-            {
-                // query failed
-                errorMsg("Something went wrong while storing your spend. Please try again.");
-            }      
 
-            // create string of all payerIDs
-            $payersStr = implode(',', $payerIDs);           
-
-            $updateBalancePayers = query(
-                "UPDATE users
-                 SET    cash_balance = cash_balance - ?
-                 WHERE  user_id in ({$payersStr})",
-                 $costPerRM);
-
-            if ($updateBalancePayers === false)
-            {
-                // query failed
-                errorMsg("Something went wrong while storing your spend. Please try again.");
-            } 
+            updateBalances($credit, $payerIDs, $costPerRM);
         }
 
         $spendName = checkInput($_POST["spend_name"]);
