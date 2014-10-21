@@ -38,16 +38,7 @@
         {
             setShoplistItemSolveDate($_POST["from-shoplist"]);
 
-            $addScore = query(" UPDATE  users
-                                SET     shoplist_score = shoplist_score + 1
-                                WHERE   user_id = ?",
-                                        $_SESSION["user_id"]);
-
-            if ($addScore === false || $storePurchase === false)
-            {
-                // INSERT failed
-                errorMsg("Something went wrong while storing your action. Please try again.");
-            }
+            updateShoplistScore();
         }
 
         $wholes = $_POST["spend_cost_whole"];

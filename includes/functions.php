@@ -870,4 +870,17 @@
         }
     }
 
+    function updateShoplistScore()
+    {
+        $updateScore = query("  UPDATE  users
+                                SET     shoplist_score = shoplist_score + 1
+                                WHERE   user_id = ?",
+                                        $_SESSION["user_id"]);
+
+        if ($updateScore === false) 
+        {
+            errorMsg("Something went wrong while updating your shoplist score. Please try again.");
+        }
+    }
+
 ?>
