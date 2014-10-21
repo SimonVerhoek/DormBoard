@@ -903,11 +903,8 @@
         checkIfQueryFails($updateScore, "Something went wrong while updating your shoplist score. Please try again.");
     }
 
-    function updateFinances($spendCostWHoles, $spendCostCents, $postedChecklist, $spendName)
+    function updateFinances($wholes, $cents, $postedChecklist, $spendName)
     {
-        $wholes = $_POST["spend_cost_whole"];
-        $cents = $_POST["spend_cost_cents"];
-
         if ($cents < 10)
         {
             // add 0 before digit
@@ -959,8 +956,6 @@
 
             checkIfQueryFails($updateBalancePayers, "Something went wrong while updating the balances of your roommates. Please try again.");
         }
-
-        $spendName = checkInput($_POST["spend_name"]);
 
         // store spend in db
         $storeAction = query("INSERT INTO finances (
