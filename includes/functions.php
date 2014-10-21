@@ -847,7 +847,7 @@
      * Checks whether given query has failed (returns false).
      * if so, returns given error message.
      */
-    function checkIfFalse($input, $errorMessage)
+    function checkIfQueryFails($input, $errorMessage)
     {
         if ($input === false)
         {
@@ -887,7 +887,7 @@
                                 WHERE   item_id = ?', 
                                 $_SESSION["user_id"], $itemID);
 
-        checkIfFalse($setSolveDate, "Something went wrong while setting the date of solving. Please try again.");
+        checkIfQueryFails($setSolveDate, "Something went wrong while setting the date of solving. Please try again.");
     }
 
     /**
@@ -900,7 +900,7 @@
                                 WHERE   user_id = ?",
                                         $_SESSION["user_id"]);
 
-        checkIfFalse($updateScore, "Something went wrong while updating your shoplist score. Please try again.");
+        checkIfQueryFails($updateScore, "Something went wrong while updating your shoplist score. Please try again.");
     }
 
 ?>
