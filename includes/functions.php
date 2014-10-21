@@ -844,6 +844,18 @@
     }
 
     /**
+     * Checks whether given query has failed (returns false).
+     * if so, returns given error message.
+     */
+    function checkIfFalse($input, $errorMessage)
+    {
+        if ($input === false)
+        {
+            errorMsg($errorMessage);
+        }
+    }
+
+    /**
      * Checks if the spend costs are filled in correctly.
      * if not, returns error message.
      */
@@ -875,10 +887,7 @@
                                 WHERE   item_id = ?', 
                                 $_SESSION["user_id"], $itemID);
 
-        if ($setSolveDate === false)
-        {
-            errorMsg("Something went wrong while storing your action. Please try again. 2");
-        }
+        checkIfFalse($setSolveDate, "Something went wrong while setting the date of solving. Please try again.");
     }
 
     /**
@@ -891,10 +900,7 @@
                                 WHERE   user_id = ?",
                                         $_SESSION["user_id"]);
 
-        if ($updateScore === false) 
-        {
-            errorMsg("Something went wrong while updating your shoplist score. Please try again.");
-        }
+        checkIfFalse($updateScore, "Something went wrong while updating your shoplist score. Please try again.");
     }
 
 ?>
