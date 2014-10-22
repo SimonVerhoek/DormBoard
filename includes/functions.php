@@ -934,21 +934,7 @@
             updateBalancePayers($postedChecklist, $costPerRM);
         }
 
-        // store spend in db
-        $storeAction = query("INSERT INTO finances (
-            spend_name,
-            spend_cost,
-            user_id_poster
-            ) VALUES (?, ?, ?)", 
-            $spendName,
-            $cost,
-            $_SESSION["user_id"]);
-
-        if ($storeAction === false)
-        {
-            // INSERT failed
-            errorMsg("Something went wrong while storing your spend. Please try again.");
-        }
+        storeNewSpend($spendName, $cost);
     }
 
     function updateBalanceUser($costsGivenBack)
@@ -985,6 +971,21 @@
         }
 
         return $cost = $wholeNumbers . '.' . $cents;
+    }
+
+    function storeNewSpend($spendName, $cost)
+    {
+        // store spend in db
+        $storeNewSpend = query("INSERT INTO finances (
+            spend_name,
+            spend_cost,
+            user_id_poster
+            ) VALUES (?, ?, ?)", 
+            $spendName,
+            $cost,
+            $_SESSION["user_id"]);
+
+        checkIfQueryFails($storeNewSpend, "Something went wrong while storing your spend. Please try again.");
     }
 
 ?>
