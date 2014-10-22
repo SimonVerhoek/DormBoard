@@ -922,16 +922,15 @@
             // divide costs
             $costPerRM = $cost / $numberOfPayers;
 
-            // if user bought item but does not share the costs
-            if(($key = array_search($_SESSION["user_id"], $postedChecklist)) === false)
+            $credit = $cost;
+
+            // if poster also pays for spend, subtract his part
+            // from costs refunded.
+            if(($key = array_search($_SESSION["user_id"], $postedChecklist)) === true)
             {
-                $credit = $cost;
-            }
-            else
-            {
-                $credit = $cost - $costPerRM;
+                $cost -= $costPerRM;
                 unset($postedChecklist[$key]);
-            };
+            }
 
             updateBalanceUser($credit);
 
