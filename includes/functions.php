@@ -937,13 +937,7 @@
                 unset($postedChecklist[$key]);
             };
 
-            $updateBalanceUser = query("UPDATE  users
-                                        SET     cash_balance = cash_balance + ?
-                                        WHERE   user_id = ?",
-                                                $credit, 
-                                                $_SESSION["user_id"]);
-
-            checkIfQueryFails($updateBalanceUser, "Something went wrong while updating your cash balance. Please try again.");
+            updateBalanceUser($credit);
 
             // put all paying roommates in string
             $stringOfPayers = implode(',', $postedChecklist);
@@ -972,6 +966,17 @@
             // INSERT failed
             errorMsg("Something went wrong while storing your spend. Please try again.");
         }
+    }
+
+    function updateBalanceUser($costsGivenBack)
+    {
+        $updateBalanceUser = query("    UPDATE  users
+                                        SET     cash_balance = cash_balance + ?
+                                        WHERE   user_id = ?",
+                                                $costsGivenBack, 
+                                                $_SESSION["user_id"]);
+
+        checkIfQueryFails($updateBalanceUser, "Something went wrong while updating your cash balance. Please try again.");
     }
 
 ?>
