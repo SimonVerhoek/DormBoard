@@ -903,6 +903,10 @@
         checkIfQueryFails($updateScore, "Something went wrong while updating your shoplist score. Please try again.");
     }
 
+    /**
+     * Updates the dorm's finances after a user has 
+     * posted a new spend.
+     */
     function updateFinances($cost, $postedChecklist, $spendName)
     {
         $numberOfPayers = count($postedChecklist);
@@ -937,6 +941,11 @@
         storeNewSpend($spendName, $cost);
     }
 
+    /**
+     * Updates the cash balance of the user. 
+     * The costs of the spend that the user has posted, are
+     * added as a positive number to his cash balance.
+     */
     function updateBalanceUser($costsGivenBack)
     {
         $updateBalanceUser = query("    UPDATE  users
@@ -948,6 +957,10 @@
         checkIfQueryFails($updateBalanceUser, "Something went wrong while updating your cash balance. Please try again.");
     }
 
+    /**
+     * Updates the cash balances of all roommates 
+     * that are taking part in paying for a spend.
+     */
     function updateBalancePayers($postedChecklist, $costPerRM)
     {
         // put all paying roommates in string
@@ -962,20 +975,26 @@
         checkIfQueryFails($updateBalancePayers, "Something went wrong while updating the balances of your roommates. Please try again.");
     }
 
+    /**
+     * Puts the posted costs in the right format.
+     */
     function formatCost($wholeNumbers, $cents)
     {
+        // if user has only filled in one digit for cents,
+        // add extra 0 at the right
         if ($cents < 10)
         {
-            // add 0 before digit
             $cents = sprintf("%02s", $cents);
         }
 
         return $cost = $wholeNumbers . '.' . $cents;
     }
 
+    /**
+     * Stores a new spend in the database.
+     */
     function storeNewSpend($spendName, $cost)
     {
-        // store spend in db
         $storeNewSpend = query("INSERT INTO finances (
             spend_name,
             spend_cost,
