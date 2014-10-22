@@ -45,7 +45,9 @@
 
         $spendName = checkInput($_POST["spend_name"]);
 
-        updateFinances($_POST["spend_cost_whole"], $_POST["spend_cost_cents"], $postedChecklist, $spendName);
+        $cost = formatCost($_POST["spend_cost_whole"], $_POST["spend_cost_cents"]);
+
+        updateFinances($cost, $postedChecklist, $spendName);
         
         // refresh page
         redirect("finances.php");  	

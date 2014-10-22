@@ -903,16 +903,8 @@
         checkIfQueryFails($updateScore, "Something went wrong while updating your shoplist score. Please try again.");
     }
 
-    function updateFinances($wholes, $cents, $postedChecklist, $spendName)
+    function updateFinances($cost, $postedChecklist, $spendName)
     {
-        if ($cents < 10)
-        {
-            // add 0 before digit
-            $cents = sprintf("%02s", $cents);
-        }
-
-        $cost = $wholes . '.' . $cents;
-
         $numberOfPayers = count($postedChecklist);
         
         // if user bought item for himself only
@@ -982,6 +974,17 @@
                                                 $costPerRM);
 
         checkIfQueryFails($updateBalancePayers, "Something went wrong while updating the balances of your roommates. Please try again.");
+    }
+
+    function formatCost($wholeNumbers, $cents)
+    {
+        if ($cents < 10)
+        {
+            // add 0 before digit
+            $cents = sprintf("%02s", $cents);
+        }
+
+        return $cost = $wholeNumbers . '.' . $cents;
     }
 
 ?>
