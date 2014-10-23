@@ -28,18 +28,9 @@
 		else if (isset($_POST["change-password"]))
 		{
 			// validate entries
-	    	if(empty($_POST["password-old"]))
-	    	{
-	    		errorMsg("Please fill in your old password.");
-	    	}
-	    	if(empty($_POST["password-new"]))
-	    	{
-	    		errorMsg("Please fill in a new password.");
-	    	}
-	    	if(empty($_POST["password-new-confirm"]))
-	    	{
-	    		errorMsg("Please confirm your new password.");
-	    	}
+			checkIfEmpty($_POST["password-old"], "Please fill in your old password.");
+			checkIfEmpty($_POST["password-new"], "Please fill in a new password.");
+			checkIfEmpty($_POST["password-new-confirm"], "Please confirm your new password.");
 
 	    	// compare new passwords
 	    	if ($_POST["password-new"] != $_POST["password-new-confirm"])
