@@ -9,14 +9,11 @@
         <fieldset>
             <legend>Change password</legend>
 
-            <?php
-                if ($passwordUpdated === true)
-                {
-                    echo (  '<div class="alert alert-success" role="alert">' .
-                                'Password changed.' .
-                            '</div>');
-                }
-            ?>
+            <?php if ($passwordUpdated === true): ?>
+                <div class="alert alert-success" role="alert">
+                    Password changed.
+                </div>
+            <?php endif ?>
 
             <div class="form-group">
                 <label class="col-sm-2 control-label">Old password</label>

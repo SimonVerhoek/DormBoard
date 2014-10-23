@@ -1006,4 +1006,23 @@
         checkIfQueryFails($storeNewSpend, "Something went wrong while storing your spend. Please try again.");
     }
 
+    function unsetDorm()
+    {
+        $dormId = 0;
+        $cash = 0;
+        $shoplistScore = 0;
+
+        // erase from session
+        unset($_SESSION["dorm_id"]);
+
+        $unsetDorm = query("UPDATE  users 
+                            SET     dorm_id = $dormId,
+                                    cash_balance = $cash,
+                                    shoplist_score = $shoplistScore 
+                            WHERE   user_id = ?",
+                                    $_SESSION["user_id"]);
+
+        checkIfQueryFails($unsetDorm, "Something went wrong while leaving your dorm. Please try again.");
+    }
+
 ?>
