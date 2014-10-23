@@ -1025,4 +1025,41 @@
         checkIfQueryFails($unsetDorm, "Something went wrong while leaving your dorm. Please try again.");
     }
 
+    function setNewPassword()
+    {
+        $users = query("SELECT  hash
+                        FROM    users
+                        WHERE   user_id = ?",
+                                $_SESSION["user_id"]);
+
+        if (count($users) == 1)
+        {
+            $user = $users[0];
+
+            // compare hashes
+            if (crypt($_POST["password-old"], $user["hash"]) == $user["hash"])
+            {
+                // hash new password
+                $newHash = crypt($_POST["password-new"]);
+
+                // replace old hash with new hash
+                $updatePassword = query("   UPDATE  users
+                                            SET     hash = ?",
+                                                    $newHash);
+
+                checkIfQueryFails($updatePassword, "Failed to set new password. Please try again.");
+
+                $passwordUpdated = true;
+
+                render("showaccount.php", [
+                    "passwordUpdated" => $passwordUpdated
+                    ]);
+            }
+            else
+            {
+                errorMsg("Wrong password.");
+            }
+        }
+    }
+
 ?>
