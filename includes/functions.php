@@ -800,6 +800,8 @@
                 ON          users.user_id = dinner.user_id
                 WHERE       users.dorm_id = ?",
                             $_SESSION["dorm_id"]);
+
+        checkIfQueryFails($statuses, "Something went wrong while getting your roommate's dinner statuses. Please try again.");
     }
 
     /**
