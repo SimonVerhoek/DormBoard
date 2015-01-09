@@ -21,13 +21,9 @@
 	}
 	else
 	{
-		$userName = $_SESSION["first_name"] . 
-					" " . 
-					$_SESSION["first_name"];
-
 		// show dropdown menu
 		build("../templates/showuser.php", [
-			"userName" => $userName
+			"userName" => $_SESSION["first_name"]
 			]);
 	}
 ?>
