@@ -1097,55 +1097,54 @@
             errorMsg("The passwords filled in at the fields 'password' and 'confirmation' must be equal.");
         }
 
-        if (checkIfEmailExists($email) === false)
+        checkIfEmailExists($email);
+
+        $birthday = $_POST["date_year"] . '-' . 
+                    $_POST["date_month"] . '-' . 
+                    $_POST["date_day"];
+
+        // insert new user into database
+        $CreateNewUser = query("INSERT INTO users (
+            email, 
+            hash, 
+            first_name, 
+            last_name, 
+            birth_date, 
+            cash_balance
+            ) VALUES(?, ?, ?, ?, ?, 0.00)", 
+            $_POST["email"], 
+            crypt($_POST["password"]),
+            $_POST["firstname"],
+            $_POST["lastname"],
+            $birthday);
+        if ($CreateNewUser === false)
         {
-            $birthday = $_POST["date_year"] . '-' . 
-                        $_POST["date_month"] . '-' . 
-                        $_POST["date_day"];
-
-            // insert new user into database
-            $CreateNewUser = query("INSERT INTO users (
-                email, 
-                hash, 
-                first_name, 
-                last_name, 
-                birth_date, 
-                cash_balance
-                ) VALUES(?, ?, ?, ?, ?, 0.00)", 
-                $_POST["email"], 
-                crypt($_POST["password"]),
-                $_POST["firstname"],
-                $_POST["lastname"],
-                $birthday);
-            if ($CreateNewUser === false)
+            // INSERT failed, presumably because email address already existed
+            errorMsg("Something went wrong while creating your account. Maybe try another email address?");
+        } 
+        else
+        {
+            // query database for user
+            $rows = query(" SELECT  user_id,
+                                    first_name,
+                                    last_name,
+                                    cash_balance,
+                                    dorm_id 
+                            FROM    users 
+                            WHERE   email = ?", 
+                                    $_POST["email"]);
+            
+            if (count($rows) == 1)
             {
-                // INSERT failed, presumably because email address already existed
-                errorMsg("Something went wrong while creating your account. Maybe try another email address?");
-            } 
-            else
-            {
-                // query database for user
-                $rows = query(" SELECT  user_id,
-                                        first_name,
-                                        last_name,
-                                        cash_balance,
-                                        dorm_id 
-                                FROM    users 
-                                WHERE   email = ?", 
-                                        $_POST["email"]);
+                // first (and only) row
+                $row = $rows[0];
                 
-                if (count($rows) == 1)
-                {
-                    // first (and only) row
-                    $row = $rows[0];
-                    
-                    // remember that user is now logged in
-                    $_SESSION["user_id"] = $row["user_id"];
+                // remember that user is now logged in
+                $_SESSION["user_id"] = $row["user_id"];
 
-                    // redirect to dorm entry
-                    redirect("getdorm.php");
-                }               
-            }
+                // redirect to dorm entry
+                redirect("getdorm.php");
+            }               
         } 
     }
 
@@ -1170,11 +1169,10 @@
         {
             errorMsg("Something went wrong while creating your account. Please try again.");
         } 
-        else if (count($emailFound) >= 1) 
+        if (count($emailFound) >= 1) 
         {
             errorMsg("This email address is already in use. Please try another email address.");
         }
-        else return false;
     }
 
 ?>
