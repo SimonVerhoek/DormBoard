@@ -1073,31 +1073,19 @@
                                 $date_month, 
                                 $date_day)
     {
-        if (empty($_POST["firstname"])) 
-        {
-            errorMsg("Please fill in your first name.");
-        }
-        if (empty($_POST["lastname"])) 
-        {
-            errorMsg("Please fill in your last name.");
-        }
+        // check input
+        checkIfEmpty($firstname, "Please fill in your first name.");
+        checkIfEmpty($lastname, "Please fill in your last name.");
+        checkIfEmpty($email, "Please fill in your email address.");
+        checkIfEmpty($password, "You must provide a password.");
+
         if(!preg_match("/^[a-zA-Z -]+$/", $_POST['firstname'] . $_POST['lastname']))
         {
             errorMsg("Please fill in a proper name.");
-        }
-        if (empty($_POST["email"]))
-        {
-            errorMsg("Please fill in your email address.");
-        }
+        }        
         if (!preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i", $_POST["email"]))
         {
             errorMsg("Please fill in a valid email address.");
-        }
-        
-        // check passwords
-        if (empty($_POST["password"]))
-        {
-            errorMsg("You must provide a password.");
         }
         if ($_POST["password"] != $_POST["confirmation"])
         {
