@@ -1094,7 +1094,6 @@
 
         // check if any account is already registered under the entered email address
         $emailFound = query("   SELECT  email 
-                                AS      nrEmailsFound
                                 FROM    users
                                 WHERE   email = ?",
                                 $_POST["email"]);
