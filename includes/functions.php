@@ -1064,6 +1064,11 @@
         }
     }
 
+    /**
+     * Registers a new user in the database.
+     *
+     * @@@
+     */
     function registerNewUser(   $firstname, 
                                 $lastname, 
                                 $email, 
@@ -1092,22 +1097,7 @@
             errorMsg("The passwords filled in at the fields 'password' and 'confirmation' must be equal.");
         }
 
-        // check if any account is already registered under the entered email address
-        $emailFound = query("   SELECT  email 
-                                FROM    users
-                                WHERE   email = ?",
-                                $_POST["email"]);
-
-        if ($emailFound === false)
-        {
-            errorMsg("Something went wrong while creating your account. Please try again.");
-        } 
-
-        if (count($emailFound) >= 1) 
-        {
-            errorMsg("This email address is already in use. Please try another email address.");
-        }
-        else 
+        if (checkIfEmailExists($email) === false)
         {
             $birthday = $_POST["date_year"] . '-' . 
                         $_POST["date_month"] . '-' . 
@@ -1157,6 +1147,34 @@
                 }               
             }
         } 
+    }
+
+    /**
+     * Checks if the given email address is already 
+     * registered in the database.
+     *
+     * - if yes, an error message is returned that 
+     *   prompts the new user to pick another email
+     *   address.
+     * - if not, the function returns false.
+     */
+    function checkIfEmailExists($email)
+    {
+        // check if any account is already registered under the entered email address
+        $emailFound = query("   SELECT  email 
+                                FROM    users
+                                WHERE   email = ?",
+                                        $email);
+
+        if ($emailFound === false)
+        {
+            errorMsg("Something went wrong while creating your account. Please try again.");
+        } 
+        else if (count($emailFound) >= 1) 
+        {
+            errorMsg("This email address is already in use. Please try another email address.");
+        }
+        else return false;
     }
 
 ?>
