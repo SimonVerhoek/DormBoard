@@ -1078,25 +1078,6 @@
                                 $date_month, 
                                 $date_day)
     {
-        // check input
-        checkIfEmpty($firstname, "Please fill in your first name.");
-        checkIfEmpty($lastname, "Please fill in your last name.");
-        checkIfEmpty($email, "Please fill in your email address.");
-        checkIfEmpty($password, "You must provide a password.");
-
-        if(!preg_match("/^[a-zA-Z -]+$/", $_POST['firstname'] . $_POST['lastname']))
-        {
-            errorMsg("Please fill in a proper name.");
-        }        
-        if (!preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i", $_POST["email"]))
-        {
-            errorMsg("Please fill in a valid email address.");
-        }
-        if ($_POST["password"] != $_POST["confirmation"])
-        {
-            errorMsg("The passwords filled in at the fields 'password' and 'confirmation' must be equal.");
-        }
-
         checkIfEmailExists($email);
 
         $birthday = $_POST["date_year"] . '-' . 
