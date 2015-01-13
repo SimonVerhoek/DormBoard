@@ -102,7 +102,7 @@
                
             <fieldset>
                 <legend>Date of birth</legend>
-                <?php echo date_dropdown(); ?>
+                <?php echo printDateDropdown(); ?>
                 <br />
             </fieldset>
               

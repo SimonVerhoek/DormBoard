@@ -134,9 +134,9 @@
     }
 
     /**
-     * Creates a dropdown menu for picking a date of birth.
+     * Prints a dropdown menu for picking a date of birth.
      */
-    function date_dropdown($year_limit = 1900)
+    function printDateDropdown($year_limit = 1900)
     {
         $html_output = '<div id="date_select" >'."\n";
 
