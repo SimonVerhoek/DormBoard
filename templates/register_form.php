@@ -118,7 +118,7 @@
                     <input class="form-control" name="confirmation" placeholder="Repeat password" type="password"/>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="submitButton" class="btn btn-success">Register</button>
+                    <button type="submit" name="submitButton" class="btn btn-custom">Register</button>
                 </div>
             </fieldset> 
         </form>
