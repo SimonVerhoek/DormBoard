@@ -118,11 +118,11 @@
                     <input class="form-control" name="confirmation" placeholder="Repeat password" type="password"/>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="submitButton" class="btn btn-default">Register</button>
+                    <button type="submit" name="submitButton" class="btn btn-success">Register</button>
                 </div>
             </fieldset> 
         </form>
-        <a href="login.php">< Back</a>
+        <a class="btn btn-default" href="login.php">< Back</a>
     </div> <!-- ./ col-md-3 column -->
    
 </div> <!-- ./ row clearfix -->
