@@ -1,6 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
-/*
+
         // validate input
         $('#register-form').bootstrapValidator({
             feedbackIcons: {
@@ -82,7 +82,7 @@
                 }
             }
         });
-*/
+
     });
 </script>
 
