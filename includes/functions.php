@@ -1126,4 +1126,28 @@
         }
     }
 
+    /**
+     * Stores new shoplist item in database.
+     *
+     * $newItem should be the item_name value.
+     */
+    function storeNewShoplistItem($newItem)
+    {
+        $storeNewItem = query("INSERT INTO shoplist (
+            dorm_id,
+            item_name,
+            post_date,
+            user_id_poster
+            ) VALUES (?, ?, NOW(), ?)",
+                $_SESSION["dorm_id"],
+                $newItem,
+                $_SESSION["user_id"]
+        );
+
+        if ($storeNewItem === false)
+        {
+            errorMsg("Something went wrong while storing your action. Please try again.");
+        }
+    }
+
 ?>

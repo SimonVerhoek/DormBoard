@@ -19,28 +19,10 @@
     {
         $newItem = checkInput($_POST["item_name"]);
 
-        // insert new item
-        $storeNewItem = query("INSERT INTO shoplist (
-            dorm_id,
-            item_name,
-            post_date,
-            user_id_poster
-            ) VALUES (?, ?, NOW(), ?)",
-                $_SESSION["dorm_id"],
-                $newItem,
-                $_SESSION["user_id"]
-        );
-
-        if ($storeNewItem === false)
-        {
-            // INSERT failed
-            errorMsg("Something went wrong while storing your action. Please try again.");
-        }
-        else
-        {
-            // refresh page
-            redirect("shoplist.php");
-        }
+        storeNewShoplistItem($newItem);
+        
+        // refresh page
+        redirect("shoplist.php");
     }
 
     // get roommate data and buyer rankings
