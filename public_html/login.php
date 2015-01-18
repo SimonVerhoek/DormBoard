@@ -14,15 +14,8 @@
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        // validate submission
-        if (empty($_POST["email"]))
-        {
-            errorMsg("You must provide your email address.");
-        }
-        else if (empty($_POST["password"]))
-        {
-            errorMsg("You must provide your password.");
-        }
+        checkIfEmpty($_POST["email"], "You must provide your email address.");
+        checkIfEmpty($_POST["password"], "You must provide your password.");
 
         login($_POST["email"], $_POST["password"]);
     }
