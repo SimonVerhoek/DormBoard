@@ -56,6 +56,11 @@
                 // redirect to dashboard
                 redirect("getdorm.php");
             }
+            else
+            {
+                // if password hash does not match the one in the db
+                errorMsg("Invalid email and/or password.");
+            }
         }
     }
 

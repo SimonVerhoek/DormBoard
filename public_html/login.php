@@ -25,9 +25,6 @@
         }
 
         login($_POST["email"], $_POST["password"]);
-
-        // else apologize
-        errorMsg("Invalid email and/or password.");
     }
     else
     {
