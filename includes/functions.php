@@ -34,7 +34,7 @@
     {
         // query database for user
         $rows = query(" SELECT  user_id,
-                                hash
+                                password
                         FROM    users 
                         WHERE   email = ?",
                                 $email);
@@ -45,8 +45,8 @@
             // first (and only) row
             $row = $rows[0];
 
-            // compare hash of user's input against hash that's in database
-            if (crypt($password, $row["hash"]) == $row["hash"])
+            // compare password of user's input against password that's in database
+            if (crypt($password, $row["password"]) == $row["password"])
             {
                 // remember that user's now logged in by storing user's ID in session
                 $_SESSION["user_id"] = $row["user_id"];
@@ -1027,7 +1027,7 @@
 
     function setNewPassword()
     {
-        $users = query("SELECT  hash
+        $users = query("SELECT  password
                         FROM    users
                         WHERE   user_id = ?",
                                 $_SESSION["user_id"]);
@@ -1037,15 +1037,15 @@
             $user = $users[0];
 
             // compare hashes
-            if (crypt($_POST["password-old"], $user["hash"]) == $user["hash"])
+            if (crypt($_POST["password-old"], $user["password"]) == $user["password"])
             {
                 // hash new password
-                $newHash = crypt($_POST["password-new"]);
+                $newPassword = crypt($_POST["password-new"]);
 
-                // replace old hash with new hash
+                // replace old password with new password
                 $updatePassword = query("   UPDATE  users
-                                            SET     hash = ?",
-                                                    $newHash);
+                                            SET     password = ?",
+                                                    $newPassword);
 
                 checkIfQueryFails($updatePassword, "Failed to set new password. Please try again.");
 
@@ -1142,7 +1142,7 @@
     {
         $CreateNewUser = query("INSERT INTO users (
             email, 
-            hash, 
+            password, 
             first_name, 
             last_name, 
             birth_date, 
