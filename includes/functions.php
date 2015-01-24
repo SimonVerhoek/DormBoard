@@ -1082,9 +1082,29 @@
                     $_POST["date_month"] . '-' . 
                     $_POST["date_day"];
 
-        // insert new user into database
-        storeNewUser($email, $password, $firstname, $lastname, $birthday);
+        // create random 32 character hash
+        $hash = md5(rand(0, 1000));
 
+        // create random temporary 32 character password
+        $password = md5(rand(1000, 5000));
+
+        // insert new user into database
+        storeNewUser($email, $password, $hash, $firstname, $lastname, $birthday);
+
+        // save email in session for verification email
+        if (isset($_SESSION["email"])) 
+        {
+            unset($_SESSION["email"]);
+        }
+
+        $_SESSION["email"] = $email;
+
+        redirect("verification-email.php");
+
+
+
+        // ------------------
+        /*
         // query database for user
         $rows = query(" SELECT  user_id,
                                 first_name,
@@ -1106,6 +1126,7 @@
             // redirect to dorm entry
             redirect("getdorm.php");        
         } 
+        */
     }
 
     /**
@@ -1138,18 +1159,20 @@
     /**
      * Stores new user in database.
      */
-    function storeNewUser($email, $password, $firstname, $lastname, $birthday)
+    function storeNewUser($email, $password, $hash, $firstname, $lastname, $birthday)
     {
         $CreateNewUser = query("INSERT INTO users (
             email, 
             password, 
+            hash,
             first_name, 
             last_name, 
             birth_date, 
             cash_balance
-            ) VALUES(?, ?, ?, ?, ?, 0.00)", 
+            ) VALUES(?, ?, ?, ?, ?, ?, 0.00)", 
             $email, 
-            crypt($password),
+            $password,
+            $hash,
             $firstname,
             $lastname,
             $birthday);
